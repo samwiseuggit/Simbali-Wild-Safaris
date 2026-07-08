@@ -1,0 +1,26 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import HeroSlider from '../components/HeroSlider.jsx';
+import Intro from '../sections/Intro.astro';
+import Stats from '../components/Stats.jsx';
+import Founders from '../sections/Founders.astro';
+import ServicesPreview from '../sections/ServicesPreview.astro';
+import CTABanner from '../sections/CTABanner.astro';
+import WhyChooseUs from '../sections/WhyChooseUs.astro';
+import Testimonials from '../components/Testimonials.jsx';
+import Gallery from '../components/Gallery.jsx';
+import ItinerariesSection from '../components/ItinerariesSection.jsx';
+---
+
+<MainLayout title="Simbali Wild Safaris | Luxury African Safari Adventures">
+  <HeroSlider client:load />
+  <Intro />
+  <Stats client:load />
+  <Founders />
+  <ServicesPreview />
+  <CTABanner />
+  <WhyChooseUs />
+  <Testimonials client:load />
+  <Gallery client:load />
+  <ItinerariesSection client:load />
+</MainLayout>

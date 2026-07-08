@@ -1,0 +1,81 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const accordionItems = [
+  { title: "Company", content: "Simbali Wild Safaris, is based in Nairobi Kenya and specializes in creating exclusive and unforgettable vacation experiences tailored just for you. Whether it's your first time exploring Africa or you're returning for another adventure, our carefully curated safari packages are meticulously planned and expertly coordinated to ensure you enjoy a truly once-in-a-lifetime journey with us." },
+  { title: "Target", content: "Simbali Wild Safaris targets the discerning traveler who desires to experience comfort and luxury while discovering new destinations. We piece together an itinerary that speak each client's preferences and unique requests." },
+  { title: "Founders", content: "Founded by Sheila and Violet, out of a passion for travelling and discovering new places, the two ladies have built a network of relationships that traverse the tourism sector. Violet's love for meeting new people and building relationships serves in ensuring our clients have the best customer experience. Sheila has visited over 15 countries globally and is meticulous in her attention to detail and our combined strengths builds a team that you can trust your vacation with. With our wide range of networks in East Africa and beyond your vacation is in good hands and you safe in our hands no matter whether your preference is beach or bush." },
+  { title: "Simba", content: "Simba is the Swahili word for Lion, a majestic and almost royal animal within the animal kingdom. The image of a lion is used to communicate the wild and is one of the Big 5 animals that every tourist seeks to see when they come to Africa. The allure to find the Big 5 in the wild has more of them than not led many visitors who come to Africa for business to take a few days to visit the parks and to experience the warm hospitality of our cultures. From the beautiful white sand beaches of the Kenyan coast or Zanzibar to the vast Savannah of the Masai Mara or Spice plantations of Zanzibar you are guaranteed an experience like no other." },
+];
+---
+
+<MainLayout title="About | Simbali Wild Safaris">
+  <section class="bg-sage/60 py-20 pb-16">
+    <div class="container-main grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="accent-line" />
+        <h1 class="font-belleza text-4xl md:text-5xl tracking-[0.1em] uppercase leading-tight">Discover Your Ultimate Safari Adventure</h1>
+      </div>
+      <img src="/images/impala-portrait-safari-simbali-wild-safaris.jpg" alt="Antelope" class="rounded-2xl h-[380px] object-cover w-full" />
+    </div>
+  </section>
+
+  <img src="/images/flamingos-heart-about-simbali-wild-safaris_About.jpg" alt="Flamingos" class="w-full h-[420px] object-cover" />
+
+  <section class="py-20 bg-white">
+    <div class="container-main">
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-10">
+        <h2 class="font-belleza text-2xl md:text-3xl leading-snug tracking-[0.1em] uppercase">Crafting Extraordinary African Journeys for You</h2>
+        <div>
+          <p class="text-[#555] text-[15px] leading-relaxed mb-4"><strong>Simbali Wild Safaris provides exclusive vacation experiences across East Africa, tailored to your preferences for unforgettable adventures.</strong></p>
+          <p class="text-[#555] text-[15px] leading-relaxed">With our extensive networks and expert coordination, we ensure that every detail of your journey is met with exceptional service and personal touches, allowing you to immerse in the wonders of Africa.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <img src="/images/zebras-savanna-safari-simbali-wild-safaris.jpg" alt="Zebras" class="rounded-xl h-48 object-cover w-full" />
+        <img src="/images/safari-road-giraffes-simbali-wild-safaris.jpg" alt="Safari road" class="rounded-xl h-48 object-cover w-full" />
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-20 overflow-hidden">
+    <img src="/images/elephant-herd-waterhole-safari-simbali-wild-safaris.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-[#1C2B3A]/85" />
+    <div class="relative z-10 container-main">
+      <div class="accent-line bg-white/30" />
+      <h2 class="font-belleza text-3xl text-white mb-8 tracking-[0.1em] uppercase">About Simbali Wild Safaris</h2>
+      {accordionItems.map((item, i) => (
+        <div class="border-b border-white/15">
+          <details class="group" open={i === 0}>
+            <summary class="w-full flex justify-between items-center py-5 cursor-pointer text-white list-none">
+              <span class="text-sm font-medium font-work">{item.title}</span>
+              <svg class="w-4 h-4 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={2}><path d="M6 9l6 6 6-6" /></svg>
+            </summary>
+            <p class="pb-5 text-white/75 text-sm leading-relaxed">{item.content}</p>
+          </details>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="container-main">
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <div class="accent-line" />
+          <h2 class="font-belleza text-2xl md:text-3xl mb-4 tracking-[0.1em] uppercase leading-snug">The Beginning of Simbali Wild Safaris</h2>
+          <p class="text-[#555] text-[15px] leading-relaxed">Founded by two avid travelers, Sheila and Violet, Simbali Wild Safaris was born from a desire to share their love for Africa&apos;s beauty and culture with others.</p>
+        </div>
+        <img src="/images/leopard-tree-safari-simbali-wild-safaris_About.jpg" alt="Leopard" class="rounded-2xl h-[320px] object-cover w-full" />
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <img src="/images/elephant-herd-waterhole-safari-simbali-wild-safaris_About.jpg" alt="Elephants" class="rounded-2xl h-[320px] object-cover w-full" />
+        <div>
+          <div class="accent-line" />
+          <h2 class="font-belleza text-2xl md:text-3xl mb-4 tracking-[0.1em] uppercase leading-snug">Growing Through Passion and Connections in Tourism</h2>
+          <p class="text-[#555] text-[15px] leading-relaxed">Since its inception, Simbali Wild Safaris has nurtured a network of partnerships within the East African tourism sector, allowing us to create customized luxury safaris that resonate with each client&apos;s unique desires.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

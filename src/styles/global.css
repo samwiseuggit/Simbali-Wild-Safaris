@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #1a1a1a;
+    background: #fff;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Belleza', serif;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .accent-line {
+    @apply w-9 h-0.5 bg-olive mb-6 block;
+  }
+
+  .accent-line-center {
+    @apply w-9 h-0.5 bg-olive mb-6 block mx-auto;
+  }
+
+  .accent-line-white {
+    @apply w-9 h-0.5 bg-white/30 mb-6 block;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-olive text-white text-sm rounded font-work tracking-wide hover:bg-olive-dark transition-colors;
+  }
+
+  .container-main {
+    @apply max-w-[1140px] mx-auto px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  @keyframes kenBurns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+  }
+
+  .ken-burns {
+    animation: kenBurns 6s ease-out forwards;
+  }
+
+  @keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-title {
+    animation: slideUpFade 0.8s ease-out 0.3s both;
+  }
+
+  .slide-desc {
+    animation: slideUpFade 0.8s ease-out 0.6s both;
+  }
+}

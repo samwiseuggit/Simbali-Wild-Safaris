@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/simbali-logo.jpg';
+
+export interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about.html", label: "About" },
+  { href: "/services.html", label: "Services" },
+  { href: "/itineraries.html", label: "Itineraries" },
+  { href: "/blog.html", label: "Blog" },
+];
+
+const isActive = (href: string) => {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="bg-white sticky top-0 z-50 shadow-sm">
+  <div class="container-main flex justify-between items-center h-[120px]">
+    <a href="/" class="flex-shrink-0 flex items-center">
+      <Image
+        src={logoImg}
+        alt="Simbali Wild Safaris"
+        width={400}
+        height={143}
+        densities={[1, 2, 3]}
+        quality={90}
+        class="h-[80px] w-auto"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`text-base font-normal transition-colors hover:text-olive ${isActive(link.href) ? "text-olive" : "text-[#444]"}`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact.html" class="btn-primary text-base">Start Your Journey</a>
+    </nav>
+    <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menu">
+      <svg width="24" height="24" fill="none" stroke="#444" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden absolute top-[120px] left-0 right-0 bg-white shadow-lg z-40 border-t border-gray-100">
+    <div class="flex flex-col p-5 gap-4">
+      {navLinks.map(link => (
+        <a href={link.href} class={`text-base font-normal transition-colors hover:text-olive ${isActive(link.href) ? "text-olive" : "text-[#444]"}`}>{link.label}</a>
+      ))}
+      <a href="/contact.html" class="btn-primary w-fit">Start Your Journey</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

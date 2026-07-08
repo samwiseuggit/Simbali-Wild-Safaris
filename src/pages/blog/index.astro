@@ -1,0 +1,37 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const posts = [
+  { slug: "wonders-of-kenyas-great-rift-valley", title: "Wonders of Kenya's Great Rift Valley", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", cat: "Safari", author: "Sam", excerpt: "Great Rift Valley Kenya: Nature, Culture & Adventure The Great Rift Valley Kenya is one of the most incredible places [...]" },
+  { slug: "east-africa-birding-guide", title: "East Africa Birding Guide: Best Spots, Species & Travel Tips", img: "/images/raptor-bird-flying-clear-sky_blog.jpg", cat: "Safari", author: "Sam", excerpt: "A Birdwatcher's Guide to East Africa: Unveiling the Region's Avian Treasures East Africa is a birdwatcher's paradise, bursting with life" },
+  { slug: "wildebeest-migration-an-epic-safari-adventure", title: "Wildebeest Migration: An Epic Safari Adventure", img: "/images/wildebeest-river-crossing-safari-migration_blog.jpg", cat: "Safari", author: "Sam", excerpt: "Witness the Great Wildebeest Migration, an epic African safari. Explore the Serengeti and Maasai Mara, see dramatic river crossings, and learn about responsible tourism." },
+];
+---
+
+<MainLayout title="Blog | Simbali Wild Safaris">
+  <section class="bg-sage/60 pt-20 pb-16">
+    <div class="container-main">
+      <div class="accent-line" />
+      <h1 class="font-belleza text-4xl md:text-5xl max-w-2xl tracking-[0.1em] uppercase">Explore Africa&apos;s Wild Wonders with Simba</h1>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sage/40">
+    <div class="container-main">
+      <div class="grid md:grid-cols-3 gap-7">
+        {posts.map(post => (
+          <article class="bg-white rounded-xl overflow-hidden hover:-translate-y-1 transition-transform">
+            <img src={post.img} alt={post.title} class="w-full h-56 object-cover" />
+            <div class="p-6">
+              <div class="text-olive text-xs font-semibold tracking-wider mb-2">{post.cat}</div>
+              <h3 class="font-belleza text-xl mb-2 leading-snug">{post.title}</h3>
+              <div class="text-[#999] text-xs mb-3"><span class="text-olive">{post.cat}</span> / {post.author}</div>
+              <p class="text-[#555] text-sm leading-relaxed mb-4">{post.excerpt}</p>
+              <a href={`/blog-${post.slug}.html`} class="text-olive text-sm font-semibold hover:underline">Read Post &raquo;</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>

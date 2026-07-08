@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Luxury African Safari Adventures with Simbali Wild Safaris" } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site || 'https://simbaliwildsafaris.com');
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/simbali-favicon.png" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+  </head>
+  <body class="font-work">
+    <slot />
+  </body>
+</html>
