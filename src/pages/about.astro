@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
 
 const accordionItems = [
   { title: "Company", content: "Simbali Wild Safaris, is based in Nairobi Kenya and specializes in creating exclusive and unforgettable vacation experiences tailored just for you. Whether it's your first time exploring Africa or you're returning for another adventure, our carefully curated safari packages are meticulously planned and expertly coordinated to ensure you enjoy a truly once-in-a-lifetime journey with us." },
@@ -10,42 +11,56 @@ const accordionItems = [
 ---
 
 <MainLayout title="About | Simbali Wild Safaris">
+  {/* Hero */}
   <section class="bg-sage/60 py-20 pb-16">
     <div class="container-main grid md:grid-cols-2 gap-12 items-center">
-      <div>
+      <div class="anim-fade-left">
         <div class="accent-line" />
         <h1 class="font-belleza text-4xl md:text-5xl tracking-[0.1em] uppercase leading-tight">Discover Your Ultimate Safari Adventure</h1>
       </div>
-      <img src="/images/impala-portrait-safari-simbali-wild-safaris.jpg" alt="Antelope" class="rounded-2xl h-[380px] object-cover w-full" />
+      <div class="anim-fade-right anim-delay-2">
+        <OptimizedImage src="/images/impala-portrait-safari-simbali-wild-safaris.jpg" alt="Antelope portrait in the wild" class="rounded-2xl h-[380px] object-cover w-full" loading="lazy" />
+      </div>
     </div>
   </section>
 
-  <img src="/images/flamingos-heart-about-simbali-wild-safaris_About.jpg" alt="Flamingos" class="w-full h-[420px] object-cover" />
+  {/* Full-width banner */}
+  <div class="anim-scale-in">
+    <OptimizedImage src="/images/flamingos-heart-about-simbali-wild-safaris_About.jpg" alt="Flamingos in heart formation" class="w-full h-[420px] object-cover" loading="lazy" />
+  </div>
 
+  {/* Crafting Journeys */}
   <section class="py-20 bg-white">
     <div class="container-main">
       <div class="grid md:grid-cols-2 gap-12 items-center mb-10">
-        <h2 class="font-belleza text-2xl md:text-3xl leading-snug tracking-[0.1em] uppercase">Crafting Extraordinary African Journeys for You</h2>
-        <div>
+        <h2 class="font-belleza text-2xl md:text-3xl leading-snug tracking-[0.1em] uppercase anim-fade-left">Crafting Extraordinary African Journeys for You</h2>
+        <div class="anim-fade-right anim-delay-2">
           <p class="text-[#555] text-[15px] leading-relaxed mb-4"><strong>Simbali Wild Safaris provides exclusive vacation experiences across East Africa, tailored to your preferences for unforgettable adventures.</strong></p>
           <p class="text-[#555] text-[15px] leading-relaxed">With our extensive networks and expert coordination, we ensure that every detail of your journey is met with exceptional service and personal touches, allowing you to immerse in the wonders of Africa.</p>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-4">
-        <img src="/images/zebras-savanna-safari-simbali-wild-safaris.jpg" alt="Zebras" class="rounded-xl h-48 object-cover w-full" />
-        <img src="/images/safari-road-giraffes-simbali-wild-safaris.jpg" alt="Safari road" class="rounded-xl h-48 object-cover w-full" />
+        <div class="anim-fade-up anim-delay-1 hover-zoom rounded-xl">
+          <OptimizedImage src="/images/zebras-savanna-safari-simbali-wild-safaris.jpg" alt="Zebras on the savannah" class="rounded-xl h-48 object-cover w-full" loading="lazy" />
+        </div>
+        <div class="anim-fade-up anim-delay-2 hover-zoom rounded-xl">
+          <OptimizedImage src="/images/safari-road-giraffes-simbali-wild-safaris.jpg" alt="Giraffes along safari road" class="rounded-xl h-48 object-cover w-full" loading="lazy" />
+        </div>
       </div>
     </div>
   </section>
 
+  {/* Accordion / Dark section */}
   <section class="relative py-20 overflow-hidden">
-    <img src="/images/elephant-herd-waterhole-safari-simbali-wild-safaris.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <OptimizedImage src="/images/elephant-herd-waterhole-safari-simbali-wild-safaris.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
     <div class="absolute inset-0 bg-[#1C2B3A]/85" />
     <div class="relative z-10 container-main">
-      <div class="accent-line bg-white/30" />
-      <h2 class="font-belleza text-3xl text-white mb-8 tracking-[0.1em] uppercase">About Simbali Wild Safaris</h2>
+      <div class="anim-fade-up">
+        <div class="accent-line bg-white/30" />
+        <h2 class="font-belleza text-3xl text-white mb-8 tracking-[0.1em] uppercase">About Simbali Wild Safaris</h2>
+      </div>
       {accordionItems.map((item, i) => (
-        <div class="border-b border-white/15">
+        <div class="border-b border-white/15 anim-fade-up" style={`transition-delay: ${(i + 1) * 100}ms`}>
           <details class="group" open={i === 0}>
             <summary class="w-full flex justify-between items-center py-5 cursor-pointer text-white list-none">
               <span class="text-sm font-medium font-work">{item.title}</span>
@@ -58,19 +73,24 @@ const accordionItems = [
     </div>
   </section>
 
+  {/* Founders story */}
   <section class="py-20 bg-white">
     <div class="container-main">
       <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-        <div>
+        <div class="anim-fade-left">
           <div class="accent-line" />
           <h2 class="font-belleza text-2xl md:text-3xl mb-4 tracking-[0.1em] uppercase leading-snug">The Beginning of Simbali Wild Safaris</h2>
           <p class="text-[#555] text-[15px] leading-relaxed">Founded by two avid travelers, Sheila and Violet, Simbali Wild Safaris was born from a desire to share their love for Africa&apos;s beauty and culture with others.</p>
         </div>
-        <img src="/images/leopard-tree-safari-simbali-wild-safaris_About.jpg" alt="Leopard" class="rounded-2xl h-[320px] object-cover w-full" />
+        <div class="anim-fade-right anim-delay-2 hover-zoom rounded-2xl">
+          <OptimizedImage src="/images/leopard-tree-safari-simbali-wild-safaris_About.jpg" alt="Leopard resting in a tree" class="rounded-2xl h-[320px] object-cover w-full" loading="lazy" />
+        </div>
       </div>
       <div class="grid md:grid-cols-2 gap-12 items-center">
-        <img src="/images/elephant-herd-waterhole-safari-simbali-wild-safaris_About.jpg" alt="Elephants" class="rounded-2xl h-[320px] object-cover w-full" />
-        <div>
+        <div class="anim-fade-left anim-delay-1 hover-zoom rounded-2xl">
+          <OptimizedImage src="/images/elephant-herd-waterhole-safari-simbali-wild-safaris_About.jpg" alt="Elephant herd at waterhole" class="rounded-2xl h-[320px] object-cover w-full" loading="lazy" />
+        </div>
+        <div class="anim-fade-right anim-delay-2">
           <div class="accent-line" />
           <h2 class="font-belleza text-2xl md:text-3xl mb-4 tracking-[0.1em] uppercase leading-snug">Growing Through Passion and Connections in Tourism</h2>
           <p class="text-[#555] text-[15px] leading-relaxed">Since its inception, Simbali Wild Safaris has nurtured a network of partnerships within the East African tourism sector, allowing us to create customized luxury safaris that resonate with each client&apos;s unique desires.</p>

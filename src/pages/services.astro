@@ -1,11 +1,12 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
 
 const services = [
   { num: "01", title: "Tailored Safari Packages", desc: "Simbali Wild Safaris tailored safari packages are crafted to meet your unique desires and expectations. We work closely with you to create itineraries that blend adventure, culture, and luxury, ensuring a memorable journey through East Africa's stunning landscapes and wildlife.", img: "/images/turtle-experience-service-simbali-wild-safaris_Services.jpg", links: [{label: "8-Day Kenya Honeymoon", url: "/itineraries#kenya-honeymoon-8"}, {label: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8"}, {label: "11-Day Kenya-Tanzania Family", url: "/itineraries#kenya-tanzania-family-11"}] },
   { num: "02", title: "Luxury Beach Getaways", desc: "Experience the bliss of our luxury beach getaways. From the serene shores of the Kenyan coast to the breathtaking islands of Zanzibar, we offer meticulously planned itineraries that immerse you in sun-soaked relaxation, stunning landscapes, and vibrant marine life.", img: "/images/island-resort-jetty-service-simbali-wild-safaris_Services.jpg", links: [{label: "8-Day Tanzania Honeymoon", url: "/itineraries#tanzania-honeymoon-8"}, {label: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8"}] },
-  { num: "03", title: "Cultural Immersion Tours", desc: "Simbali Wild Safaris cultural immersion tours provide deep insights into the rich traditions and lifestyles of East Africa's communities. Engage with locals, taste authentic cuisine, and participate in traditional ceremonies, making your journey meaningful and enriching.", img: "/images/open-jeep-game-drive-service-simbali-wild-safaris_CUsersSamMwangiDocumentssimbaliwildsafaris_Services.jpg", links: [{label: "8-Day Tanzania Family Safari", url: "/itineraries#tanzania-family-8"}, {label: "11-Day Kenya-Tanzania Family", url: "/itineraries#kenya-tanzania-family-11"}] },
-  { num: "04", title: "Adventure Activities", desc: "Join us for thrilling adventure activities that enhance your safari experience. From guided nature walks to exhilarating hot air balloon rides over the savannah, our adventures are tailored for thrill-seekers wanting to create unforgettable memories in the wild.", img: "/images/mountain-wildlife-safari-service-simbali-wild-safaris_CUsersSamMwangiDocumentssimbaliwildsafaris_Services.jpg", links: [{label: "8-Day Tanzania Family Safari", url: "/itineraries#tanzania-family-8"}, {label: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8"}, {label: "11-Day Kenya-Tanzania Family", url: "/itineraries#kenya-tanzania-family-11"}] },
+  { num: "03", title: "Cultural Immersion Tours", desc: "Simbali Wild Safaris cultural immersion tours provide deep insights into the rich traditions and lifestyles of East Africa's communities. Engage with locals, taste authentic cuisine, and participate in traditional ceremonies, making your journey meaningful and enriching.", img: "/images/jeep-service.jpg", links: [{label: "8-Day Tanzania Family Safari", url: "/itineraries#tanzania-family-8"}, {label: "11-Day Kenya-Tanzania Family", url: "/itineraries#kenya-tanzania-family-11"}] },
+  { num: "04", title: "Adventure Activities", desc: "Join us for thrilling adventure activities that enhance your safari experience. From guided nature walks to exhilarating hot air balloon rides over the savannah, our adventures are tailored for thrill-seekers wanting to create unforgettable memories in the wild.", img: "/images/mountain-service.jpg", links: [{label: "8-Day Tanzania Family Safari", url: "/itineraries#tanzania-family-8"}, {label: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8"}, {label: "11-Day Kenya-Tanzania Family", url: "/itineraries#kenya-tanzania-family-11"}] },
 ];
 
 const process = [
@@ -17,22 +18,28 @@ const process = [
 ---
 
 <MainLayout title="Services | Simbali Wild Safaris">
+  {/* Hero */}
   <section class="bg-sage/60 py-20 pb-16">
     <div class="container-main grid md:grid-cols-2 gap-12 items-center">
-      <div>
+      <div class="anim-fade-left">
         <div class="accent-line" />
         <h1 class="font-belleza text-4xl md:text-5xl leading-tight tracking-[0.1em] uppercase">Exceptional Safari Experiences for Discerning Travelers</h1>
       </div>
-      <img src="/images/lioness-close-up-safari-service-simbali-wild-safarisCUsersSamMwangiDocumentssimbaliwildsafaris_Services.jpg" alt="Lioness" class="rounded-2xl h-[380px] object-cover w-full" />
+      <div class="anim-fade-right anim-delay-2 hover-zoom rounded-2xl">
+        <OptimizedImage src="/images/lioness-service.jpg" alt="Lioness close-up portrait" class="rounded-2xl h-[380px] object-cover w-full" loading="lazy" />
+      </div>
     </div>
   </section>
 
+  {/* Services list */}
   <section class="py-20 bg-white">
     <div class="container-main">
       {services.map((s, i) => (
         <div class={`grid md:grid-cols-2 gap-16 items-center py-12 ${i > 0 ? "border-t border-gray-200" : ""}`}>
-          <img src={s.img} alt={s.title} class="rounded-2xl h-[340px] object-cover w-full" style={i % 2 === 1 ? "order: 2" : ""} />
-          <div style={i % 2 === 1 ? "order: 1" : ""}>
+          <div class={`anim-fade-${i % 2 === 0 ? 'left' : 'right'} ${i % 2 === 1 ? 'md:order-2' : ''} hover-zoom rounded-2xl`}>
+            <OptimizedImage src={s.img} alt={s.title} class="rounded-2xl h-[340px] object-cover w-full" loading="lazy" />
+          </div>
+          <div class={`anim-fade-${i % 2 === 0 ? 'right' : 'left'} anim-delay-2 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
             <div class="font-belleza text-5xl text-olive mb-2">{s.num}.</div>
             <h2 class="font-belleza text-xl mb-4 tracking-[0.1em] uppercase">{s.title}</h2>
             <p class="text-[#555] text-[15px] leading-relaxed">{s.desc}</p>
@@ -50,13 +57,17 @@ const process = [
     </div>
   </section>
 
+  {/* Process */}
   <section class="py-20 bg-sage/50">
     <div class="container-main">
-      <div class="accent-line-center" />
-      <h2 class="font-belleza text-2xl md:text-3xl text-center mb-12 tracking-[0.1em] uppercase">Our Seamless Planning Process<br />For Your Trip</h2>
+      <div class="anim-fade-up text-center">
+        <div class="accent-line-center" />
+        <h2 class="font-belleza text-2xl md:text-3xl text-center mb-12 tracking-[0.1em] uppercase">Our Seamless Planning Process<br />For Your Trip</h2>
+      </div>
       <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {process.map((p) => (
-          <div class="bg-white rounded-xl p-8">
+        {process.map((p, i) => (
+          <div class={`bg-white rounded-xl p-8 hover-lift anim-fade-up anim-delay-${i + 1}`}>
+            <div class="font-belleza text-3xl text-olive/30 mb-3">0{i + 1}</div>
             <h3 class="text-sm font-semibold mb-3 font-work">{p.title}</h3>
             <p class="text-[#555] text-sm leading-relaxed">{p.desc}</p>
           </div>

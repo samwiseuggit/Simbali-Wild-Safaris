@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
 import { itineraries } from '../data/itineraries';
 
 const countryImages = {
@@ -28,39 +29,41 @@ const countries = [
 ---
 
 <MainLayout title="Safari Itineraries | Simbali Wild Safaris">
+  {/* Hero */}
   <section class="bg-sage/60 py-20 pb-16">
-    <div class="container-main">
+    <div class="container-main anim-fade-up">
       <div class="accent-line" />
       <h1 class="font-belleza text-4xl md:text-5xl tracking-[0.1em] uppercase leading-tight">Safari Itineraries</h1>
       <p class="text-[#555] text-[15px] leading-relaxed mt-4 max-w-2xl">Explore our carefully curated safari itineraries through East Africa&apos;s most spectacular destinations.</p>
     </div>
   </section>
 
+  {/* Countries */}
   <section class="py-16 bg-white">
     <div class="container-main max-w-5xl">
-      {countries.map(c => {
+      {countries.map((c, ci) => {
         const countryItins = itineraries.filter(i => i.country === c.name);
         return (
-          <details class="mb-6 group" open={true}>
-            {/* Country header - olive background */}
-            <summary class="flex items-center gap-4 px-6 py-5 bg-olive rounded-xl cursor-pointer list-none hover:bg-olive-dark transition-colors">
+          <details class="mb-6 group anim-fade-up" style={`transition-delay: ${ci * 100}ms`} open={true}>
+            {/* Country header */}
+            <summary class="flex items-center gap-4 px-6 py-5 bg-olive rounded-xl cursor-pointer list-none hover:bg-olive-dark transition-colors hover:shadow-md">
               <img src={countryImages[c.name]} alt={c.name} class="w-12 h-12 rounded-full object-cover border-2 border-white/30 flex-shrink-0" />
               <div class="flex items-center gap-3 flex-wrap">
                 <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.1em] uppercase text-white">{c.name}</h2>
-                {c.hasItins && (
-                  <span class="text-sm text-white/80 bg-white/20 px-3 py-1 rounded-full">{countryItins.length} Itineraries</span>
-                )}
+                {c.hasItins && <span class="text-sm text-white/80 bg-white/20 px-3 py-1 rounded-full">{countryItins.length} Itineraries</span>}
               </div>
               <svg class="w-6 h-6 text-white/70 ml-auto transition-transform group-open:rotate-180 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={2}><path d="M6 9l6 6 6-6" /></svg>
             </summary>
 
             {/* Country content */}
             <div class="pt-4">
-              {c.hasItins ? countryItins.map(itin => (
-                <div id={itin.id} class="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-6 scroll-mt-32 shadow-sm">
-                  {/* Package card - always visible */}
+              {c.hasItins ? countryItins.map((itin, ii) => (
+                <div id={itin.id} class="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-6 scroll-mt-32 shadow-sm hover-lift anim-fade-up" style={`transition-delay: ${(ii + 1) * 150}ms`}>
+                  {/* Package card */}
                   <div class="flex flex-col md:flex-row md:items-start gap-5 p-6">
-                    <img src={itinImages[itin.id] || countryImages[c.name]} alt={itin.title} class="w-full md:w-56 h-40 md:h-36 rounded-xl object-cover flex-shrink-0" />
+                    <div class="flex-shrink-0 hover-zoom rounded-xl">
+                      <OptimizedImage src={itinImages[itin.id] || countryImages[c.name]} alt={itin.title} class="w-full md:w-56 h-40 md:h-36 rounded-xl object-cover" loading="lazy" />
+                    </div>
                     <div class="flex-1 min-w-0">
                       <div class="flex items-center gap-2 mb-2 flex-wrap">
                         <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-sage text-olive">{itin.type}</span>
@@ -74,7 +77,7 @@ const countries = [
                     </div>
                   </div>
 
-                  {/* Expandable day-by-day details */}
+                  {/* Expandable day-by-day */}
                   <div class="px-6 pb-6">
                     <details class="group/day border border-gray-200 rounded-xl overflow-hidden">
                       <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none bg-olive/10 hover:bg-olive/20 transition-colors">
@@ -140,7 +143,7 @@ const countries = [
                   </div>
                 </div>
               )) : (
-                <div class="py-10 px-6 text-center bg-sage/20 rounded-xl">
+                <div class="py-10 px-6 text-center bg-sage/20 rounded-xl anim-fade-up">
                   <img src={countryImages[c.name]} alt={c.name} class="w-16 h-16 rounded-full object-cover mx-auto mb-4 opacity-60" />
                   <h3 class="font-belleza text-lg tracking-[0.1em] uppercase mb-2">{c.name}</h3>
                   <p class="text-sm text-[#999]">Itineraries coming soon</p>

@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import OptimizedImage from '../components/OptimizedImage.astro';
 
 const socialIcons = [
   { label: "Facebook", path: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" },
@@ -11,36 +12,40 @@ const socialIcons = [
 ---
 
 <MainLayout title="Contact | Simbali Wild Safaris">
+  {/* Hero */}
   <section class="bg-sage/60 py-20 pb-16">
     <div class="container-main grid md:grid-cols-2 gap-12 items-center">
-      <div>
+      <div class="anim-fade-left">
         <div class="accent-line" />
         <h1 class="font-belleza text-4xl md:text-5xl leading-tight tracking-[0.1em] uppercase">Get in Touch with Simbali Wild Safaris</h1>
       </div>
-      <img src="/images/giraffes-savanna-safari-simbali-wild-safaris.jpg" alt="Giraffes" class="rounded-2xl h-[380px] object-cover w-full" />
+      <div class="anim-fade-right anim-delay-2 hover-zoom rounded-2xl">
+        <OptimizedImage src="/images/giraffes-savanna-safari-simbali-wild-safaris.jpg" alt="Giraffes on the African savannah" class="rounded-2xl h-[380px] object-cover w-full" loading="lazy" />
+      </div>
     </div>
   </section>
 
+  {/* Contact cards */}
   <section class="py-16 bg-white">
     <div class="container-main max-w-4xl">
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-sage/50 rounded-2xl p-9">
-          <label class="text-xs text-[#666] uppercase tracking-wider font-medium block mb-2">Phone</label>
-          <div class="text-xl text-[#1a1a1a] font-medium">+254 713 855 818</div>
-        </div>
-        <div class="bg-white border border-gray-200 rounded-2xl p-9">
-          <label class="text-xs text-[#666] uppercase tracking-wider font-medium block mb-2">Email</label>
-          <div class="text-xl text-[#1a1a1a] font-medium"><a href="mailto:info@simbaliwildlisafaris.com" class="text-olive underline">info@simbaliwildlisafaris.com</a></div>
-        </div>
-        <div class="bg-white border border-gray-200 rounded-2xl p-9">
-          <label class="text-xs text-[#666] uppercase tracking-wider font-medium block mb-2">Address</label>
-          <div class="text-xl text-[#1a1a1a] font-medium"><a href="https://simbaliwildsafaris.com" class="text-olive underline">www.simbaliwildsafaris.com</a></div>
-        </div>
-        <div class="bg-sage/50 rounded-2xl p-9">
+        {[
+          { bg: "bg-sage/50", label: "Phone", value: "+254 713 855 818", href: null },
+          { bg: "bg-white border border-gray-200", label: "Email", value: "info@simbaliwildlisafaris.com", href: "mailto:info@simbaliwildlisafaris.com" },
+          { bg: "bg-white border border-gray-200", label: "Address", value: "www.simbaliwildsafaris.com", href: "https://simbaliwildsafaris.com" },
+        ].map((card, i) => (
+          <div class={`${card.bg} rounded-2xl p-9 hover-lift anim-fade-up anim-delay-${i + 1}`}>
+            <label class="text-xs text-[#666] uppercase tracking-wider font-medium block mb-2">{card.label}</label>
+            <div class="text-xl text-[#1a1a1a] font-medium">
+              {card.href ? <a href={card.href} class="text-olive underline">{card.value}</a> : card.value}
+            </div>
+          </div>
+        ))}
+        <div class="bg-sage/50 rounded-2xl p-9 hover-lift anim-fade-up anim-delay-4">
           <label class="text-xs text-[#666] uppercase tracking-wider font-medium block mb-2">Social Media</label>
           <div class="flex gap-5">
             {socialIcons.map(s => (
-              <a href="#" aria-label={s.label} class="text-[#1a1a1a]/70 hover:text-olive transition-colors">
+              <a href="#" aria-label={s.label} class="text-[#1a1a1a]/70 hover:text-olive transition-colors hover:scale-110 transform">
                 <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current"><path d={s.path} /></svg>
               </a>
             ))}
@@ -50,27 +55,29 @@ const socialIcons = [
     </div>
   </section>
 
+  {/* Contact form */}
   <section class="py-20 bg-sage/40">
     <div class="container-main max-w-4xl">
       <div class="grid md:grid-cols-2 gap-12">
-        <div>
+        <div class="anim-fade-left">
           <div class="accent-line" />
           <h2 class="font-belleza text-3xl mb-4 tracking-[0.1em] uppercase leading-snug">We&apos;d Love to Hear from You and Assist</h2>
           <p class="text-[#555] text-[15px] leading-relaxed">Reach out to us for tailored safari experiences and unforgettable adventures. We respond promptly to all inquiries!</p>
         </div>
-        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! We will get back to you soon.');">
+        <form class="space-y-4 anim-fade-right anim-delay-2" onsubmit="event.preventDefault(); alert('Thank you! We will get back to you soon.');">
           <div class="grid grid-cols-2 gap-4">
-            <input type="text" placeholder="First Name" required class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-1 focus:ring-olive" />
-            <input type="text" placeholder="Last Name" required class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-1 focus:ring-olive" />
+            <input type="text" placeholder="First Name" required class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-1 focus:ring-olive transition-all hover:border-olive/40" />
+            <input type="text" placeholder="Last Name" required class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-1 focus:ring-olive transition-all hover:border-olive/40" />
           </div>
-          <input type="email" placeholder="Email Address" required class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-1 focus:ring-olive" />
-          <textarea placeholder="Type your message" required rows="5" class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-1 focus:ring-olive resize-y"></textarea>
-          <button type="submit" class="btn-primary">Submit</button>
+          <input type="email" placeholder="Email Address" required class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-1 focus:ring-olive transition-all hover:border-olive/40" />
+          <textarea placeholder="Type your message" required rows="5" class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-1 focus:ring-olive transition-all hover:border-olive/40 resize-y"></textarea>
+          <button type="submit" class="btn-primary btn-pulse">Submit</button>
         </form>
       </div>
     </div>
   </section>
 
+  {/* Map */}
   <section class="h-[400px] bg-gray-200">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.19891906833!2d36.68248865!3d-1.3028611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1699000000000!5m2!1sen!2sus" allowfullscreen loading="lazy" title="Simbali Wild Safaris Location" class="w-full h-full border-0"></iframe>
   </section>

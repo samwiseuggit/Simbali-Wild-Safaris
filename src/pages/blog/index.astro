@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
 
 const posts = [
   {
@@ -69,11 +70,11 @@ const posts = [
   {/* Hero */}
   <section class="relative overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/images/wildebeest-river-crossing-safari-migration_blog.jpg" alt="Great Wildebeest Migration" class="w-full h-full object-cover" />
+      <OptimizedImage src="/images/wildebeest-river-crossing-safari-migration_blog.jpg" alt="Great Wildebeest Migration" class="w-full h-full object-cover" loading="eager" />
       <div class="absolute inset-0 bg-black/50" />
     </div>
     <div class="relative container-main py-24 md:py-32">
-      <div class="max-w-3xl">
+      <div class="max-w-3xl anim-fade-up">
         <div class="accent-line mb-6" />
         <h1 class="font-belleza text-4xl md:text-6xl tracking-[0.1em] uppercase text-white leading-tight mb-4">
           Safari Stories &<br />Travel Insights
@@ -88,14 +89,14 @@ const posts = [
   {/* Featured Post */}
   <section class="py-16 bg-white">
     <div class="container-main">
-      <div class="grid lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-        <div class="relative h-72 lg:h-auto">
-          <img src={posts[0].img} alt={posts[0].title} class="w-full h-full object-cover" />
+      <div class="grid lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow anim-scale-in">
+        <div class="relative h-72 lg:h-auto overflow-hidden">
+          <OptimizedImage src={posts[0].img} alt={posts[0].title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="eager" />
           <div class="absolute top-4 left-4">
             <span class="bg-olive text-white text-[11px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full">Featured</span>
           </div>
         </div>
-        <div class="p-8 md:p-12 flex flex-col justify-center">
+        <div class="p-8 md:p-12 flex flex-col justify-center anim-fade-right anim-delay-2">
           <div class="flex items-center gap-3 text-sm text-[#999] mb-3">
             <span class="text-olive font-semibold">{posts[0].cat}</span>
             <span>/</span>
@@ -108,7 +109,7 @@ const posts = [
           <div class="flex flex-wrap gap-2 mb-6">
             {posts[0].tags.map(tag => <span class="text-[11px] text-[#666] bg-[#f5f7f3] px-3 py-1 rounded-full">{tag}</span>)}
           </div>
-          <a href={`/blog/${posts[0].slug}`} class="btn-primary w-fit">Read Full Story</a>
+          <a href={`/blog/${posts[0].slug}`} class="btn-primary btn-pulse w-fit">Read Full Story</a>
         </div>
       </div>
     </div>
@@ -117,7 +118,7 @@ const posts = [
   {/* All Posts Grid */}
   <section class="py-16 bg-sage/20">
     <div class="container-main">
-      <div class="flex items-center justify-between mb-10">
+      <div class="flex items-center justify-between mb-10 anim-fade-up">
         <div>
           <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.1em] uppercase">Latest Stories</h2>
           <p class="text-[#777] text-sm mt-1">Wildlife guides, travel tips, and safari inspiration</p>
@@ -126,9 +127,9 @@ const posts = [
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post, i) => (
-          <article class="bg-white rounded-xl overflow-hidden border border-gray-100 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 flex flex-col">
+          <article class="bg-white rounded-xl overflow-hidden border border-gray-100 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 flex flex-col anim-fade-up anim-scale-in" style={`transition-delay: ${(i + 1) * 150}ms`}>
             <div class="relative overflow-hidden">
-              <img src={post.img} alt={post.title} class="w-full h-56 object-cover hover:scale-105 transition-transform duration-500" />
+              <OptimizedImage src={post.img} alt={post.title} class="w-full h-56 object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
               <div class="absolute top-3 left-3">
                 <span class="bg-white/90 backdrop-blur text-olive text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full">{post.cat}</span>
               </div>
@@ -156,12 +157,12 @@ const posts = [
 
   {/* Newsletter CTA */}
   <section class="py-20 bg-olive">
-    <div class="container-main text-center">
+    <div class="container-main text-center anim-fade-up">
       <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.1em] uppercase text-white mb-4">Plan Your Dream Safari</h2>
       <p class="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
         Inspired by our stories? Let us craft your perfect African adventure. From the Great Migration to hidden gems, we'll design a journey you'll never forget.
       </p>
-      <a href="/contact" class="btn-primary bg-white text-olive hover:bg-sage inline-flex">Start Planning</a>
+      <a href="/contact" class="btn-primary btn-pulse bg-white text-olive hover:bg-sage inline-flex">Start Planning</a>
     </div>
   </section>
 </MainLayout>

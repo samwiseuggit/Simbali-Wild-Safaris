@@ -1,0 +1,20 @@
+---
+// Renders a <picture> with WebP source + original fallback
+// Usage: <OptimizedImage src="/images/foo.jpg" alt="Foo" class="rounded-xl" />
+export interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'eager' | 'lazy';
+}
+
+const { src, alt, class: className = '', loading = 'lazy' } = Astro.props;
+
+// Derive WebP path from the src
+const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+---
+
+<picture>
+  <source srcset={webpSrc} type="image/webp" />
+  <img src={src} alt={alt} class={className} loading={loading} />
+</picture>

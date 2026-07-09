@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
 
 export function getStaticPaths() {
   const posts = [
@@ -351,11 +352,11 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
   {/* Hero */}
   <section class="relative overflow-hidden">
     <div class="absolute inset-0">
-      <img src={post.img} alt={post.imgAlt} class="w-full h-full object-cover" />
+      <OptimizedImage src={post.img} alt={post.imgAlt} class="w-full h-full object-cover" loading="eager" />
       <div class="absolute inset-0 bg-black/50" />
     </div>
     <div class="relative container-main py-20 md:py-28">
-      <div class="max-w-3xl mx-auto text-center">
+      <div class="max-w-3xl mx-auto text-center anim-fade-up">
         <div class="flex items-center justify-center gap-3 text-white/70 text-sm mb-4">
           <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">{post.cat}</span>
           <span>{post.date}</span>
@@ -370,7 +371,7 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
 
   {/* Article */}
   <section class="py-16 bg-white">
-    <div class="container-main max-w-4xl">
+    <div class="container-main max-w-4xl anim-fade-up">
       <article class="prose-blog max-w-none">
         {content.map((block) => {
           if (block.type === 'h2') return <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.08em] uppercase mt-12 mb-5 text-[#1a1a1a]" set:html={block.content} />;
@@ -387,8 +388,8 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
             </ul>
           );
           if (block.type === 'image') return (
-            <figure class="my-8">
-              <img src={block.src} alt={block.alt} class="w-full h-64 md:h-80 object-cover rounded-xl" />
+            <figure class="my-8 anim-scale-in">
+              <OptimizedImage src={block.src} alt={block.alt} class="w-full h-64 md:h-80 object-cover rounded-xl" loading="lazy" />
               {block.caption && <figcaption class="text-center text-[#999] text-sm mt-2 italic">{block.caption}</figcaption>}
             </figure>
           );
@@ -407,12 +408,12 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
   {related.length > 0 && (
     <section class="py-16 bg-sage/20">
       <div class="container-main max-w-4xl">
-        <h2 class="font-belleza text-2xl tracking-[0.1em] uppercase mb-8 text-center">Related Safari Itineraries</h2>
+        <h2 class="font-belleza text-2xl tracking-[0.1em] uppercase mb-8 text-center anim-fade-up">Related Safari Itineraries</h2>
         <div class="grid md:grid-cols-2 gap-6">
-          {related.map(safari => (
-            <a href={safari.url} class="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col">
+          {related.map((safari, i) => (
+            <a href={safari.url} class={`group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col hover-lift anim-fade-up anim-delay-${i + 1}`}>
               <div class="relative overflow-hidden h-48">
-                <img src={safari.img} alt={safari.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <OptimizedImage src={safari.img} alt={safari.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-olive text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full">{safari.duration}</div>
               </div>
               <div class="p-5 flex flex-col flex-1">
@@ -430,9 +431,9 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
   {/* More Stories */}
   <section class="py-16 bg-white">
     <div class="container-main max-w-4xl">
-      <h2 class="font-belleza text-2xl tracking-[0.1em] uppercase mb-8 text-center">More Safari Stories</h2>
+      <h2 class="font-belleza text-2xl tracking-[0.1em] uppercase mb-8 text-center anim-fade-up">More Safari Stories</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        {otherSlugs.map(otherSlug => {
+        {otherSlugs.map((otherSlug, idx) => {
           const otherPosts = {
             "wonders-of-kenyas-great-rift-valley": { title: "Great Rift Valley Kenya: Nature, Culture & Adventure", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", excerpt: "Discover dramatic escarpments, flamingo-filled lakes and volcanic craters." },
             "east-africa-birding-guide": { title: "East Africa Birding Guide", img: "/images/raptor-bird-flying-clear-sky_blog.jpg", excerpt: "Over 1,500 bird species across Kenya, Tanzania, Uganda and beyond." },
@@ -440,8 +441,8 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
           };
           const op = otherPosts[otherSlug];
           return (
-            <a href={`/blog/${otherSlug}`} class="group flex gap-4 items-start hover:bg-sage/10 p-3 rounded-xl transition-colors">
-              <img src={op.img} alt={op.title} class="w-24 h-24 rounded-lg object-cover flex-shrink-0 group-hover:scale-105 transition-transform" />
+            <a href={`/blog/${otherSlug}`} class={`group flex gap-4 items-start hover:bg-sage/10 p-3 rounded-xl transition-colors anim-fade-up anim-delay-${idx + 1}`}>
+              <OptimizedImage src={op.img} alt={op.title} class="w-24 h-24 rounded-lg object-cover flex-shrink-0 group-hover:scale-105 transition-transform" loading="lazy" />
               <div>
                 <h3 class="font-belleza text-base tracking-[0.06em] uppercase leading-snug mb-1 group-hover:text-olive transition-colors">{op.title}</h3>
                 <p class="text-[#777] text-sm leading-relaxed">{op.excerpt}</p>
@@ -455,12 +456,12 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
 
   {/* CTA */}
   <section class="py-20 bg-olive">
-    <div class="container-main text-center">
+    <div class="container-main text-center anim-fade-up">
       <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.1em] uppercase text-white mb-4">Ready to Experience This?</h2>
       <p class="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
         Let Simbali Wild Safaris craft your perfect African adventure. From the Great Migration to the Great Rift Valley, we'll design a journey you'll never forget.
       </p>
-      <a href="/contact" class="btn-primary bg-white text-olive hover:bg-sage inline-flex">Plan Your Safari</a>
+      <a href="/contact" class="btn-primary btn-pulse bg-white text-olive hover:bg-sage inline-flex">Plan Your Safari</a>
     </div>
   </section>
 </MainLayout>
