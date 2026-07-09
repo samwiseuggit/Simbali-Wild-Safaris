@@ -4,6 +4,18 @@ import MainLayout from '../../layouts/MainLayout.astro';
 export function getStaticPaths() {
   const posts = [
     {
+      slug: "ultimate-guide-planning-first-african-safari",
+      title: "The Ultimate Guide to Planning Your First African Safari",
+      description: "Planning your first African safari? Learn how to choose between Kenya, Tanzania, Uganda and Rwanda, when to travel, what to budget, what to pack, and what to expect on your first safari.",
+      img: "/images/open-jeep-game-drive-simbali-wild-safaris.jpg",
+      imgAlt: "Open safari vehicle crossing a golden East African landscape",
+      date: "July 9, 2026",
+      readTime: "11 min read",
+      cat: "Safari Planning",
+      author: "Simbali Wild Safaris",
+      tags: ["First Safari", "Safari Planning", "Kenya", "Tanzania", "East Africa", "Safari Tips"],
+    },
+    {
       slug: "wonders-of-kenyas-great-rift-valley",
       title: "Great Rift Valley Kenya: Nature, Culture & Adventure",
       description: "Discover one of the most incredible places on Earth — Kenya's Great Rift Valley. From flamingo-filled lakes and volcanic craters to rich Maasai culture, this is a safari destination like no other.",
@@ -44,6 +56,12 @@ export function getStaticPaths() {
 }
 
 const relatedSafaris = {
+  "ultimate-guide-planning-first-african-safari": [
+    { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
+    { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
+    { title: "11-Day Kenya-Tanzania Family Safari", url: "/itineraries#kenya-tanzania-family-11", img: "/images/itin-kenya-tanzania-family.jpg", price: "From $6,730", duration: "11 Days" },
+    { title: "8-Day Tanzania Family Safari", url: "/itineraries#tanzania-family-8", img: "/images/itin-tanzania-family.jpg", price: "From $4,440", duration: "8 Days" },
+  ],
   "wonders-of-kenyas-great-rift-valley": [
     { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
     { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
@@ -59,6 +77,61 @@ const relatedSafaris = {
 };
 
 const blogContent = {
+  "ultimate-guide-planning-first-african-safari": [
+    { type: "text", content: "Your first African safari begins long before the first game drive. It starts with a picture in your mind: sunrise over open savannah, acacia trees in silhouette, dust glowing behind a Land Cruiser, and the quiet thrill of realizing that the wildlife around you is not staged, hurried, or predictable. It is real wilderness, unfolding at its own pace." },
+    { type: "text", content: "That magic is exactly why planning a first safari can feel overwhelming. Kenya, Tanzania, Uganda, Rwanda, the Great Migration, gorilla trekking, beach extensions, park fees, lodge styles, packing lists - there is a lot to compare. At <strong>Simbali Wild Safaris</strong>, we help first-time travelers turn those choices into a clear, personal journey that feels exciting rather than complicated." },
+    { type: "h2", content: "Start With the Safari Experience You Want" },
+    { type: "text", content: "Before comparing routes and lodges, decide what kind of memory you want to bring home. Some travelers dream of classic Big Five game drives in wide-open plains. Others want a romantic honeymoon, a family-friendly route, a photography-focused adventure, or a rare primate experience in the forests of Uganda or Rwanda." },
+    { type: "list", items: [
+      "<strong>Classic wildlife:</strong> Choose Kenya's Maasai Mara, Amboseli, Samburu, Lake Nakuru, or Tanzania's Serengeti, Tarangire and Ngorongoro Crater.",
+      "<strong>Romance:</strong> Look for slower pacing, beautiful camps, private dining moments, scenic flights, and optional beach time.",
+      "<strong>Family travel:</strong> Prioritize comfortable driving distances, lodges with pools, flexible meal times, and guides who enjoy hosting children.",
+      "<strong>Primate encounters:</strong> Add gorilla trekking in Uganda or Rwanda for a completely different kind of wildlife experience.",
+    ]},
+    { type: "image", src: "/images/open-jeep-game-drive-simbali-wild-safaris.jpg", alt: "Safari vehicle on a game drive in East Africa", caption: "A first safari is easiest to plan when you start with the feeling and pace you want from the journey." },
+    { type: "h2", content: "Choosing Between Kenya, Tanzania, Uganda and Rwanda" },
+    { type: "text", content: "<strong>Kenya</strong> is a wonderful first safari destination because it combines excellent wildlife, strong guiding, varied landscapes, and efficient routing. The Maasai Mara is famous for big cats and the Great Migration season, Amboseli offers elephant herds beneath Kilimanjaro, Samburu brings northern Kenya's Special Five, and Lake Naivasha adds a relaxed boat safari." },
+    { type: "text", content: "<strong>Tanzania</strong> is ideal for travelers who want vast landscapes and a grand wilderness rhythm. The Serengeti feels endless, Ngorongoro Crater offers dense wildlife in a dramatic volcanic bowl, and Tarangire is beloved for elephants and ancient baobab trees. Tanzania pairs beautifully with Zanzibar for a bush-and-beach holiday." },
+    { type: "text", content: "<strong>Uganda</strong> and <strong>Rwanda</strong> add forest depth to an East African safari. Gorilla trekking, chimpanzee tracking, golden monkeys, crater lakes and green highlands create a journey that feels intimate and deeply memorable. Many travelers combine a Kenya or Tanzania safari with a short primate extension." },
+    { type: "h2", content: "When Is the Best Time to Go on Safari?" },
+    { type: "text", content: "East Africa is rewarding year-round, but different seasons create different advantages. The dry season from June to October is popular because wildlife gathers around water, roads are easier, and the Maasai Mara and Serengeti can deliver exceptional migration sightings. It is also the busiest and most expensive period, so early planning matters." },
+    { type: "list", items: [
+      "<strong>June to October:</strong> Peak wildlife viewing, drier conditions, Great Migration movement, and strong Big Five opportunities.",
+      "<strong>November to December:</strong> Short rains, fresh green landscapes, fewer crowds, and excellent value in many areas.",
+      "<strong>January to March:</strong> Calving season in the southern Serengeti and Ndutu area, with dramatic predator activity.",
+      "<strong>April to May:</strong> Long rains, quiet parks, lush scenery, lower prices, and some seasonal lodge closures.",
+    ]},
+    { type: "image", src: "/images/baobab-sunset-safari-simbali-wild-safaris.jpg", alt: "Baobab tree at sunset on safari", caption: "Every season has its own safari character, from golden dry-season plains to lush green-season landscapes." },
+    { type: "h2", content: "How Long Should a First Safari Be?" },
+    { type: "text", content: "For most first-time travelers, seven to ten days is the sweet spot. It gives you enough time to settle into the safari rhythm without feeling rushed. A shorter five or six-day trip can work well for one country and two or three parks. If you want to combine Kenya and Tanzania, or add gorilla trekking, plan closer to eleven to fourteen days." },
+    { type: "text", content: "Simbali's <a href=\"/itineraries#kenya-honeymoon-8\" class=\"text-olive underline font-semibold\">8-Day Kenya Honeymoon Safari</a> and <a href=\"/itineraries#kenya-family-8\" class=\"text-olive underline font-semibold\">8-Day Kenya Family Safari</a> are strong first-safari options. Travelers who want a bigger cross-border adventure can consider the <a href=\"/itineraries#kenya-tanzania-family-11\" class=\"text-olive underline font-semibold\">11-Day Kenya-Tanzania Family Safari</a>." },
+    { type: "h2", content: "Understanding Safari Costs" },
+    { type: "text", content: "Safari pricing depends on season, park routing, lodge level, transport style, park fees, and whether your vehicle and guide are private. A private safari often costs more than a group tour, but it gives couples and families a calmer, more flexible experience: your pace, your interests, and your guide's full attention." },
+    { type: "list", items: [
+      "<strong>Mid-range safaris:</strong> Comfortable lodges, good guiding, practical routing, and strong value.",
+      "<strong>Luxury safaris:</strong> More exclusive camps, finer dining, prime locations, and extra privacy.",
+      "<strong>Fly-in safaris:</strong> Less driving and more time in remote areas, usually at a higher budget.",
+      "<strong>Extra costs:</strong> International flights, visas, travel insurance, tips, premium drinks, and optional experiences such as balloon safaris.",
+    ]},
+    { type: "h2", content: "What Happens on a Typical Safari Day?" },
+    { type: "text", content: "Safari days start early because wildlife is most active in the cool morning light. You might wake around 5:30 AM, have coffee or tea, and leave camp as the sky begins to brighten. Morning game drives often deliver beautiful photography conditions and fresh tracks from the night." },
+    { type: "text", content: "Late morning usually brings breakfast, rest, swimming, reading, or time to enjoy the lodge. In the afternoon, you head out again for golden-hour sightings and, where permitted, a sundowner stop. By evening, dinner, stars, campfire stories and an early night become part of the gentle safari rhythm." },
+    { type: "h2", content: "What to Pack for Your First Safari" },
+    { type: "list", items: [
+      "Neutral clothing in khaki, olive, beige or soft earth tones.",
+      "Layers for cool mornings and warm afternoons.",
+      "Comfortable walking shoes and relaxed lodge sandals.",
+      "Binoculars, a camera or phone with extra storage, chargers and power banks.",
+      "Sunscreen, insect repellent, personal medication, and a small first-aid kit.",
+      "A soft-sided bag if your itinerary includes light aircraft flights.",
+    ]},
+    { type: "h2", content: "First-Time Safari Tips" },
+    { type: "text", content: "The best safari mindset is curious and patient. Wildlife sightings are never guaranteed, and that is part of what makes them powerful. Listen to your guide, stay flexible, and do not measure the journey only by a checklist. Sometimes the most unforgettable moment is not the animal you expected, but the quiet scene you almost missed." },
+    { type: "text", content: "Book early for peak seasons, choose a reputable operator, ask questions before confirming, and make sure your itinerary has breathing room. A good safari should feel carefully held, not overpacked." },
+    { type: "h2", content: "Let Simbali Shape Your First Safari" },
+    { type: "text", content: "Your first African safari should feel personal from the beginning. Whether you are drawn to Kenya's Maasai Mara, Tanzania's Serengeti, Uganda's gorillas, Rwanda's green hills, or a beach extension after the bush, our team can help you choose the route, pace and lodge style that fits your dream." },
+    { type: "text", content: "Ready to plan your first African safari? <a href=\"/contact\" class=\"text-olive underline font-semibold\">Contact Simbali Wild Safaris</a> for a free, no-obligation consultation and let us craft a tailor-made journey with care, clarity and local expertise." },
+  ],
   "wonders-of-kenyas-great-rift-valley": [
     { type: "text", content: "The <strong>Great Rift Valley Kenya</strong> is one of the most incredible places on Earth. It's part of a massive crack in the planet's surface that runs from the Middle East all the way down through Eastern Africa. The Kenyan part of the valley is especially beautiful — and full of surprises." },
     { type: "text", content: "Here, you'll find tall cliffs called escarpments, wide lakes, hot springs, volcanoes, and endless plains. It's a place where nature tells the story of our planet's past — and gives you plenty to explore today." },
@@ -310,7 +383,7 @@ const { slug } = Astro.params;
 const { post } = Astro.props;
 const content = blogContent[slug] || [];
 const related = relatedSafaris[slug] || [];
-const allSlugs = ["wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
+const allSlugs = ["ultimate-guide-planning-first-african-safari", "wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
 const otherSlugs = allSlugs.filter(s => s !== slug);
 ---
 
@@ -439,6 +512,7 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
       <div class="grid md:grid-cols-2 gap-6">
         {otherSlugs.map(otherSlug => {
           const otherPosts = {
+            "ultimate-guide-planning-first-african-safari": { title: "The Ultimate Guide to Planning Your First African Safari", img: "/images/open-jeep-game-drive-simbali-wild-safaris.jpg", excerpt: "A clear first-timer's guide to destinations, timing, costs, packing and safari expectations." },
             "wonders-of-kenyas-great-rift-valley": { title: "Great Rift Valley Kenya: Nature, Culture & Adventure", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", excerpt: "Discover dramatic escarpments, flamingo-filled lakes and volcanic craters." },
             "east-africa-birding-guide": { title: "East Africa Birding Guide", img: "/images/raptor-bird-flying-clear-sky_blog.jpg", excerpt: "Over 1,500 bird species across Kenya, Tanzania, Uganda and beyond." },
             "wildebeest-migration-an-epic-safari-adventure": { title: "The Great Wildebeest Migration", img: "/images/wildebeest-river-crossing-safari-migration_blog.jpg", excerpt: "Witness over a million wildebeest thunder across the Serengeti-Maasai Mara." },
