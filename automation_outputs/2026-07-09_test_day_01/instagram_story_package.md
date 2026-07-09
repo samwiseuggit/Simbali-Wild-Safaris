@@ -8,20 +8,32 @@ Source prompt: `D:\CODEX PROJECTS\Sambali Wild Safaris\instagram_prompts\day_01.
 
 ## Canva Result
 
-- Status: Editable Canva design created
-- Design ID: `DAHO6rSWCiw`
-- Edit URL: https://www.canva.com/d/_qWjudd45zyov0l
-- View URL: https://www.canva.com/d/kS-WY-yycr4_rYL
-- Generated from candidate: `dg-64bcc7b2-f8eb-460a-a5d3-cde0a0f91684`
-- Generation job: `ca4ae422-a194-4684-b3cc-be3cacfcdec7`
+- Status: Six-slide Canva Instagram Story sequence created
+- Correct website URL used on CTA slide: `https://simbaliwildsafaris.com`
+- Note: The Canva connector created each Story slide as a separate editable design rather than one multi-page Story file.
+
+| Slide | Purpose | Design ID | Edit URL | View URL |
+| --- | --- | --- | --- | --- |
+| 1 | Cinematic opener | `DAHO6mmDtqk` | https://www.canva.com/d/RwS4nJkCJn8Si7o | https://www.canva.com/d/iSpr7qMJDXJpfr9 |
+| 2 | Sign 1: wildlife documentaries | `DAHO6gwBCAM` | https://www.canva.com/d/Qf0C0sjB0KpoA9L | https://www.canva.com/d/dO0xOyBaW5tdFz9 |
+| 3 | Sign 2: safari feed | `DAHO6mmupZM` | https://www.canva.com/d/SV_jL-thMtvMvin | https://www.canva.com/d/qRGAtMlnHpvvFkB |
+| 4 | Sign 3: Serengeti planning | `DAHO6qloqWU` | https://www.canva.com/d/EejNA2qnLNijnJO | https://www.canva.com/d/OttYQd4xhyK6VXg |
+| 5 | Signs 4-5: safari fund + Migration | `DAHO6jzzCCs` | https://www.canva.com/d/6FcvNoaEE-BzSZl | https://www.canva.com/d/8yl_8TS6MnwIn3O |
+| 6 | CTA / poll ending | `DAHO6iEy6Nc` | https://www.canva.com/d/u_cLnQqsRsjbXlY | https://www.canva.com/d/rsavYUDL3vD_4L5 |
+
+Additional single-design video-style candidate generated before the split-slide workaround:
+
+- Design ID: `DAHO6m__1N0`
+- Edit URL: https://www.canva.com/d/hCOxcWTJDpieAUV
+- View URL: https://www.canva.com/d/rOdipdmm4cdEMQN
 
 ## Instagram Publishing Status
 
-Creative created in Canva. Direct Instagram posting was not completed because no authenticated Instagram/Meta publishing connector or Canva scheduler/publisher tool was available in this run.
+Creative sequence created in Canva. Direct Instagram posting was not completed because no authenticated Instagram/Meta publishing connector or Canva scheduler/publisher tool was available in this run.
 
 ## Visual Brief
 
-Create a 1080 x 1920 Instagram Story with a luxury safari lodge aesthetic. Use a warm cream background, deep olive green footer, saffron gold accents, charcoal body text, and a subtle savannah/acacia silhouette watermark. Use five numbered gold circles and thin-line safari icons in a vertical checklist layout.
+Create a 1080 x 1920 Instagram Story sequence with a luxury safari lodge aesthetic. Use a warm cream background, deep olive green accents, saffron gold details, charcoal body text, and subtle savannah/acacia visual cues. Use large readable text, gold number markers, safari line icons, and motion-friendly layered compositions.
 
 ## Exact Text Overlays
 
@@ -36,8 +48,9 @@ Create a 1080 x 1920 Instagram Story with a luxury safari lodge aesthetic. Use a
    `Financial commitment = the ultimate readiness sign`
 6. `5. The Words 'Great Migration' Give You Chills`
    `If watching wildebeest cross the Mara River makes you emotional, you're ready`
-7. `If you checked 3 or more... IT'S TIME.`
-   `Link in bio to start planning | simbaliwildsafaris.com`
+7. `Ready for safari?`
+   `Start planning at https://simbaliwildsafaris.com`
+   `DM SAFARI for a free consultation`
 
 ## Caption
 

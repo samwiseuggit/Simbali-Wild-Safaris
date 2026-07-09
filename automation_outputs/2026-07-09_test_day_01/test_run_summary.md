@@ -37,11 +37,15 @@ Manual direct run started after the scheduled Codex automation did not produce a
 
 ## Canva Result
 
-- Status: Editable Canva design created
-- Design ID: `DAHO6rSWCiw`
-- Edit URL: https://www.canva.com/d/_qWjudd45zyov0l
-- View URL: https://www.canva.com/d/kS-WY-yycr4_rYL
-- Generation job: `ca4ae422-a194-4684-b3cc-be3cacfcdec7`
+- Status: Six-slide Canva Instagram Story sequence created
+- Correct CTA URL verified on slide 6: `https://simbaliwildsafaris.com`
+- Slide 1: https://www.canva.com/d/RwS4nJkCJn8Si7o
+- Slide 2: https://www.canva.com/d/Qf0C0sjB0KpoA9L
+- Slide 3: https://www.canva.com/d/SV_jL-thMtvMvin
+- Slide 4: https://www.canva.com/d/EejNA2qnLNijnJO
+- Slide 5: https://www.canva.com/d/6FcvNoaEE-BzSZl
+- Slide 6: https://www.canva.com/d/u_cLnQqsRsjbXlY
+- Note: The Canva connector created each Story slide as a separate editable design rather than one multi-page Story file.
 
 ## Instagram Result
 
