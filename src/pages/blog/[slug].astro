@@ -2,45 +2,306 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 
 export function getStaticPaths() {
-  const posts = {
-    "wonders-of-kenyas-great-rift-valley": {
-      title: "Great Rift Valley Kenya: Nature, Culture & Adventure",
+  const posts = [
+    {
+      slug: "wonders-of-kenyas-great-rift-valley",
+      title: "Wonders of Kenya's Great Rift Valley: Nature, Culture & Adventure",
+      description: "Discover the dramatic landscapes, flamingo-filled lakes, volcanic craters and rich Maasai culture of Kenya's Great Rift Valley — one of Earth's most spectacular natural wonders.",
       img: "/images/serene-lakeside-mountain-landscape_blog.jpg",
+      imgAlt: "Dramatic escarpment view of Kenya's Great Rift Valley with lush green floor and distant lakes",
+      date: "June 15, 2025",
+      readTime: "8 min read",
+      cat: "Destinations",
+      tags: ["Kenya", "Great Rift Valley", "Lake Nakuru", "Lake Naivasha", "Hell's Gate", "Maasai Culture"],
     },
-    "east-africa-birding-guide": {
+    {
+      slug: "east-africa-birding-guide",
       title: "East Africa Birding Guide: Best Spots, Species & Travel Tips",
+      description: "A comprehensive guide to birdwatching in East Africa — covering Kenya, Tanzania and Uganda's best birding destinations, must-see species, and expert travel tips.",
       img: "/images/raptor-bird-flying-clear-sky_blog.jpg",
+      imgAlt: "Majestic African fish eagle soaring against a clear blue sky",
+      date: "May 22, 2025",
+      readTime: "10 min read",
+      cat: "Wildlife",
+      tags: ["Birding", "East Africa", "Serengeti", "Maasai Mara", "Shoebill Stork"],
     },
-    "wildebeest-migration-an-epic-safari-adventure": {
-      title: "Wildebeest Migration: An Epic Safari Adventure",
+    {
+      slug: "wildebeest-migration-an-epic-safari-adventure",
+      title: "The Great Wildebeest Migration: An Epic Safari Adventure",
+      description: "Everything you need to know about witnessing the Great Wildebeest Migration — the best times, locations, river crossings, predator action, and how to plan your migration safari.",
       img: "/images/wildebeest-river-crossing-safari-migration_blog.jpg",
+      imgAlt: "Dramatic wildebeest river crossing during the Great Migration",
+      date: "April 17, 2025",
+      readTime: "12 min read",
+      cat: "Safari",
+      tags: ["Migration", "Serengeti", "Maasai Mara", "Big Five", "River Crossing"],
     },
-  };
-  return Object.keys(posts).map(slug => ({ params: { slug }, props: { post: posts[slug] } }));
+  ];
+  return posts.map(p => ({ params: { slug: p.slug }, props: { post: p } }));
 }
 
-const blogContent: Record<string, string> = {
-  "wonders-of-kenyas-great-rift-valley": `<p>The <strong>Great Rift Valley Kenya</strong> is one of the most incredible places on Earth. It's part of a massive crack in the planet's surface that runs from the Middle East all the way down through Eastern Africa. The Kenyan part of the valley is especially beautiful—and full of surprises.</p><p>Here, you'll find tall cliffs called escarpments, wide lakes, hot springs, volcanoes, and endless plains. It's a place where nature tells the story of our planet's past—and gives you plenty to explore today.</p><h2>Nature's Artwork: Lakes, Volcanoes, and More</h2><p>The landscapes of the Great Rift Valley Kenya are full of variety:</p><ul><li><strong>Lake Naivasha</strong> is peaceful and great for boat rides.</li><li><strong>Lake Nakuru</strong> often turns pink from thousands of flamingos.</li><li><strong>Lake Bogoria</strong> is known for its hot springs and geysers.</li><li><strong>Mount Longonot</strong>, an extinct volcano, offers amazing views after a good hike.</li><li><strong>Hell's Gate National Park</strong> has deep gorges and steam vents—and you can walk or cycle among wild animals!</li></ul><h2>Wildlife You Won't Forget</h2><p>While the Great Rift Valley Kenya isn't a traditional safari park, it's still packed with wildlife. Around the lakes, you'll see hippos, buffalo, zebras, giraffes, and even rhinos. Birdwatchers love this area because it's home to over 400 bird species—including pelicans, eagles, and the famous flamingos.</p><h2>Culture and People</h2><p>The valley isn't just about nature. It's also home to many Kenyan communities. The Maasai people, known for their colorful dress and rich traditions, live in parts of the Rift Valley. Visiting their villages gives you a chance to learn about their way of life, taste local food, and enjoy traditional music and dance.</p><h2>Adventure Awaits</h2><p>Whether you enjoy hiking, biking, boat rides, or photography, the Great Rift Valley Kenya has something for you. You can camp under the stars, relax by a lake, or climb a volcano for sunrise. It's a perfect stop on any Kenyan safari.</p><h2>Plan Your Visit</h2><p>The Great Rift Valley Kenya is easy to reach from Nairobi and fits well into most safari itineraries. At Simbali Wild Safaris, we can help you plan the perfect trip—whether you want a quick day visit or a longer adventure exploring the lakes and parks.</p><p><strong>Contact us today</strong> and let us take you to one of Kenya's most amazing natural wonders!</p>`,
-  "east-africa-birding-guide": `<p>A Birdwatcher's Guide to East Africa: Unveiling the Region's Avian Treasures. East Africa is a birdwatcher's paradise, bursting with life and color. From the vast savannas of Kenya to the lush forests of Uganda, this region is home to over 1,000 bird species. Whether you're a seasoned birder or a curious beginner, East Africa offers unforgettable avian encounters.</p><h2>Why East Africa for Birding?</h2><p>East Africa boasts diverse habitats—wetlands, forests, mountains, and grasslands—each supporting unique bird species. The region's equatorial climate ensures year-round birding opportunities, with migratory species adding to the excitement during certain seasons.</p><h2>Top Birding Destinations</h2><h3>Kenya</h3><ul><li><strong>Maasai Mara:</strong> Over 470 species including the lilac-breasted roller and secretary bird.</li><li><strong>Lake Nakuru:</strong> Famous for millions of flamingos and pelicans.</li><li><strong>Kakamega Forest:</strong> A rainforest haven with unique species like the great blue turaco.</li><li><strong>Amboseli National Park:</strong> Spot waterbirds with Mount Kilimanjaro as your backdrop.</li></ul><h3>Tanzania</h3><ul><li><strong>Serengeti National Park:</strong> Raptors, ostriches, and the endemic grey-breasted spurfowl.</li><li><strong>Ngorongoro Crater:</strong> A self-contained ecosystem with flamingos, crowned cranes, and more.</li><li><strong>Arusha National Park:</strong> Over 400 species in a compact, diverse park.</li></ul><h3>Uganda</h3><ul><li><strong>Bwindi Impenetrable Forest:</strong> Home to 23 Albertine Rift endemics.</li><li><strong>Queen Elizabeth National Park:</strong> Over 600 species—the highest in any African park!</li><li><strong>Murchison Falls National Park:</strong> Shoebill stork sightings and riverine birds.</li></ul><h2>Must-See Bird Species</h2><ul><li><strong>Shoebill Stork</strong> – A prehistoric-looking giant found in Uganda's wetlands.</li><li><strong>African Fish Eagle</strong> – The iconic voice of African waterways.</li><li><strong>Lilac-breasted Roller</strong> – Kenya's national bird, a rainbow of colors.</li><li><strong>Secretary Bird</strong> – A tall, elegant hunter of the savanna.</li><li><strong>Grey Crowned Crane</strong> – Uganda's national bird, graceful and endangered.</li><li><strong>Great Blue Turaco</strong> – A spectacular forest bird with vibrant plumage.</li></ul><h2>Plan Your Birding Safari</h2><p>At Simbali Wild Safaris, we specialize in tailor-made birding safaris across East Africa. Our expert guides know the best spots and can help you tick off your target species. <a href="/contact.html" class="text-olive underline">Contact us</a> to plan your ultimate birding adventure!</p>`,
-  "wildebeest-migration-an-epic-safari-adventure": `<p>The <strong>Great Wildebeest Migration</strong> is one of the most spectacular wildlife events on Earth. Every year, over 1.5 million wildebeest, accompanied by hundreds of thousands of zebras and gazelles, thunder across the Serengeti-Maasai Mara ecosystem in a never-ending cycle of life, death, and rebirth.</p><h2>The Journey of a Lifetime</h2><p>The migration follows a roughly circular route spanning approximately 1,800 miles. Driven by the search for fresh grazing and water, the herds move in a clockwise pattern through Tanzania's Serengeti and Kenya's Maasai Mara, facing countless challenges along the way.</p><h2>Best Places to Witness the Migration</h2><h3>Serengeti National Park, Tanzania</h3><ul><li><strong>January-March:</strong> Calving season in the southern Serengeti. Over 8,000 calves are born daily during the peak.</li><li><strong>April-June:</strong> The herds move north through the central and western corridors.</li><li><strong>July-October:</strong> The dramatic Mara River crossings in the northern Serengeti.</li></ul><h3>Maasai Mara National Reserve, Kenya</h3><ul><li><strong>July-October:</strong> Herds cross the Mara River into Kenya, creating the most dramatic wildlife spectacles.</li><li><strong>September-October:</strong> Prime time for river crossings and predator action.</li><li><strong>November:</strong> The herds begin their journey back to the Serengeti.</li></ul><h2>The Mara River Crossings</h2><p>The Mara River crossings are the highlight of the migration. As wildebeest plunge into crocodile-infested waters, the drama unfolds—some make it across, others fall prey to massive Nile crocodiles or drown in the stampede. It's nature at its most raw and captivating.</p><h2>Predators of the Migration</h2><p>The migration attracts Africa's most iconic predators:</p><ul><li><strong>Lions:</strong> The Mara prides are famous for their hunting prowess during migration season.</li><li><strong>Cheetahs:</strong> These speedsters take advantage of the abundance of prey.</li><li><strong>Hyenas:</strong> Scavengers and hunters alike, they follow the herds closely.</li><li><strong>Crocodiles:</strong> The ancient predators of the Mara River lie in wait for the crossings.</li></ul><h2>Responsible Tourism</h2><p>At Simbali Wild Safaris, we believe in responsible tourism that respects wildlife and supports local communities. We follow strict guidelines to minimize our impact, support conservation efforts, and ensure that the migration can be enjoyed by future generations.</p><h2>Plan Your Migration Safari</h2><p>Witnessing the Great Wildebeest Migration is a bucket-list experience. Let Simbali Wild Safaris craft your perfect migration safari—whether you want to see the calving season, the dramatic river crossings, or the full circular journey. <a href="/contact.html" class="text-olive underline">Contact us today</a> to start planning!</p>`,
+const relatedSafaris: Record<string, Array<{title: string, url: string, img: string, price: string, duration: string}>> = {
+  "wonders-of-kenyas-great-rift-valley": [
+    { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
+    { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
+  ],
+  "east-africa-birding-guide": [
+    { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
+    { title: "11-Day Kenya-Tanzania Family Safari", url: "/itineraries#kenya-tanzania-family-11", img: "/images/itin-kenya-tanzania-family.jpg", price: "From $6,730", duration: "11 Days" },
+  ],
+  "wildebeest-migration-an-epic-safari-adventure": [
+    { title: "11-Day Kenya-Tanzania Family Safari", url: "/itineraries#kenya-tanzania-family-11", img: "/images/itin-kenya-tanzania-family.jpg", price: "From $6,730", duration: "11 Days" },
+    { title: "8-Day Tanzania Honeymoon Safari", url: "/itineraries#tanzania-honeymoon-8", img: "/images/itin-tanzania-honeymoon.jpg", price: "From $5,620", duration: "8 Days" },
+  ],
+};
+
+const blogContent: Record<string, Array<{type: 'text' | 'h2' | 'h3' | 'image' | 'quote' | 'list', content?: string, items?: string[], src?: string, alt?: string, caption?: string}>> = {
+  "wonders-of-kenyas-great-rift-valley": [
+    { type: 'text', content: "The <strong>Great Rift Valley Kenya</strong> is one of the most extraordinary places on Earth. Stretching over 6,000 kilometers from the Middle East to Mozambique, this massive trench system is visible from space — a dramatic scar across the African continent that reveals our planet's raw, restless power. In Kenya, the Rift Valley opens into a spectacular landscape of escarpments, lakes, volcanoes, and endless plains that few travellers ever forget." },
+    { type: 'image', src: "/images/flamingos-heart-about-simbali-wild-safaris_About.jpg", alt: "Thousands of pink flamingos on the shores of Lake Nakuru", caption: "Lake Nakuru's famous flamingo colonies create a sea of pink against the blue waters" },
+    { type: 'h2', content: "The Great Rift Valley's Natural Wonders" },
+    { type: 'text', content: "What makes the Great Rift Valley Kenya so captivating is its sheer diversity. Within a few hours' drive, you can move from volcanic summits to freshwater lakes, from dense forests to open savannah. Each landscape tells a different story of geological time." },
+    { type: 'h3', content: "Lake Naivasha: A Freshwater Paradise" },
+    { type: 'text', content: "At 1,884 metres above sea level, <strong>Lake Naivasha</strong> is the highest lake in the Great Rift Valley. Its freshwater shores are lined with papyrus and yellow fever trees, creating a haven for over 400 bird species. Take a boat ride at dawn and you'll glide past pods of hippos, fish eagles diving for tilapia, and kingfishers flashing electric blue. The lake's calm waters reflect the surrounding hills like a mirror — it's one of the most photogenic spots in Kenya." },
+    { type: 'h3', content: "Lake Nakuru: The Pink Lake" },
+    { type: 'text', content: "<strong>Lake Nakuru</strong> is famous worldwide for its flamingo populations. At peak times, over a million lesser flamingos gather on its alkaline shores, creating a shimmering pink carpet that stretches to the horizon. But Nakuru is more than flamingos — it's a rhino sanctuary where both black and white rhinos roam freely. The park also hosts lions, leopards, buffalos, and the rare Rothschild's giraffe." },
+    { type: 'image', src: "/images/hippos-river-safari-simbali-wild-safaris.jpg", alt: "Hippos in the water at Lake Naivasha with papyrus reeds in the background", caption: "Hippos are a common sight on Lake Naivasha's boat safaris" },
+    { type: 'h3', content: "Hell's Gate National Park: Walk Among Wildlife" },
+    { type: 'text', content: "Unlike most Kenyan parks, <strong>Hell's Gate National Park</strong> allows you to walk and cycle among wildlife. Named after a narrow break in the cliffs that was once a tributary of a prehistoric lake, the park features towering red cliffs, hot springs, and geothermal steam vents. As you cycle past grazing zebras and giraffes with the dramatic Fischer's Tower in the background, you'll understand why this landscape inspired the settings of <em>The Lion King</em>." },
+    { type: 'h3', content: "Mount Longonot: The Ultimate Hike" },
+    { type: 'text', content: "For adventurous travellers, <strong>Mount Longonot</strong> offers one of Kenya's most rewarding day hikes. This dormant volcano rises dramatically from the valley floor to 2,776 metres. The 3-4 hour trek to the crater rim rewards you with panoramic views of the entire Rift Valley — the shimmering lake, the dramatic escarpment, and the vast Kenyan plains stretching to the horizon. For the truly fit, a full circuit of the crater rim adds another hour of spectacular walking." },
+    { type: 'quote', content: "Standing on the rim of Mount Longonot, watching the sunrise paint the Rift Valley in shades of gold and crimson, is one of those moments that stays with you forever." },
+    { type: 'h2', content: "Wildlife of the Rift Valley" },
+    { type: 'text', content: "While the Great Rift Valley Kenya isn't a traditional 'Big Five' safari destination, its wildlife is extraordinary in its own right. The lakes attract massive congregations of waterbirds — pelicans, cormorants, herons, and storks in their thousands. The surrounding grasslands support buffalos, zebras, giraffes, and impalas. And in the more rugged terrain, you might spot leopards, baboons, and the elusive aardvark." },
+    { type: 'image', src: "/images/elephant-herd-waterhole-safari-simbali-wild-safaris.jpg", alt: "Elephant herd gathered at a waterhole in the Rift Valley region", caption: "Elephants are frequently spotted in the Rift Valley's protected areas" },
+    { type: 'h2', content: "Maasai Culture and the Rift Valley" },
+    { type: 'text', content: "The Great Rift Valley has been home to the <strong>Maasai people</strong> for centuries. These iconic pastoralists have adapted to the valley's harsh environment, developing a rich culture centred around cattle, warrior traditions, and deep spiritual connections to the land. Visiting a Maasai village offers an authentic cultural experience — you'll learn about traditional beadwork, sample roasted meat and sour milk, and witness the famous jumping dances that have become synonymous with Kenyan culture." },
+    { type: 'h2', content: "Best Time to Visit the Great Rift Valley" },
+    { type: 'text', content: "The Great Rift Valley Kenya can be visited year-round, but the best experiences come with a little planning. <strong>July to October</strong> offers the clearest skies and most comfortable temperatures — perfect for hiking Mount Longonot and cycling Hell's Gate. <strong>November to March</strong> brings migratory birds, making it prime time for birdwatchers. The flamingo populations at Lake Nakuru are most impressive during the dry months when water levels concentrate the algae they feed on." },
+    { type: 'h2', content: "Plan Your Rift Valley Adventure" },
+    { type: 'text', content: "The Great Rift Valley Kenya deserves at least 2-3 days to explore properly. Most visitors combine it with a longer safari itinerary that includes the Maasai Mara or Amboseli. At Simbali Wild Safaris, we can design a custom Rift Valley experience that includes all the highlights — or craft a longer journey that weaves the valley into your broader Kenyan adventure. <a href=\"/contact\" class=\"text-olive underline font-semibold\">Contact our team</a> to start planning." },
+  ],
+  "east-africa-birding-guide": [
+    { type: 'text', content: "With over <strong>1,400 bird species</strong> recorded across Kenya, Tanzania, and Uganda, East Africa is quite simply one of the greatest birding destinations on the planet. From the vast savannas of the Serengeti to the misty forests of Bwindi, the region's extraordinary habitat diversity creates endless opportunities for unforgettable avian encounters. Whether you're a dedicated birder chasing lifers or a safari enthusiast who appreciates the feathered inhabitants of the bush, this guide will help you plan the ultimate East African birding adventure." },
+    { type: 'image', src: "/images/coastal-seabirds-flight-simbali-wild-safaris_Slide_2.jpg", alt: "Coastal seabirds in flight over turquoise waters", caption: "East Africa's coastline hosts remarkable seabird colonies" },
+    { type: 'h2', content: "Why East Africa is a Birding Paradise" },
+    { type: 'text', content: "East Africa's position astride the equator gives it a unique climatic stability that supports an incredible range of habitats. Within a single safari circuit, you can bird in montane forests, alkaline lakes, savannah grasslands, papyrus swamps, coastal mangroves, and acacia woodlands. This habitat diversity directly translates to species diversity — Kenya alone has recorded over 1,100 species, representing roughly 11% of all bird species on Earth." },
+    { type: 'h2', content: "Top Birding Destinations" },
+    { type: 'h3', content: "Lake Nakuru National Park: The Flamingo Capital" },
+    { type: 'text', content: "<strong>Lake Nakuru</strong> is perhaps East Africa's most famous birding destination. At peak times, over a million lesser flamingos transform the lake's surface into a shimmering pink carpet. But there's so much more here — great white pelicans fish in coordinated squadrons, fish eagles launch spectacular dives, and the surrounding woodland hosts over 450 species including the long-crested eagle, maccoa duck, and grey-headed gull." },
+    { type: 'h3', content: "Maasai Mara: Raptors and Grassland Specials" },
+    { type: 'text', content: "The <strong>Maasai Mara</strong> isn't just about the Big Five. Over 470 bird species have been recorded here, making it one of Kenya's most productive birding areas. The open grasslands are perfect for spotting raptors — bateleur eagles, martial eagles, and secretary birds patrol the skies. The Mara's riverine forests host Ross's turaco, Schalow's wheatear, and the Jackson's widowbird with its extraordinary tail feathers." },
+    { type: 'image', src: "/images/zebras-savanna-safari-simbali-wild-safaris.jpg", alt: "Zebras and birds coexisting on the African savannah", caption: "The savannah's open plains make raptor spotting a delight" },
+    { type: 'h3', content: "Serengeti National Park: Tanzania's Avian Treasure" },
+    { type: 'text', content: "The <strong>Serengeti</strong> offers a different birding experience — vast open plains where you can spot Kori bustards (the world's heaviest flying bird), ostriches, and the endemic grey-breasted spurfowl. The kopjes (rock outcrops) are excellent for raptors, while the Grumeti River area hosts a remarkable diversity of waterbirds. During the wet season (November-May), the plains fill with migratory species from Europe and Asia." },
+    { type: 'h3', content: "Bwindi Impenetrable Forest: Albertine Rift Endemics" },
+    { type: 'text', content: "For serious birders, <strong>Bwindi Impenetrable Forest</strong> in Uganda is a must-visit. This ancient rainforest is home to 23 Albertine Rift endemics — species found nowhere else on Earth. Highlights include the African green broadbill, Shelley's crimsonwing, and the handsome francolin. While the mountain gorillas get all the attention, Bwindi's birdlife is equally extraordinary." },
+    { type: 'h2', content: "10 Must-See Bird Species" },
+    { type: 'list', items: [
+      "<strong>Shoebill Stork</strong> — A prehistoric-looking giant standing 1.5m tall, found in Uganda's Mabamba Swamp. One of Africa's most sought-after birds.",
+      "<strong>African Fish Eagle</strong> — East Africa's iconic raptor, famous for its haunting call. Seen on virtually every lake and river.",
+      "<strong>Lilac-breasted Roller</strong> — Kenya's national bird, a kaleidoscope of blue, green, and lilac. Photogenic and common in open country.",
+      "<strong>Secretary Bird</strong> — A magnificent ground-dwelling raptor that hunts snakes on foot. Best seen in the Maasai Mara and Serengeti.",
+      "<strong>Saddle-billed Stork</strong> — Africa's tallest stork with a spectacular red, black and yellow bill. Found around wetlands.",
+      "<strong>Great Blue Turaco</strong> — A large, iridescent forest bird that looks like it's escaped from a tropical painting. Kakamega Forest is the place.",
+      "<strong>Marabou Stork</strong> — The 'undertaker bird' with its bald pink head and massive wingspan. Often seen around wildebeest kills.",
+      "<strong>Superb Starling</strong> — Common but stunning, with iridescent blue-green plumage and a chestnut belly. You'll see hundreds.",
+      "<strong>Horus Swift</strong> — Nests in old termite mounds, a fascinating ecological relationship. Active at dawn and dusk.",
+      "<strong>African Jacana</strong> — The 'Jesus bird' that walks on lily pads using its extraordinarily long toes. Found on freshwater lakes.",
+    ]},
+    { type: 'h2', content: "Birding Tips for East Africa" },
+    { type: 'text', content: "<strong>Best months:</strong> November to April is peak birding season — resident species are in breeding plumage and migratory birds from Europe and Asia arrive. <strong>Early mornings</strong> are essential — birds are most active from 6:30-10:00 AM. <strong>Bring good binoculars</strong> (8x42 or 10x42) and a field guide. <strong>Hire a specialist birding guide</strong> — local knowledge makes an enormous difference. And remember, the best birding often happens during the 'quiet' parts of a game drive — when you're between Big Five sightings, look up!" },
+    { type: 'h2', content: "Combine Birding with Your Safari" },
+    { type: 'text', content: "The beauty of East African birding is that it integrates perfectly with a traditional safari. Every game drive becomes a birding opportunity. At Simbali Wild Safaris, our guides are trained naturalists who can identify species on the fly and know exactly where to find the specialties. <a href=\"/contact\" class=\"text-olive underline font-semibold\">Let us design a birding-focused safari</a> that combines the best of both worlds — spectacular wildlife and extraordinary avian diversity." },
+  ],
+  "wildebeest-migration-an-epic-safari-adventure": [
+    { type: 'text', content: "There are wildlife spectacles, and then there's the <strong>Great Wildebeest Migration</strong>. Over 1.5 million wildebeest, accompanied by roughly 200,000 zebras and 400,000 gazelles, thunder across the Serengeti-Maasai Mara ecosystem in an endless clockwise cycle driven by rainfall and the search for fresh grazing. It's the largest overland mammal migration on Earth, and witnessing it is a life-defining experience that no nature documentary can truly prepare you for." },
+    { type: 'image', src: "/images/wildebeest-migration-herd-safari_blog.jpg", alt: "Massive herd of wildebeest stretching across the golden Serengeti plains", caption: "The sheer scale of the migration — over 1.5 million animals on the move" },
+    { type: 'h2', content: "Understanding the Migration Cycle" },
+    { type: 'text', content: "The migration follows a roughly circular route of approximately 1,800 miles, shaped by the seasonal rains. It's not a single event but a continuous year-round cycle of birth, grazing, river crossings, and return. Understanding this cycle is key to planning your migration safari." },
+    { type: 'h3', content: "January - March: Calving Season (Southern Serengeti)" },
+    { type: 'text', content: "The year begins in the <strong>southern Serengeti</strong>, where half a million wildebeest females give birth over a three-week period in February. The Ndutu plains become a nursery, with wobbly calves taking their first steps amid the endless sea of animals. This is predator paradise — lions, cheetahs, and hyenas patrol the calving grounds, and the drama of a hunt is virtually guaranteed. If you want to see the migration at its most tender and dramatic, this is your season." },
+    { type: 'h3', content: "April - June: The Long March North (Western Corridor)" },
+    { type: 'text', content: "As the southern plains dry out, the herds begin their long march northward through the <strong>western corridor</strong> of the Serengeti. This is the least crowded time to visit, and the landscapes are lush and green after the rains. The herds move in long columns that stretch to the horizon — a sight of extraordinary scale and organization." },
+    { type: 'h3', content: "July - October: The River Crossings (Northern Serengeti & Mara)" },
+    { type: 'text', content: "This is the <strong>main event</strong>. The herds mass on the banks of the Mara River, building up the courage to cross. When they finally do, it's chaos — thousands of animals plunging into crocodile-infested waters, the current sweeping away the weak, predators waiting on the opposite bank. The Grumeti River crossings in the western Serengeti (June-July) and the Mara River crossings in the north (July-October) are the most dramatic wildlife spectacles on Earth." },
+    { type: 'image', src: "/images/lions-safari-vehicle-simbali-wild-safaris.jpg", alt: "Lion pride resting near a safari vehicle in the Maasai Mara", caption: "The migration attracts Africa's greatest predators — lion prides follow the herds closely" },
+    { type: 'h3', content: "November - December: The Return (Southern Serengeti)" },
+    { type: 'text', content: "The short rains arrive and the herds begin their journey back south to the Ndutu plains, completing the cycle. This is a beautiful time to visit — the landscapes are green, the crowds have thinned, and the herds are spread across the eastern and southern Serengeti." },
+    { type: 'h2', content: "The Predators of the Migration" },
+    { type: 'text', content: "Where there are 1.5 million wildebeest, there are predators — and lots of them. The migration supports one of the highest densities of large predators anywhere on Earth." },
+    { type: 'list', items: [
+      "<strong>Lions:</strong> The Mara prides are legendary. During migration season, they feast almost exclusively on wildebeest. Pride sizes swell as nomadic males join the feast.",
+      "<strong>Cheetahs:</strong> The open plains of the Serengeti are cheetah country. These speed specialists target calves and isolated individuals.",
+      "<strong>Hyenas:</strong> Often misunderstood, spotted hyenas are incredibly successful hunters. Their clans can number 100+ individuals during the migration.",
+      "<strong>Crocodiles:</strong> The massive Nile crocodiles of the Mara River have waited all year for this moment. Some individuals exceed 5 metres and can take down full-grown wildebeest.",
+      "<strong>Leopards:</strong> More secretive, but the riverine forests along the Mara attract leopards that ambush animals coming to drink.",
+    ]},
+    { type: 'h2', content: "Where to Stay for the Migration" },
+    { type: 'text', content: "Location is everything for a migration safari. You want to be in the right place at the right time — and that changes throughout the year. In the southern Serengeti (January-March), camps around Ndutu and Kusini put you in the heart of the calving action. For the river crossings (July-October), northern Serengeti camps near Kogatende and the Mara River offer front-row seats. On the Kenyan side, camps in the Maasai Mara provide excellent access to the herds from July through October." },
+    { type: 'quote', content: "Nothing prepares you for the sound of a million hooves, the dust rising like a curtain, and the raw, beautiful chaos of a river crossing. It's nature's greatest show, and you're in the front row." },
+    { type: 'h2', content: "Photographing the Migration" },
+    { type: 'text', content: "The migration is a photographer's dream — but it demands preparation. <strong>Bring a telephoto lens</strong> (at least 200mm, ideally 400-600mm) for river crossing action. <strong>A wide-angle lens</strong> captures the scale of the herds. <strong>Fast shutter speeds</strong> (1/2000+) freeze the chaos of a crossing. <strong>Patience is essential</strong> — the best crossings often require hours of waiting. Our guides know the best vantage points and will position you for the perfect shot." },
+    { type: 'h2', content: "Plan Your Migration Safari" },
+    { type: 'text', content: "A migration safari requires expert planning. The herds don't follow a schedule, and being in the right place at the right time makes all the difference. At Simbali Wild Safaris, we track the migration throughout the year and can advise you on the best timing, camps, and itinerary for your specific interests. Whether you want to witness the drama of a river crossing, the tenderness of the calving season, or the sheer scale of the marching herds, we'll design the perfect migration experience. <a href=\"/contact\" class=\"text-olive underline font-semibold\">Contact us to start planning your migration safari</a>." },
+  ],
 };
 
 const { slug } = Astro.params;
 const { post } = Astro.props;
-const content = blogContent[slug] || "";
+const content = blogContent[slug] || [];
+const related = relatedSafaris[slug] || [];
+const allSlugs = ["wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
+const otherSlugs = allSlugs.filter(s => s !== slug);
 ---
 
-<MainLayout title={`${post.title} | Simbali Wild Safaris Blog`}>
-  <section class="py-10 bg-sage/40 min-h-[80vh]">
-    <div class="container-main max-w-3xl">
-      <article class="bg-white rounded-2xl p-8 md:p-12">
-        <div class="text-center mb-8">
-          <div class="text-[#999] text-sm mb-4">By Sam / April 17, 2025</div>
-          <h1 class="font-belleza text-3xl md:text-4xl leading-snug tracking-[0.1em] uppercase">{post.title}</h1>
+<MainLayout
+  title={`${post.title} | Simbali Wild Safaris Blog`}
+  description={post.description}
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://simbaliwildsafaris.com/blog/${slug}/`} />
+    <meta property="og:title" content={`${post.title} | Simbali Wild Safaris`} />
+    <meta property="og:description" content={post.description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={`https://simbaliwildsafaris.com/blog/${slug}/`} />
+    <meta property="og:image" content={`https://simbaliwildsafaris.com${post.img}`} />
+    <meta property="article:published_time" content={post.date} />
+    <meta property="article:section" content={post.cat} />
+    {post.tags.map(tag => <meta property="article:tag" content={tag} />)}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.description,
+      "image": `https://simbaliwildsafaris.com${post.img}`,
+      "datePublished": post.date,
+      "author": { "@type": "Person", "name": post.author || "Sam Mwangi" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Simbali Wild Safaris",
+        "logo": { "@type": "ImageObject", "url": "https://simbaliwildsafaris.com/images/simbali-favicon.png" }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://simbaliwildsafaris.com/blog/${slug}/`
+      }
+    })} />
+  </Fragment>
+
+  {/* Hero */}
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src={post.img} alt={post.imgAlt} class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/50" />
+    </div>
+    <div class="relative container-main py-20 md:py-28">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="flex items-center justify-center gap-3 text-white/70 text-sm mb-4">
+          <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">{post.cat}</span>
+          <span>{post.date}</span>
+          <span>/</span>
+          <span>{post.readTime}</span>
         </div>
-        <img src={post.img} alt="" class="w-full rounded-xl mb-8 h-[380px] object-cover" />
-        <div class="prose-blog" set:html={content} />
+        <h1 class="font-belleza text-3xl md:text-5xl tracking-[0.08em] uppercase text-white leading-tight mb-4">{post.title}</h1>
+        <p class="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">{post.description}</p>
+      </div>
+    </div>
+  </section>
+
+  {/* Article */}
+  <section class="py-16 bg-white">
+    <div class="container-main max-w-4xl">
+      <article class="prose-blog max-w-none">
+        {content.map((block, i) => {
+          if (block.type === 'h2') return <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.08em] uppercase mt-12 mb-5 text-[#1a1a1a]" set:html={block.content} />;
+          if (block.type === 'h3') return <h3 class="font-belleza text-xl md:text-2xl tracking-[0.06em] uppercase mt-8 mb-4 text-[#1a1a1a]" set:html={block.content} />;
+          if (block.type === 'text') return <p class="text-[#444] leading-[1.8] mb-5 text-[15px]" set:html={block.content} />;
+          if (block.type === 'quote') return (
+            <blockquote class="border-l-4 border-olive bg-sage/20 pl-6 pr-4 py-5 my-8 rounded-r-xl">
+              <p class="text-[#555] italic text-lg leading-relaxed">"{block.content}"</p>
+            </blockquote>
+          );
+          if (block.type === 'list') return (
+            <ul class="space-y-3 mb-6">
+              {block.items?.map(item => <li class="text-[#444] text-[15px] leading-[1.8] flex items-start gap-3"><span class="text-olive flex-shrink-0 mt-1.5 text-xs">&#9654;</span><span set:html={item} /></li>)}
+            </ul>
+          );
+          if (block.type === 'image') return (
+            <figure class="my-8">
+              <img src={block.src} alt={block.alt} class="w-full h-64 md:h-80 object-cover rounded-xl" />
+              {block.caption && <figcaption class="text-center text-[#999] text-sm mt-2 italic">{block.caption}</figcaption>}
+            </figure>
+          );
+          return null;
+        })}
       </article>
+
+      {/* Tags */}
+      <div class="flex flex-wrap gap-2 mt-10 pt-8 border-t border-gray-100">
+        {post.tags.map(tag => <span class="text-xs text-[#666] bg-[#f5f7f3] px-3 py-1.5 rounded-full">{tag}</span>)}
+      </div>
+    </div>
+  </section>
+
+  {/* Related Safaris */}
+  {related.length > 0 && (
+    <section class="py-16 bg-sage/20">
+      <div class="container-main max-w-4xl">
+        <h2 class="font-belleza text-2xl tracking-[0.1em] uppercase mb-8 text-center">Related Safari Itineraries</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {related.map(safari => (
+            <a href={safari.url} class="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col">
+              <div class="relative overflow-hidden h-48">
+                <img src={safari.img} alt={safari.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-olive text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full">{safari.duration}</div>
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-belleza text-lg tracking-[0.06em] uppercase mb-1">{safari.title}</h3>
+                <p class="text-olive font-semibold text-sm">{safari.price}</p>
+                <span class="text-olive text-xs font-semibold mt-3 group-hover:underline inline-flex items-center gap-1">View Itinerary <span>&rarr;</span></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/* More Stories */}
+  <section class="py-16 bg-white">
+    <div class="container-main max-w-4xl">
+      <h2 class="font-belleza text-2xl tracking-[0.1em] uppercase mb-8 text-center">More Safari Stories</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {otherSlugs.map(otherSlug => {
+          const otherPosts = {
+            "wonders-of-kenyas-great-rift-valley": { title: "Wonders of Kenya's Great Rift Valley", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", excerpt: "Discover dramatic escarpments, flamingo-filled lakes and volcanic craters." },
+            "east-africa-birding-guide": { title: "East Africa Birding Guide", img: "/images/raptor-bird-flying-clear-sky_blog.jpg", excerpt: "Over 1,400 bird species across Kenya, Tanzania and Uganda." },
+            "wildebeest-migration-an-epic-safari-adventure": { title: "The Great Wildebeest Migration", img: "/images/wildebeest-river-crossing-safari-migration_blog.jpg", excerpt: "Witness 1.5 million wildebeest thunder across the Serengeti-Maasai Mara." },
+          };
+          const op = otherPosts[otherSlug];
+          return (
+            <a href={`/blog/${otherSlug}`} class="group flex gap-4 items-start hover:bg-sage/10 p-3 rounded-xl transition-colors">
+              <img src={op.img} alt={op.title} class="w-24 h-24 rounded-lg object-cover flex-shrink-0 group-hover:scale-105 transition-transform" />
+              <div>
+                <h3 class="font-belleza text-base tracking-[0.06em] uppercase leading-snug mb-1 group-hover:text-olive transition-colors">{op.title}</h3>
+                <p class="text-[#777] text-sm leading-relaxed">{op.excerpt}</p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="py-20 bg-olive">
+    <div class="container-main text-center">
+      <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.1em] uppercase text-white mb-4">Ready to Experience This?</h2>
+      <p class="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
+        Let Simbali Wild Safaris craft your perfect African adventure. From the Great Migration to the Great Rift Valley, we'll design a journey you'll never forget.
+      </p>
+      <a href="/contact" class="btn-primary bg-white text-olive hover:bg-sage inline-flex">Plan Your Safari</a>
     </div>
   </section>
 </MainLayout>

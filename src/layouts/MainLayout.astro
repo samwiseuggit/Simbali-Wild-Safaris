@@ -14,6 +14,9 @@ const { title, description } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
+  <Fragment slot="head">
+    <slot name="head" />
+  </Fragment>
   <div class="min-h-screen flex flex-col">
     <TopBar />
     <Header currentPath={Astro.url.pathname} />

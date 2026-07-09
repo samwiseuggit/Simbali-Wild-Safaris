@@ -84,7 +84,7 @@ function ItineraryCard({ itin }) {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <span className="text-xs text-[#999] text-center sm:text-left">{itin.pricingNote}</span>
             <a
-              href={`/itineraries.html#${itin.id}`}
+              href={`/itineraries#${itin.id}`}
               className="text-xs text-olive font-semibold hover:underline text-center sm:text-right whitespace-nowrap"
             >
               View Full Itinerary &rarr;
@@ -201,7 +201,7 @@ export default function ItinerariesSection() {
 
         <div className="text-center mt-8">
           <a
-            href="/itineraries.html"
+            href="/itineraries"
             className="btn-primary inline-flex text-sm sm:text-base"
           >
             View All Itineraries

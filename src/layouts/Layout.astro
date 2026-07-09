@@ -18,7 +18,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site || 'https://simbaliwild
     <link rel="icon" type="image/png" href="/images/simbali-favicon.png" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <meta property="og:site_name" content="Simbali Wild Safaris" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@simbalisafaris" />
     <title>{title}</title>
+    <slot name="head" />
   </head>
   <body class="font-work">
     <slot />

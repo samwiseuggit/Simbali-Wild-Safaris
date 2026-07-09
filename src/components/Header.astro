@@ -10,10 +10,10 @@ const { currentPath } = Astro.props;
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about.html", label: "About" },
-  { href: "/services.html", label: "Services" },
-  { href: "/itineraries.html", label: "Itineraries" },
-  { href: "/blog.html", label: "Blog" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/itineraries", label: "Itineraries" },
+  { href: "/blog", label: "Blog" },
 ];
 
 const isActive = (href: string) => {
@@ -46,7 +46,7 @@ const isActive = (href: string) => {
           {link.label}
         </a>
       ))}
-      <a href="/contact.html" class="btn-primary text-base">Start Your Journey</a>
+      <a href="/contact" class="btn-primary text-base">Start Your Journey</a>
     </nav>
     <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menu">
       <svg width="24" height="24" fill="none" stroke="#444" stroke-width="2">
@@ -59,7 +59,7 @@ const isActive = (href: string) => {
       {navLinks.map(link => (
         <a href={link.href} class={`text-base font-normal transition-colors hover:text-olive ${isActive(link.href) ? "text-olive" : "text-[#444]"}`}>{link.label}</a>
       ))}
-      <a href="/contact.html" class="btn-primary w-fit">Start Your Journey</a>
+      <a href="/contact" class="btn-primary w-fit">Start Your Journey</a>
     </div>
   </div>
 </header>

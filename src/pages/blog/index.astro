@@ -2,36 +2,166 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 
 const posts = [
-  { slug: "wonders-of-kenyas-great-rift-valley", title: "Wonders of Kenya's Great Rift Valley", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", cat: "Safari", author: "Sam", excerpt: "Great Rift Valley Kenya: Nature, Culture & Adventure The Great Rift Valley Kenya is one of the most incredible places [...]" },
-  { slug: "east-africa-birding-guide", title: "East Africa Birding Guide: Best Spots, Species & Travel Tips", img: "/images/raptor-bird-flying-clear-sky_blog.jpg", cat: "Safari", author: "Sam", excerpt: "A Birdwatcher's Guide to East Africa: Unveiling the Region's Avian Treasures East Africa is a birdwatcher's paradise, bursting with life" },
-  { slug: "wildebeest-migration-an-epic-safari-adventure", title: "Wildebeest Migration: An Epic Safari Adventure", img: "/images/wildebeest-river-crossing-safari-migration_blog.jpg", cat: "Safari", author: "Sam", excerpt: "Witness the Great Wildebeest Migration, an epic African safari. Explore the Serengeti and Maasai Mara, see dramatic river crossings, and learn about responsible tourism." },
+  {
+    slug: "wonders-of-kenyas-great-rift-valley",
+    title: "Wonders of Kenya's Great Rift Valley: Nature, Culture & Adventure",
+    img: "/images/serene-lakeside-mountain-landscape_blog.jpg",
+    imgs: ["/images/flamingos-heart-about-simbali-wild-safaris_About.jpg", "/images/hippos-river-safari-simbali-wild-safaris.jpg"],
+    cat: "Destinations",
+    author: "Sam Mwangi",
+    date: "June 15, 2025",
+    readTime: "8 min read",
+    excerpt: "Discover one of Earth's most dramatic landscapes — the Great Rift Valley Kenya. From flamingo-filled lakes to volcanic craters, this is where nature's raw power meets timeless beauty.",
+    tags: ["Kenya", "Great Rift Valley", "Lake Nakuru", "Lake Naivasha", "Adventure"],
+  },
+  {
+    slug: "east-africa-birding-guide",
+    title: "East Africa Birding Guide: Best Spots, Species & Travel Tips",
+    img: "/images/raptor-bird-flying-clear-sky_blog.jpg",
+    imgs: ["/images/coastal-seabirds-flight-simbali-wild-safaris_Slide_2.jpg", "/images/zebras-savanna-safari-simbali-wild-safaris.jpg"],
+    cat: "Wildlife",
+    author: "Sam Mwangi",
+    date: "May 22, 2025",
+    readTime: "10 min read",
+    excerpt: "With over 1,000 bird species across diverse habitats, East Africa is a birdwatcher's paradise. Our guide reveals the best parks, must-see species, and when to visit.",
+    tags: ["Birding", "East Africa", "Serengeti", "Maasai Mara", "Wildlife"],
+  },
+  {
+    slug: "wildebeest-migration-an-epic-safari-adventure",
+    title: "The Great Wildebeest Migration: An Epic Safari Adventure",
+    img: "/images/wildebeest-river-crossing-safari-migration_blog.jpg",
+    imgs: ["/images/wildebeest-migration-herd-safari_blog.jpg", "/images/lions-safari-vehicle-simbali-wild-safaris.jpg"],
+    cat: "Safari",
+    author: "Sam Mwangi",
+    date: "April 17, 2025",
+    readTime: "12 min read",
+    excerpt: "Over 1.5 million wildebeest thunder across the Serengeti-Maasai Mara ecosystem in nature's greatest spectacle. Here's everything you need to witness it.",
+    tags: ["Migration", "Serengeti", "Maasai Mara", "Big Five", "Safari"],
+  },
 ];
 ---
 
-<MainLayout title="Blog | Simbali Wild Safaris">
-  <section class="bg-sage/60 pt-20 pb-16">
-    <div class="container-main">
-      <div class="accent-line" />
-      <h1 class="font-belleza text-4xl md:text-5xl max-w-2xl tracking-[0.1em] uppercase">Explore Africa&apos;s Wild Wonders with Simba</h1>
+<MainLayout
+  title="Simbali Wild Safaris Blog | Safari Stories, Wildlife Guides & Travel Tips"
+  description="Explore Africa through our expert safari blog. Discover wildlife guides, destination insights, migration updates, and travel tips from East Africa's leading safari company."
+>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://simbaliwildsafaris.com/blog/" />
+    <meta property="og:title" content="Simbali Wild Safaris Blog | Safari Stories & Travel Tips" />
+    <meta property="og:description" content="Expert safari stories, wildlife guides, and travel tips from East Africa's leading safari company." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://simbaliwildsafaris.com/blog/" />
+    <meta property="og:image" content="https://simbaliwildsafaris.com/images/wildebeest-river-crossing-safari-migration_blog.jpg" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Simbali Wild Safaris Blog",
+      "description": "Safari stories, wildlife guides, and travel tips from East Africa",
+      "url": "https://simbaliwildsafaris.com/blog/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Simbali Wild Safaris",
+        "logo": { "@type": "ImageObject", "url": "https://simbaliwildsafaris.com/images/simbali-favicon.png" }
+      }
+    })} />
+  </Fragment>
+
+  {/* Hero */}
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/wildebeest-river-crossing-safari-migration_blog.jpg" alt="Great Wildebeest Migration" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-black/50" />
+    </div>
+    <div class="relative container-main py-24 md:py-32">
+      <div class="max-w-3xl">
+        <div class="accent-line mb-6" />
+        <h1 class="font-belleza text-4xl md:text-6xl tracking-[0.1em] uppercase text-white leading-tight mb-4">
+          Safari Stories &<br />Travel Insights
+        </h1>
+        <p class="text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl">
+          Explore Africa through expert wildlife guides, destination deep-dives, and stories from the bush. Curated by the team at Simbali Wild Safaris.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section class="py-16 bg-sage/40">
+  {/* Featured Post */}
+  <section class="py-16 bg-white">
     <div class="container-main">
-      <div class="grid md:grid-cols-3 gap-7">
-        {posts.map(post => (
-          <article class="bg-white rounded-xl overflow-hidden hover:-translate-y-1 transition-transform">
-            <img src={post.img} alt={post.title} class="w-full h-56 object-cover" />
-            <div class="p-6">
-              <div class="text-olive text-xs font-semibold tracking-wider mb-2">{post.cat}</div>
-              <h3 class="font-belleza text-xl mb-2 leading-snug">{post.title}</h3>
-              <div class="text-[#999] text-xs mb-3"><span class="text-olive">{post.cat}</span> / {post.author}</div>
-              <p class="text-[#555] text-sm leading-relaxed mb-4">{post.excerpt}</p>
-              <a href={`/blog-${post.slug}`} class="text-olive text-sm font-semibold hover:underline">Read Post &raquo;</a>
+      <div class="grid lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative h-72 lg:h-auto">
+          <img src={posts[0].img} alt={posts[0].title} class="w-full h-full object-cover" />
+          <div class="absolute top-4 left-4">
+            <span class="bg-olive text-white text-[11px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full">Featured</span>
+          </div>
+        </div>
+        <div class="p-8 md:p-12 flex flex-col justify-center">
+          <div class="flex items-center gap-3 text-sm text-[#999] mb-3">
+            <span class="text-olive font-semibold">{posts[0].cat}</span>
+            <span>/</span>
+            <span>{posts[0].date}</span>
+            <span>/</span>
+            <span>{posts[0].readTime}</span>
+          </div>
+          <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.06em] uppercase leading-tight mb-4">{posts[0].title}</h2>
+          <p class="text-[#555] leading-relaxed mb-6">{posts[0].excerpt}</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            {posts[0].tags.map(tag => <span class="text-[11px] text-[#666] bg-[#f5f7f3] px-3 py-1 rounded-full">{tag}</span>)}
+          </div>
+          <a href={`/blog/${posts[0].slug}`} class="btn-primary w-fit">Read Full Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* All Posts Grid */}
+  <section class="py-16 bg-sage/20">
+    <div class="container-main">
+      <div class="flex items-center justify-between mb-10">
+        <div>
+          <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.1em] uppercase">Latest Stories</h2>
+          <p class="text-[#777] text-sm mt-1">Wildlife guides, travel tips, and safari inspiration</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post, i) => (
+          <article class="bg-white rounded-xl overflow-hidden border border-gray-100 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 flex flex-col">
+            <div class="relative overflow-hidden">
+              <img src={post.img} alt={post.title} class="w-full h-56 object-cover hover:scale-105 transition-transform duration-500" />
+              <div class="absolute top-3 left-3">
+                <span class="bg-white/90 backdrop-blur text-olive text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full">{post.cat}</span>
+              </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 text-[11px] text-[#999] mb-3">
+                <span>{post.date}</span>
+                <span>/</span>
+                <span>{post.readTime}</span>
+              </div>
+              <h3 class="font-belleza text-lg tracking-[0.06em] uppercase leading-snug mb-3">{post.title}</h3>
+              <p class="text-[#555] text-sm leading-relaxed mb-4 flex-1">{post.excerpt}</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                {post.tags.slice(0, 3).map(tag => <span class="text-[10px] text-[#888] bg-[#f5f7f3] px-2 py-0.5 rounded-full">{tag}</span>)}
+              </div>
+              <a href={`/blog/${post.slug}`} class="text-olive text-sm font-semibold hover:underline inline-flex items-center gap-1">
+                Read Story <span>&rarr;</span>
+              </a>
             </div>
           </article>
         ))}
       </div>
+    </div>
+  </section>
+
+  {/* Newsletter CTA */}
+  <section class="py-20 bg-olive">
+    <div class="container-main text-center">
+      <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.1em] uppercase text-white mb-4">Plan Your Dream Safari</h2>
+      <p class="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
+        Inspired by our stories? Let us craft your perfect African adventure. From the Great Migration to hidden gems, we'll design a journey you'll never forget.
+      </p>
+      <a href="/contact" class="btn-primary bg-white text-olive hover:bg-sage inline-flex">Start Planning</a>
     </div>
   </section>
 </MainLayout>

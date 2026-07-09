@@ -140,7 +140,7 @@ const KB = {
       /\blist\s+(?:your|the)\s+(?:itineraries?|packages?)\b/i,
     ],
     responses: [
-      "We have 5 curated itineraries: **Kenya** — 8-Day Honeymoon ($4,500), 8-Day Family ($4,287), 11-Day Kenya-Tanzania Family ($6,730). **Tanzania** — 8-Day Family ($4,440), 8-Day Honeymoon ($5,620). View all details on our [Itineraries page](/itineraries.html).",
+      "We have 5 curated itineraries: **Kenya** — 8-Day Honeymoon ($4,500), 8-Day Family ($4,287), 11-Day Kenya-Tanzania Family ($6,730). **Tanzania** — 8-Day Family ($4,440), 8-Day Honeymoon ($5,620). View all details on our [Itineraries page](/itineraries).",
     ],
     exactIntent: true,
   },
@@ -152,7 +152,7 @@ const KB = {
       /\bhow\s+expensive\b/i,
     ],
     responses: [
-      "Our safaris range from **$4,287 to $6,730 per person** depending on the itinerary, season, and group size. Prices include accommodation, meals, park fees, game drives, and transfers. For a personalized quote, please [contact us](/contact.html) or call **+254 713 855 818**.",
+      "Our safaris range from **$4,287 to $6,730 per person** depending on the itinerary, season, and group size. Prices include accommodation, meals, park fees, game drives, and transfers. For a personalized quote, please [contact us](/contact) or call **+254 713 855 818**.",
     ],
     exactIntent: true,
   },
@@ -164,7 +164,7 @@ const KB = {
       /\bhow\s+to\s+(?:contact|reach)\b/i,
     ],
     responses: [
-      "You can reach us at **info@simbaliwildlisafaris.com** or call **+254 713 855 818**. You can also fill out the [Contact form](/contact.html) or message us on WhatsApp.",
+      "You can reach us at **info@simbaliwildlisafaris.com** or call **+254 713 855 818**. You can also fill out the [Contact form](/contact) or message us on WhatsApp.",
     ],
     exactIntent: true,
   },
@@ -178,7 +178,7 @@ const KB = {
       /\bsign\s+up\b/i,
     ],
     responses: [
-      "To book a safari, fill out our [Contact form](/contact.html) with your preferred dates and itinerary. Our team will get back to you within 24 hours with availability and a detailed quote. You can also call us at **+254 713 855 818**.",
+      "To book a safari, fill out our [Contact form](/contact) with your preferred dates and itinerary. Our team will get back to you within 24 hours with availability and a detailed quote. You can also call us at **+254 713 855 818**.",
     ],
     exactIntent: true,
   },
@@ -191,7 +191,7 @@ const KB = {
       /\bwhich\s+(?:countries?|destinations?)\s+do\s+you\s+cover\b/i,
     ],
     responses: [
-      "We offer safaris in **Kenya** and **Tanzania**, with Uganda, Rwanda, and Burundi coming soon. Key destinations include: Maasai Mara, Amboseli, Lake Naivasha, Samburu in Kenya; Serengeti, Ngorongoro Crater, Tarangire in Tanzania. You can explore all our [Itineraries](/itineraries.html) for details.",
+      "We offer safaris in **Kenya** and **Tanzania**, with Uganda, Rwanda, and Burundi coming soon. Key destinations include: Maasai Mara, Amboseli, Lake Naivasha, Samburu in Kenya; Serengeti, Ngorongoro Crater, Tarangire in Tanzania. You can explore all our [Itineraries](/itineraries) for details.",
     ],
     exactIntent: true,
   },
@@ -233,7 +233,7 @@ const KB = {
       /\bwhat\s+(?:do|can)\s+you\s+(?:do|offer|help)\b/i,
     ],
     responses: [
-      "**Simbali Wild Safaris** specializes in luxury African safari adventures across Kenya and Tanzania. We offer curated itineraries, expert-guided game drives, premium lodge accommodations, and personalized safari planning. Explore our [Services](/services.html) or [Itineraries](/itineraries.html) to learn more!",
+      "**Simbali Wild Safaris** specializes in luxury African safari adventures across Kenya and Tanzania. We offer curated itineraries, expert-guided game drives, premium lodge accommodations, and personalized safari planning. Explore our [Services](/services) or [Itineraries](/itineraries) to learn more!",
     ],
     exactIntent: true,
   },
@@ -252,7 +252,7 @@ const KB = {
       /\bpark\s+fees?\b/i,
     ],
     responses: [
-      "Our safari packages typically include accommodation, meals, park entrance fees, game drives in 4x4 vehicles, and airport transfers. Flights to/from East Africa, travel insurance, and personal expenses are usually not included. Each itinerary has specific inclusions — check the [Itineraries page](/itineraries.html) for full details, or [contact us](/contact.html) for a personalized quote.",
+      "Our safari packages typically include accommodation, meals, park entrance fees, game drives in 4x4 vehicles, and airport transfers. Flights to/from East Africa, travel insurance, and personal expenses are usually not included. Each itinerary has specific inclusions — check the [Itineraries page](/itineraries) for full details, or [contact us](/contact) for a personalized quote.",
     ],
     exactIntent: true,
   },
@@ -268,7 +268,7 @@ const KB = {
       /\bdesign\s+a\s+safari\b/i,
     ],
     responses: [
-      "Absolutely! We can design a **custom safari** tailored to your preferences, dates, and budget. Whether you want a private honeymoon, a multi-generational family trip, or a photography-focused safari, our team will craft the perfect itinerary. [Contact us](/contact.html) to start planning!",
+      "Absolutely! We can design a **custom safari** tailored to your preferences, dates, and budget. Whether you want a private honeymoon, a multi-generational family trip, or a photography-focused safari, our team will craft the perfect itinerary. [Contact us](/contact) to start planning!",
     ],
     exactIntent: true,
   },
@@ -432,7 +432,7 @@ export default function Chatbot() {
       const rateCheck = canCallGemini();
       if (!rateCheck.allowed) {
         const reasons = {
-          session_limit: "I've reached my conversation limit for this session. Please [contact us directly](/contact.html) or call +254 713 855 818 for more detailed assistance!",
+          session_limit: "I've reached my conversation limit for this session. Please [contact us directly](/contact) or call +254 713 855 818 for more detailed assistance!",
           rate_limit: "I'm receiving a lot of questions right now — please wait a moment before asking again, or contact us directly via [WhatsApp](https://api.whatsapp.com/send?phone=254713855818).",
           cooldown: "Please give me a few seconds between questions — I'll be right with you!",
         };
@@ -445,7 +445,7 @@ export default function Chatbot() {
         console.log('[Simba Router]', { message: userMsg, intent: 'off_topic', route: 'refusal', geminiIntent });
         return {
           source: 'refusal',
-          text: "I'm Simba, your safari planning assistant! I can only help with questions about African safaris, destinations, itineraries, and bookings. For anything else, feel free to [contact our team](/contact.html) directly.",
+          text: "I'm Simba, your safari planning assistant! I can only help with questions about African safaris, destinations, itineraries, and bookings. For anything else, feel free to [contact our team](/contact) directly.",
         };
       }
 
@@ -468,7 +468,7 @@ export default function Chatbot() {
       console.log('[Simba Router]', { message: userMsg, intent: 'off_topic', route: 'refusal', localMatch: localMatch?.key || null, confidence });
       return {
         source: 'refusal',
-        text: "I'm Simba, your safari planning assistant! I can only help with questions about African safaris, destinations, itineraries, and bookings. For anything else, feel free to [contact our team](/contact.html) directly.",
+        text: "I'm Simba, your safari planning assistant! I can only help with questions about African safaris, destinations, itineraries, and bookings. For anything else, feel free to [contact our team](/contact) directly.",
       };
     }
 
@@ -476,7 +476,7 @@ export default function Chatbot() {
     const rateCheck = canCallGemini();
     if (!rateCheck.allowed) {
       const reasons = {
-        session_limit: "I've reached my conversation limit for this session. Please [contact us directly](/contact.html) or call +254 713 855 818 for more detailed assistance!",
+        session_limit: "I've reached my conversation limit for this session. Please [contact us directly](/contact) or call +254 713 855 818 for more detailed assistance!",
         rate_limit: "I'm receiving a lot of questions right now — please wait a moment before asking again, or contact us directly via [WhatsApp](https://api.whatsapp.com/send?phone=254713855818).",
         cooldown: "Please give me a few seconds between questions — I'll be right with you!",
       };
@@ -540,7 +540,7 @@ export default function Chatbot() {
     console.log('[Simba Router]', { message: userMsg, route: 'gemini_fallback', reason: 'api_failure_or_empty' });
     return {
       source: 'gemini_fallback',
-      text: "That's a great safari question! I'd love to help you explore that. For the most detailed and up-to-date information, please [contact our safari experts](/contact.html) or call **+254 713 855 818**. You can also browse our [Itineraries](/itineraries.html) to see what's available.",
+      text: "That's a great safari question! I'd love to help you explore that. For the most detailed and up-to-date information, please [contact our safari experts](/contact) or call **+254 713 855 818**. You can also browse our [Itineraries](/itineraries) to see what's available.",
     };
   }
 

@@ -11,7 +11,7 @@ export default defineConfig({
   ],
   output: 'static',
   build: {
-    format: 'file',
+    format: 'directory',
   },
   vite: {
     resolve: {
