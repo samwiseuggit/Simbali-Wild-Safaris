@@ -3,8 +3,10 @@
 
 <section class="pb-20 bg-white">
   <div class="container-main">
-    <div class="accent-line-center" />
-    <h2 class="font-belleza text-2xl md:text-3xl text-center mb-10 tracking-[0.1em] uppercase">Tailored Luxury Safari Experiences Await You</h2>
+    <div class="anim-fade-up">
+      <div class="accent-line-center" />
+      <h2 class="font-belleza text-2xl md:text-3xl text-center mb-10 tracking-[0.1em] uppercase">Tailored Luxury Safari Experiences Await You</h2>
+    </div>
     <div class="bg-sage/50 rounded-2xl p-6 md:p-10">
       {[
         { num: "01", title: "Tailored Safari Packages", desc: "Custom safari itineraries that cater to individual preferences.", img: "/images/open-jeep-game-drive-simbali-wild-safaris.jpg" },
@@ -12,14 +14,14 @@
         { num: "03", title: "Luxury Beach Getaways", desc: "Exclusive vacation packages to pristine beach destinations.", img: "/images/tropical-beach-coast-simbali-wild-safaris.jpg" },
         { num: "04", title: "Cultural Immersion Tours", desc: "Engaging experiences that connect you with local cultures.", img: "/images/zebras-savanna-safari-simbali-wild-safaris.jpg" },
       ].map((s, i) => (
-        <div class={`grid grid-cols-1 md:grid-cols-[60px_1fr_auto_180px] gap-6 items-center py-8 ${i < 3 ? "border-b border-olive/15" : ""}`}>
+        <div class={`grid grid-cols-1 md:grid-cols-[60px_1fr_auto_180px] gap-6 items-center py-8 ${i < 3 ? "border-b border-olive/15" : ""} anim-fade-up anim-delay-${i + 1}`}>
           <div class="font-belleza text-4xl text-olive">{s.num}.</div>
           <div>
             <h3 class="font-belleza text-lg tracking-[0.1em] mb-2 uppercase">{s.title}</h3>
             <p class="text-[#555] text-sm leading-relaxed max-w-md">{s.desc}</p>
           </div>
           <a href="/services" class="btn-primary self-center mt-1 hidden md:inline-flex text-xs">Read More</a>
-          <img src={s.img} alt={s.title} class="rounded-xl h-28 object-cover w-full hidden md:block" />
+          <img src={s.img} alt={s.title} class="rounded-xl h-28 object-cover w-full hidden md:block hover-zoom" loading="lazy" />
         </div>
       ))}
     </div>

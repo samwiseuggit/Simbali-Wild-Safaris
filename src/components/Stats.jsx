@@ -20,7 +20,9 @@ function useCountUp(end, duration = 2000) {
     const animate = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      setCount(Math.floor(progress * end));
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * end));
       if (progress < 1) animId = requestAnimationFrame(animate);
     };
     animId = requestAnimationFrame(animate);
@@ -30,10 +32,10 @@ function useCountUp(end, duration = 2000) {
   return { count, ref };
 }
 
-function AnimatedStat({ value, suffix, label }) {
+function AnimatedStat({ value, suffix, label, delay }) {
   const { count, ref } = useCountUp(value, 2000);
   return (
-    <div ref={ref} className="text-center">
+    <div ref={ref} className={`text-center anim-fade-up anim-delay-${delay} is-visible`}>
       <div className="font-belleza text-5xl md:text-6xl text-[#1a1a1a]">{count}{suffix}</div>
       <div className="text-[#444] text-sm mt-2 tracking-wide">{label}</div>
     </div>
@@ -45,9 +47,9 @@ export default function Stats() {
     <section className="py-14 bg-sage/60">
       <div className="container-main">
         <div className="grid grid-cols-3 gap-8 md:gap-12 text-center max-w-3xl mx-auto">
-          <AnimatedStat value={12} suffix="+" label="Years Of Experience" />
-          <AnimatedStat value={500} suffix="+" label="Happy Customers" />
-          <AnimatedStat value={98} suffix="%" label="Customer Satisfaction" />
+          <AnimatedStat value={12} suffix="+" label="Years Of Experience" delay={1} />
+          <AnimatedStat value={500} suffix="+" label="Happy Customers" delay={2} />
+          <AnimatedStat value={98} suffix="%" label="Customer Satisfaction" delay={3} />
         </div>
       </div>
     </section>
