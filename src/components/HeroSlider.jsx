@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { slideBlurPreviews } from '../data/slideBlur';
+import { getImagePosition } from '../data/imagePositions';
 
 const slides = [
   { imgWebp: "/images/slide-1.webp", imgJpg: "/images/slide-1.jpg", title: "Heart of the Delta", desc: "Explore the lush paradise of the Okavango Delta, where life flourishes in a timeless rhythm of water and wildlife." },
@@ -15,7 +16,8 @@ const blurKeys = ["slide-1", "slide-2", "slide-3", "slide-4", "slide-5", "slide-
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [animKey, setAnimKey] = useState(0);
-  const [loaded, setLoaded] = useState(new Set());
+  const [loadedSlides, setLoadedSlides] = useState(new Set());
+  const mountedRef = useRef(false);
 
   const next = useCallback(() => {
     setCurrent((c) => (c + 1) % slides.length);
@@ -27,21 +29,60 @@ export default function HeroSlider() {
     return () => clearInterval(timer);
   }, [next]);
 
-  // Preload next slide image
+  // CRITICAL FIX: Preload ALL slides on mount using Image()
+  // This bypasses the <picture> element onLoad unreliability
+  useEffect(() => {
+    if (mountedRef.current) return;
+    mountedRef.current = true;
+
+    slides.forEach((slide, i) => {
+      // Try WebP first, fall back to JPEG
+      const img = new Image();
+      img.onload = () => {
+        setLoadedSlides((prev) => {
+          const next = new Set(prev);
+          next.add(i);
+          return next;
+        });
+      };
+      img.onerror = () => {
+        // If WebP fails, try JPEG
+        const img2 = new Image();
+        img2.onload = () => {
+          setLoadedSlides((prev) => {
+            const next = new Set(prev);
+            next.add(i);
+            return next;
+          });
+        };
+        img2.src = slide.imgJpg;
+      };
+      img.src = slide.imgWebp;
+    });
+  }, []);
+
+  // Also preload upcoming slide more aggressively
   useEffect(() => {
     const nextIdx = (current + 1) % slides.length;
-    if (!loaded.has(nextIdx)) {
+    if (!loadedSlides.has(nextIdx)) {
       const img = new Image();
+      img.onload = () => {
+        setLoadedSlides((prev) => {
+          const next = new Set(prev);
+          next.add(nextIdx);
+          return next;
+        });
+      };
       img.src = slides[nextIdx].imgWebp;
-      img.onload = () => setLoaded((prev) => new Set(prev).add(nextIdx));
     }
-  }, [current, loaded]);
+  }, [current, loadedSlides]);
 
   return (
     <section className="relative h-[500px] md:h-[600px] lg:h-[680px] overflow-hidden">
       {slides.map((slide, i) => {
         const isActive = i === current;
-        const isLoaded = loaded.has(i);
+        const isLoaded = loadedSlides.has(i);
+        const objPos = getImagePosition(slide.imgJpg);
         return (
           <div
             key={i}
@@ -49,29 +90,33 @@ export default function HeroSlider() {
               isActive ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            {/* Blur placeholder */}
+            {/* Layer 1: Blur placeholder (fades out when loaded) */}
             <div
               className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ${
                 isLoaded ? "opacity-0" : "opacity-100"
               }`}
               style={{ backgroundImage: `url(${slideBlurPreviews[blurKeys[i]]})` }}
             />
-            {/* Full image with WebP + JPEG fallback */}
-            <picture>
-              <source srcSet={slide.imgWebp} type="image/webp" />
+
+            {/* Layer 2: Full image (fades in when loaded) */}
+            <div
+              className={`absolute inset-0 transition-opacity duration-700 ${
+                isLoaded ? "opacity-100" : "opacity-0"
+              }`}
+            >
               <img
-                src={slide.imgJpg}
+                src={slide.imgWebp}
                 alt={slide.title}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-                  isLoaded ? "blur-0 scale-100" : "blur-sm scale-105"
-                } ${isActive ? "ken-burns" : ""}`}
+                className={`w-full h-full object-cover ${isActive ? "ken-burns" : ""}`}
+                style={{ objectPosition: objPos }}
                 loading={i === 0 ? "eager" : "lazy"}
-                onLoad={() => setLoaded((prev) => new Set(prev).add(i))}
-                fetchPriority={i === 0 ? "high" : "auto"}
+                fetchpriority={i === 0 ? "high" : "auto"}
               />
-            </picture>
+            </div>
+
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/30" />
+
             {/* Text */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 text-white">
               {isActive && (
@@ -93,10 +138,7 @@ export default function HeroSlider() {
         {slides.map((_, i) => (
           <button
             key={i}
-            onClick={() => {
-              setCurrent(i);
-              setAnimKey((k) => k + 1);
-            }}
+            onClick={() => { setCurrent(i); setAnimKey((k) => k + 1); }}
             className={`h-2.5 rounded-full transition-all duration-300 border-none cursor-pointer ${
               i === current ? "bg-white w-7" : "bg-white/40 w-2.5 hover:bg-white/60"
             }`}

@@ -1,20 +1,38 @@
 ---
+import { getImagePosition } from '../data/imagePositions';
+
 // Renders a <picture> with WebP source + original fallback
+// Automatically applies object-position based on image subject analysis
 // Usage: <OptimizedImage src="/images/foo.jpg" alt="Foo" class="rounded-xl" />
 export interface Props {
   src: string;
   alt: string;
   class?: string;
   loading?: 'eager' | 'lazy';
+  style?: string;
 }
 
-const { src, alt, class: className = '', loading = 'lazy' } = Astro.props;
+const { src, alt, class: className = '', loading = 'lazy', style = '' } = Astro.props;
 
 // Derive WebP path from the src
 const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+
+// Get optimal object-position for this image
+const objectPosition = getImagePosition(src);
+
+// Build style string with object-position
+const finalStyle = objectPosition !== 'center' 
+  ? `object-position: ${objectPosition}; ${style}` 
+  : style;
 ---
 
 <picture>
   <source srcset={webpSrc} type="image/webp" />
-  <img src={src} alt={alt} class={className} loading={loading} />
+  <img 
+    src={src} 
+    alt={alt} 
+    class={className} 
+    loading={loading} 
+    style={finalStyle || undefined}
+  />
 </picture>
