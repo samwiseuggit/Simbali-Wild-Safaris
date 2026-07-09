@@ -27,7 +27,7 @@ const posts = [
               <h3 class="font-belleza text-xl mb-2 leading-snug">{post.title}</h3>
               <div class="text-[#999] text-xs mb-3"><span class="text-olive">{post.cat}</span> / {post.author}</div>
               <p class="text-[#555] text-sm leading-relaxed mb-4">{post.excerpt}</p>
-              <a href={`/blog-${post.slug}.html`} class="text-olive text-sm font-semibold hover:underline">Read Post &raquo;</a>
+              <a href={`/blog-${post.slug}`} class="text-olive text-sm font-semibold hover:underline">Read Post &raquo;</a>
             </div>
           </article>
         ))}
