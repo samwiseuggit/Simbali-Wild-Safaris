@@ -93,7 +93,7 @@ const blogContent = {
       "The <strong>Samburu</strong> are pastoralists who raise cattle and keep traditional customs alive.",
     ]},
     { type: "text", content: "Some of the most important discoveries about early human life have also come from this region. Fossils found in places like <strong>Koobi Fora</strong> show that humans have been living in the Rift Valley for millions of years. That's why it's often called the \"Cradle of Humankind.\"" },
-    { type: "image", src: "/images/maasai-cultural-experience-safari_blog.jpg", alt: "Maasai warriors in traditional dress performing a cultural dance", caption: "The Maasai people are one of the Rift Valley's most iconic communities" },
+    { type: "image", src: "/images/maasai-cultural-experience-safari_blog.jpg", alt: "Maasai warriors in traditional dress performing a cultural dance", caption: "The Maasai people are one of the Rift Valley's most iconic communities", imageClass: "h-96 md:h-[34rem]", objectPosition: "center top" },
     { type: "h2", content: "What You Can Do There: Adventure & Relaxation" },
     { type: "text", content: "No matter what kind of traveler you are, the Great Rift Valley has something for you:" },
     { type: "list", items: [
@@ -145,7 +145,7 @@ const blogContent = {
       "<strong>Aberdare Cisticola</strong> — only found in Kenya's Aberdare range",
       "<strong>Kilimanjaro White-eye</strong> — exclusive to the slopes of Mount Kilimanjaro",
     ]},
-    { type: "image", src: "/images/songbird-perched-on-branch-safari_blog.jpg", alt: "A beautiful songbird perched on a branch in East Africa", caption: "Endemic species like the Taita White-eye can only be found in specific East African locations" },
+    { type: "image", src: "/images/songbird-perched-on-branch-safari_blog.jpg", alt: "A beautiful songbird perched on a branch in East Africa", caption: "Endemic species like the Taita White-eye can only be found in specific East African locations", imageClass: "h-96 md:h-[30rem]", objectPosition: "center top" },
     { type: "h2", content: "Kenya: The Crown Jewel of African Birding" },
     { type: "text", content: "Kenya is often considered the ultimate birdwatching destination. With over <strong>1,100 bird species</strong>, including 60 endemics, the country offers a mix of accessible birding spots, great infrastructure, and experienced guides." },
     { type: "h3", content: "Lake Nakuru National Park" },
@@ -185,7 +185,7 @@ const blogContent = {
       "Red-billed Buffalo Weaver",
       "White-headed Barbet",
     ]},
-    { type: "image", src: "/images/turaco-bird-branch-wildlife-safari_blog.jpg", alt: "A colorful turaco bird perched on a branch", caption: "Tanzania's forests are home to spectacular species like the turaco" },
+    { type: "image", src: "/images/turaco-bird-branch-wildlife-safari_blog.jpg", alt: "A colorful turaco bird perched on a branch", caption: "Tanzania's forests are home to spectacular species like the turaco", imageClass: "h-96 md:h-[36rem]", objectPosition: "center top" },
     { type: "h3", content: "Other Top Spots in Tanzania" },
     { type: "list", items: [
       "<strong>Ngorongoro Crater</strong> — A biodiversity hotspot",
@@ -194,7 +194,7 @@ const blogContent = {
     ]},
     { type: "h2", content: "Uganda: The Realm of the Shoebill" },
     { type: "text", content: "Uganda's lush wetlands, forests, and lakes make it a top birding location. With over 1,000 species, it's the best place in the world to see the rare and prehistoric-looking <strong>Shoebill Stork</strong>." },
-    { type: "image", src: "/images/shoebill-bird-wildlife-safari_blog.jpg", alt: "The prehistoric-looking Shoebill Stork in Uganda's wetlands", caption: "The Shoebill Stork is one of Africa's most sought-after bird sightings" },
+    { type: "image", src: "/images/shoebill-bird-wildlife-safari_blog.jpg", alt: "The prehistoric-looking Shoebill Stork in Uganda's wetlands", caption: "The Shoebill Stork is one of Africa's most sought-after bird sightings", imageClass: "h-96 md:h-[28rem]", objectPosition: "center top" },
     { type: "h3", content: "Mabamba Swamp" },
     { type: "text", content: "Located near Entebbe on the shores of Lake Victoria, this swamp is a <strong>must-visit</strong> for Shoebill sightings. Other notable species include:" },
     { type: "list", items: [
@@ -388,7 +388,12 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
           );
           if (block.type === 'image') return (
             <figure class="my-8">
-              <img src={block.src} alt={block.alt} class="w-full h-64 md:h-80 object-cover rounded-xl" />
+              <img
+                src={block.src}
+                alt={block.alt}
+                class={`w-full ${block.imageClass || 'h-64 md:h-80'} object-cover rounded-xl`}
+                style={block.objectPosition ? `object-position: ${block.objectPosition};` : undefined}
+              />
               {block.caption && <figcaption class="text-center text-[#999] text-sm mt-2 italic">{block.caption}</figcaption>}
             </figure>
           );
