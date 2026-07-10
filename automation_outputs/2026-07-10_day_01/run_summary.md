@@ -94,9 +94,12 @@ MP4 created. Posting/scheduling was not attempted because no authenticated Insta
 
 ## Git Status
 
-Branch created locally: `codex/simbali-blog-day-01-2026-07-10`
+Branch pushed: `codex/simbali-blog-day-01-2026-07-10`  
+Initial content commit: `a478299`  
+Draft PR: https://github.com/samwiseuggit/Simbali-Wild-Safaris/pull/2  
+PR labels: `codex`, `codex-automation`
 
-Commit/PR status will be finalized after staging review. The checkout had pre-existing untracked files before this automation run; those were left untouched.
+The checkout had pre-existing untracked files before this automation run; those were left untouched.
 
 ## Issues
 
