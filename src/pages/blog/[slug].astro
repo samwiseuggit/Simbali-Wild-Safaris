@@ -371,7 +371,7 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
 
   {/* Article */}
   <section class="py-16 bg-white">
-    <div class="container-main max-w-4xl anim-fade-up">
+    <div class="container-main max-w-4xl">
       <article class="prose-blog max-w-none">
         {content.map((block) => {
           if (block.type === 'h2') return <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.08em] uppercase mt-12 mb-5 text-[#1a1a1a]" set:html={block.content} />;

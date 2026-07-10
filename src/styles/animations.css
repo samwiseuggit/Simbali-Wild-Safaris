@@ -1,85 +1,69 @@
-/* ===== SCROLL-TRIGGERED ANIMATIONS ===== */
+/* ===== SCROLL-TRIGGERED ANIMATIONS =====
+ *
+ * PROGRESSIVE ENHANCEMENT APPROACH:
+ * Elements are VISIBLE by default (opacity: 1, no transform).
+ * The .js-animations-enabled class is added by JavaScript on init.
+ * Only when JS is active do elements start hidden and animate in.
+ * This ensures content is NEVER invisible if JS fails.
+ */
 
-/* Base state: hidden */
-.anim-hidden {
+/* JS-enabled: hide elements for animation */
+.js-animations-enabled .anim-fade-up,
+.js-animations-enabled .anim-fade-down,
+.js-animations-enabled .anim-fade-left,
+.js-animations-enabled .anim-fade-right,
+.js-animations-enabled .anim-scale-in {
   opacity: 0;
-  will-change: opacity, transform;
 }
 
-/* Fade In Up */
-.anim-fade-up {
-  opacity: 0;
+.js-animations-enabled .anim-fade-up {
   transform: translateY(40px);
-  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.anim-visible .anim-fade-up,
-.anim-fade-up.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Fade In Down */
-.anim-fade-down {
-  opacity: 0;
+.js-animations-enabled .anim-fade-down {
   transform: translateY(-40px);
-  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.anim-visible .anim-fade-down,
-.anim-fade-down.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Fade In Left */
-.anim-fade-left {
-  opacity: 0;
+.js-animations-enabled .anim-fade-left {
   transform: translateX(-60px);
-  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.anim-visible .anim-fade-left,
-.anim-fade-left.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Fade In Right */
-.anim-fade-right {
-  opacity: 0;
+.js-animations-enabled .anim-fade-right {
   transform: translateX(60px);
+}
+.js-animations-enabled .anim-scale-in {
+  transform: scale(0.92);
+}
+
+/* JS-enabled: transitions only when JS is active */
+.js-animations-enabled .anim-fade-up,
+.js-animations-enabled .anim-fade-down,
+.js-animations-enabled .anim-fade-left,
+.js-animations-enabled .anim-fade-right {
   transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.anim-visible .anim-fade-right,
-.anim-fade-right.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Scale In */
-.anim-scale-in {
-  opacity: 0;
-  transform: scale(0.92);
+.js-animations-enabled .anim-scale-in {
   transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.anim-visible .anim-scale-in,
-.anim-scale-in.is-visible {
+
+/* Visible state: applied by IntersectionObserver */
+.js-animations-enabled .anim-fade-up.is-visible,
+.js-animations-enabled .anim-fade-down.is-visible,
+.js-animations-enabled .anim-fade-left.is-visible,
+.js-animations-enabled .anim-fade-right.is-visible,
+.js-animations-enabled .anim-scale-in.is-visible {
   opacity: 1;
-  transform: scale(1);
+  transform: translate(0) scale(1);
 }
 
 /* Stagger delays */
-.anim-delay-1 { transition-delay: 0.10s; }
-.anim-delay-2 { transition-delay: 0.20s; }
-.anim-delay-3 { transition-delay: 0.30s; }
-.anim-delay-4 { transition-delay: 0.40s; }
-.anim-delay-5 { transition-delay: 0.50s; }
-.anim-delay-6 { transition-delay: 0.60s; }
-.anim-delay-7 { transition-delay: 0.70s; }
-.anim-delay-8 { transition-delay: 0.80s; }
+.js-animations-enabled .anim-delay-1 { transition-delay: 0.10s; }
+.js-animations-enabled .anim-delay-2 { transition-delay: 0.20s; }
+.js-animations-enabled .anim-delay-3 { transition-delay: 0.30s; }
+.js-animations-enabled .anim-delay-4 { transition-delay: 0.40s; }
+.js-animations-enabled .anim-delay-5 { transition-delay: 0.50s; }
+.js-animations-enabled .anim-delay-6 { transition-delay: 0.60s; }
+.js-animations-enabled .anim-delay-7 { transition-delay: 0.70s; }
+.js-animations-enabled .anim-delay-8 { transition-delay: 0.80s; }
 
 /* ===== HOVER EFFECTS ===== */
 
@@ -126,11 +110,11 @@
 
 /* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion: reduce) {
-  .anim-fade-up,
-  .anim-fade-down,
-  .anim-fade-left,
-  .anim-fade-right,
-  .anim-scale-in {
+  .js-animations-enabled .anim-fade-up,
+  .js-animations-enabled .anim-fade-down,
+  .js-animations-enabled .anim-fade-left,
+  .js-animations-enabled .anim-fade-right,
+  .js-animations-enabled .anim-scale-in {
     opacity: 1;
     transform: none;
     transition: none;
