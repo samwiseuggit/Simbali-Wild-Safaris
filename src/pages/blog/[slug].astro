@@ -4,6 +4,18 @@ import MainLayout from '../../layouts/MainLayout.astro';
 export function getStaticPaths() {
   const posts = [
     {
+      slug: "samburu-national-reserve-special-five",
+      title: "Samburu National Reserve: Kenya's Hidden Gem and the Special Five",
+      description: "Discover Samburu National Reserve in Northern Kenya, home of the Special Five: Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk, and beisa oryx.",
+      img: "/images/giraffes-savanna-safari-simbali-wild-safaris.jpg",
+      imgAlt: "Giraffes standing in a golden East African savannah landscape",
+      date: "July 11, 2026",
+      readTime: "11 min read",
+      cat: "Destinations",
+      author: "Sam Mwangi",
+      tags: ["Samburu", "Special Five", "Kenya", "Wildlife", "Northern Kenya", "Safari"],
+    },
+    {
       slug: "first-african-safari-planning-guide",
       title: "The Ultimate Guide to Planning Your First African Safari",
       description: "Planning your first African safari? This beginner-friendly East Africa guide covers where to go, when to travel, safari costs, packing, daily rhythms, and how to choose the right itinerary.",
@@ -56,6 +68,10 @@ export function getStaticPaths() {
 }
 
 const relatedSafaris = {
+  "samburu-national-reserve-special-five": [
+    { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
+    { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
+  ],
   "first-african-safari-planning-guide": [
     { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
     { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
@@ -78,6 +94,67 @@ const relatedSafaris = {
 };
 
 const blogContent = {
+  "samburu-national-reserve-special-five": [
+    { type: "text", content: "North of Kenya's better-known safari circuits, Samburu National Reserve opens into a different rhythm: dry golden earth, silver-green acacia, doum palms tracing the Ewaso Ng'iro River, and wildlife shaped by heat, distance, and survival." },
+    { type: "text", content: "This is not a substitute for the Maasai Mara or Amboseli. It is a beautiful contrast. Samburu feels more intimate, less hurried, and wonderfully specific, especially for travelers who want to see the rare animals known as the <strong>Special Five</strong>: Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk, and beisa oryx." },
+    { type: "image", src: "/images/giraffes-savanna-safari-simbali-wild-safaris.jpg", alt: "Giraffes standing in a golden East African savannah landscape", caption: "Samburu's dry-country scenery gives Northern Kenya safaris their own unmistakable atmosphere." },
+    { type: "h2", content: "Where Is Samburu?" },
+    { type: "text", content: "Samburu National Reserve lies roughly 350 kilometers north of Nairobi, on the banks of the Ewaso Ng'iro River. The reserve covers about 165 square kilometers and forms part of a broader ecosystem with Buffalo Springs and Shaba National Reserves." },
+    { type: "text", content: "The landscape is semi-arid, with thorn scrub, acacia woodland, riverine forest, and views toward rugged northern landmarks such as Koitogor and Ololokwe. In a region where temperatures often climb above 30 degrees C, the river is the lifeline. Elephants, antelope, predators, birds, and the Special Five all depend on its reliable water." },
+    { type: "quote", content: "Samburu rewards the traveler who looks closely. The magic is in the details: a patterned giraffe between acacias, a gerenuk rising onto its hind legs, or a Grevy's zebra stepping through dust beside the river." },
+    { type: "h2", content: "The Special Five Of Samburu" },
+    { type: "h3", content: "Grevy's Zebra" },
+    { type: "text", content: "Grevy's zebra is the largest wild equid in the world, taller and more slender than the plains zebra seen farther south. Its narrow stripes run close together and continue down toward the hooves, while its large rounded ears give it a distinctive, almost mule-like profile." },
+    { type: "text", content: "The species is endangered, with only a small wild population remaining across its range. Samburu is one of the finest places in Kenya to see it, which makes every sighting feel both elegant and important." },
+    { type: "image", src: "/images/zebras-savanna-safari-simbali-wild-safaris.jpg", alt: "Zebras standing together in an East African savannah", caption: "Grevy's zebra sightings are one of the great rewards of a Samburu safari." },
+    { type: "h3", content: "Reticulated Giraffe" },
+    { type: "text", content: "The reticulated giraffe, sometimes called the Somali giraffe, wears one of the most striking coats in Africa. Its deep chestnut patches are separated by crisp cream lines, creating a pattern that looks almost hand-drawn." },
+    { type: "text", content: "Northern Kenya is one of its strongholds. In Samburu, the sight of a reticulated giraffe moving through acacia woodland is one of the defining images of the reserve." },
+    { type: "h3", content: "Somali Ostrich" },
+    { type: "text", content: "The Somali ostrich is a northern subspecies with blue-grey skin on the neck and thighs, especially vivid in breeding males. It is slightly different from the Masai ostrich more often associated with southern Kenya and Tanzania." },
+    { type: "text", content: "Ostriches are built for speed, and the Somali ostrich can reach remarkable bursts across open ground. Its huge eyes, powerful legs, and upright posture make it an easy favorite for photographers." },
+    { type: "h3", content: "Gerenuk" },
+    { type: "text", content: "The gerenuk is often nicknamed the giraffe gazelle because of its long neck and delicate build. It is one of Samburu's most charming sightings, especially when it rises onto its hind legs to browse higher leaves that other antelope cannot reach." },
+    { type: "text", content: "Adapted beautifully to dry bush country, the gerenuk can survive without regular drinking water, drawing much of its moisture from leaves, shoots, and flowers." },
+    { type: "h3", content: "Beisa Oryx" },
+    { type: "text", content: "The beisa oryx is a powerful dry-country antelope with long straight horns, a grey coat, black facial markings, and a white belly. It is built for Samburu's heat, with adaptations that help it conserve water in arid landscapes." },
+    { type: "text", content: "Seen in the right light, an oryx on the open plains has a sculptural quality: still, alert, and perfectly at home in the north." },
+    { type: "h2", content: "Wildlife Beyond The Special Five" },
+    { type: "list", items: [
+      "Elephant herds often move along the Ewaso Ng'iro River, especially in the dry season.",
+      "Lion, leopard, cheetah, spotted hyena, and occasionally wild dog bring predator drama to the reserve.",
+      "More than 450 bird species have been recorded, making Samburu rewarding for birders as well as mammal lovers.",
+      "Nile crocodiles, impala, waterbuck, dik-dik, baboons, and greater kudu add richness to daily game drives.",
+    ]},
+    { type: "image", src: "/images/giraffe-savanna-safari-simbali-wild-safaris.jpg", alt: "Giraffe walking through savannah grass", caption: "Samburu combines familiar East African wildlife with rare northern species." },
+    { type: "h2", content: "Why Samburu Feels Different" },
+    { type: "text", content: "Samburu is shaped by a semi-arid ecosystem rather than the rolling grasslands many guests picture when they imagine safari. Wildlife viewing often follows the river and its green corridor, and the scenery feels rugged, volcanic, and spacious." },
+    { type: "text", content: "Visitor numbers are lower than in Kenya's headline reserves, so the experience can feel more personal. The cultural presence is also distinct. The Samburu people, semi-nomadic pastoralists closely related to but different from the Maasai, have lived in this region for centuries and remain central to its identity." },
+    { type: "h2", content: "Best Time To Visit Samburu" },
+    { type: "list", items: [
+      "<strong>June to October:</strong> Dry-season wildlife viewing is excellent as animals concentrate around the river.",
+      "<strong>November to December:</strong> Short rains bring softer landscapes, fewer visitors, and strong birding.",
+      "<strong>January to March:</strong> Hot, dry conditions can produce rewarding sightings near water sources.",
+      "<strong>April to May:</strong> The long rains make the reserve green and atmospheric, though some lodges may close or road conditions may vary.",
+    ]},
+    { type: "h2", content: "What To Do In Samburu" },
+    { type: "list", items: [
+      "Morning and afternoon game drives focused on the river, dry plains, and woodland edges.",
+      "Guided bush walks in suitable conservancy areas, where permitted and led by professional guides.",
+      "Birdwatching, especially for dry-country species and riverine birds.",
+      "Samburu cultural visits arranged respectfully, with attention to community benefit and genuine exchange.",
+      "Photography, sundowners, night drives in nearby conservancies, and even camel safari experiences in the broader region.",
+    ]},
+    { type: "h2", content: "Where To Stay" },
+    { type: "text", content: "Samburu offers everything from comfortable tented camps to refined lodges with dramatic settings. Properties such as Samburu Intrepids, Elephant Bedroom Camp, Sasaab, and Saruni Samburu each suit different travel styles, budgets, and comfort preferences." },
+    { type: "text", content: "For honeymooners, Samburu is especially compelling because it pairs privacy and atmosphere with genuinely unusual wildlife. For families and photographers, it adds variety to a Kenya itinerary without losing the classic safari feeling." },
+    { type: "h2", content: "A Natural Fit For A Kenya Safari" },
+    { type: "text", content: "Our <a href=\"/itineraries#kenya-honeymoon-8\" class=\"text-olive underline font-semibold\">8-Day Kenya Honeymoon Safari</a> includes Samburu before continuing to Ol Pejeta, Lake Naivasha, and the Maasai Mara, creating a journey that moves from rare northern species to rhino conservation, lakeside scenery, and classic big-cat country." },
+    { type: "text", content: "Samburu can also be added to a tailor-made family or photography safari when travelers want something more distinctive than a standard route. With thoughtful pacing, the reserve becomes a memorable first chapter rather than a long detour." },
+    { type: "h2", content: "Ready To Meet The Special Five?" },
+    { type: "text", content: "Samburu is for travelers who love the feeling of discovery. It gives you species you may not see elsewhere in Kenya, landscapes that feel carved by sun and river, and a safari pace that leaves room to notice the small things." },
+    { type: "text", content: "If Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk, and beisa oryx are calling to you, <a href=\"/contact\" class=\"text-olive underline font-semibold\">contact Simbali Wild Safaris</a>. Sheila, Violet, and our team will help craft a Samburu journey with the right lodges, season, and guiding style for you." },
+  ],
   "first-african-safari-planning-guide": [
     { type: "text", content: "Your first safari often begins long before the first game drive: a golden sunrise imagined over acacia trees, the low rumble of a lion somewhere beyond camp, and the question every first-time traveler eventually asks: where do we start?" },
     { type: "text", content: "At <strong>Simbali Wild Safaris</strong>, we have spent more than 12 years helping travelers turn that dream into a smooth, personal East African journey. This guide walks you through the decisions that matter most, from destination and timing to budget, packing, and the rhythm of safari days." },
@@ -399,7 +476,7 @@ const { slug } = Astro.params;
 const { post } = Astro.props;
 const content = blogContent[slug] || [];
 const related = relatedSafaris[slug] || [];
-const allSlugs = ["first-african-safari-planning-guide", "wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
+const allSlugs = ["samburu-national-reserve-special-five", "first-african-safari-planning-guide", "wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
 const otherSlugs = allSlugs.filter(s => s !== slug);
 ---
 
@@ -528,6 +605,7 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
       <div class="grid md:grid-cols-2 gap-6">
         {otherSlugs.map(otherSlug => {
           const otherPosts = {
+            "samburu-national-reserve-special-five": { title: "Samburu National Reserve: Kenya's Hidden Gem", img: "/images/giraffes-savanna-safari-simbali-wild-safaris.jpg", excerpt: "Meet the Special Five and discover Kenya's rugged northern safari frontier." },
             "first-african-safari-planning-guide": { title: "The Ultimate Guide to Planning Your First African Safari", img: "/images/open-jeep-game-drive-simbali-wild-safaris.jpg", excerpt: "Choose where to go, when to travel, what to budget, and what to pack." },
             "wonders-of-kenyas-great-rift-valley": { title: "Great Rift Valley Kenya: Nature, Culture & Adventure", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", excerpt: "Discover dramatic escarpments, flamingo-filled lakes and volcanic craters." },
             "east-africa-birding-guide": { title: "East Africa Birding Guide", img: "/images/raptor-bird-flying-clear-sky_blog.jpg", excerpt: "Over 1,500 bird species across Kenya, Tanzania, Uganda and beyond." },
