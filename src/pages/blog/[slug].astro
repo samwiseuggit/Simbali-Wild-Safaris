@@ -5,6 +5,18 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 export function getStaticPaths() {
   const posts = [
     {
+      slug: "amboseli-national-park-elephants-kilimanjaro",
+      title: "Amboseli National Park: Where Giants Roam Beneath Kilimanjaro",
+      description: "Complete guide to Amboseli National Park in Kenya: famous elephant herds, Mount Kilimanjaro views, best photography spots, wildlife, seasons, and family safari planning tips.",
+      img: "/images/african-elephant-savanna-simbali-wild-safaris.jpg",
+      imgAlt: "African elephant walking through golden savannah grass",
+      date: "July 12, 2026",
+      readTime: "12 min read",
+      cat: "Destinations",
+      author: "Sam Mwangi",
+      tags: ["Amboseli", "Elephants", "Kilimanjaro", "Kenya", "Family Safari", "Wildlife Photography"],
+    },
+    {
       slug: "wonders-of-kenyas-great-rift-valley",
       title: "Great Rift Valley Kenya: Nature, Culture & Adventure",
       description: "Discover one of the most incredible places on Earth — Kenya's Great Rift Valley. From flamingo-filled lakes and volcanic craters to rich Maasai culture, this is a safari destination like no other.",
@@ -45,6 +57,10 @@ export function getStaticPaths() {
 }
 
 const relatedSafaris = {
+  "amboseli-national-park-elephants-kilimanjaro": [
+    { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
+    { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
+  ],
   "wonders-of-kenyas-great-rift-valley": [
     { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
     { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
@@ -60,6 +76,63 @@ const relatedSafaris = {
 };
 
 const blogContent = {
+  "amboseli-national-park-elephants-kilimanjaro": [
+    { type: "text", content: "Amboseli is one of those places that feels instantly familiar even before you arrive: elephants crossing pale-gold plains, dust rising around their feet, and the great white crown of Mount Kilimanjaro holding the southern horizon." },
+    { type: "text", content: "For families, photographers, elephant lovers, and first-time safari travelers, <strong>Amboseli National Park</strong> is a wonderfully rewarding place to begin. It is compact enough for productive game drives, dramatic enough for once-in-a-lifetime photographs, and rich with wildlife stories that make every sighting feel personal." },
+    { type: "image", src: "/images/african-elephant-savanna-simbali-wild-safaris.jpg", alt: "African elephant walking through golden savannah grass", caption: "Amboseli is Kenya's classic elephant country, with open plains, permanent swamps, and big skies." },
+    { type: "h2", content: "Where Is Amboseli?" },
+    { type: "text", content: "Amboseli sits in southern Kenya, roughly 240 kilometers from Nairobi, close to the Tanzania border. The park itself covers about 392 square kilometers, but it belongs to a much larger ecosystem of approximately 8,000 square kilometers where wildlife, Maasai community lands, conservancies, and seasonal movement corridors are all connected." },
+    { type: "text", content: "Mount Kilimanjaro is actually in Tanzania, yet some of its finest views are from Amboseli on the Kenyan side. On clear mornings, the mountain appears almost impossibly close, rising above grassland, acacia woodland, seasonal lake beds, and the permanent swamps fed by underground water from Kilimanjaro." },
+    { type: "quote", content: "Amboseli's magic is the contrast: dry dust and fresh swamp, tiny egrets beside huge elephants, and the highest mountain in Africa watching over one of Kenya's most intimate safari landscapes." },
+    { type: "h2", content: "The Elephants Of Amboseli" },
+    { type: "text", content: "Amboseli is best known for elephants, and with good reason. The wider ecosystem supports more than 1,600 elephants, including some of Africa's impressive big tuskers. The herds are often relaxed around vehicles, which creates exceptional viewing for guests and unusually strong learning moments for children." },
+    { type: "text", content: "The park is also home to the Amboseli Elephant Research Project, one of the world's longest-running elephant studies. Since 1972, researchers have followed individual elephants and family groups across generations, documenting social bonds, matriarch leadership, births, deaths, migrations, and the quiet intelligence that makes elephant society so compelling." },
+    { type: "text", content: "Amboseli's famous red elephants are not a separate species or subspecies. They earn that nickname from the iron-rich dust they spray across their bodies as natural sunscreen and insect protection. In the late afternoon, when the light turns warm and the dust glows, the effect is unforgettable." },
+    { type: "image", src: "/images/elephant-herd-waterhole-safari-simbali-wild-safaris.jpg", alt: "Elephant herd gathered near water on safari", caption: "Kilimanjaro-fed water keeps Amboseli's swamps alive and draws elephants throughout the year." },
+    { type: "h2", content: "Wildlife Beyond Elephants" },
+    { type: "list", items: [
+      "<strong>Buffalo, zebra, wildebeest, impala, and giraffe</strong> are commonly seen across the plains and around the swamp edges.",
+      "<strong>Lions</strong> are regularly sighted, while leopard can be present but elusive in thicker cover.",
+      "<strong>Spotted hyena, jackal, and occasional cheetah</strong> add predator interest, especially in the open country.",
+      "<strong>More than 400 bird species</strong> have been recorded, including herons, kingfishers, raptors, pelicans, and flamingos when Lake Amboseli holds water.",
+      "<strong>Rhino are not found in Amboseli itself</strong>, so travelers seeking rhino viewing can combine Amboseli with Lake Nakuru, Ol Pejeta, or other protected areas.",
+    ]},
+    { type: "h2", content: "Why Kilimanjaro Matters" },
+    { type: "text", content: "Kilimanjaro is more than a beautiful backdrop. Meltwater and underground rivers from the mountain feed permanent wetlands such as Enkongo Narok and Longinye. These swamps create a reliable oasis in a dry landscape, drawing elephants, buffalo, hippos, waterbirds, and grazing animals even when the surrounding plains are thirsty." },
+    { type: "text", content: "For the best mountain views, plan early starts. Kilimanjaro is often clearest between 6 and 8 AM before cloud builds around the summit. June to October and January to February tend to offer stronger visibility, although weather always keeps the final word." },
+    { type: "h2", content: "Best Viewpoints And Photography Spots" },
+    { type: "h3", content: "Observation Hill" },
+    { type: "text", content: "Observation Hill is one of the park's best viewpoints and the rare place inside Amboseli where visitors can step out of the vehicle. From the top, you can read the whole landscape: swamps, plains, lake bed, wildlife movement, and the mountain beyond." },
+    { type: "h3", content: "Swamp Edges" },
+    { type: "text", content: "The edges of the permanent swamps are prime elephant territory, especially in the dry season. This is where you may see large family groups feeding, calves staying close to their mothers, and egrets walking beside enormous feet." },
+    { type: "h3", content: "Open Plains" },
+    { type: "text", content: "The open plains give Amboseli its iconic sense of scale. A telephoto lens can compress Kilimanjaro behind elephants or giraffes, while a wider lens captures the sweep of sky, dust, and distance." },
+    { type: "image", src: "/images/safari-road-giraffes-simbali-wild-safaris.jpg", alt: "Safari road crossing open savannah with giraffes", caption: "Amboseli rewards early starts, patient positioning, and guides who understand light and animal movement." },
+    { type: "h2", content: "Best Time To Visit Amboseli" },
+    { type: "list", items: [
+      "<strong>June to October:</strong> Excellent wildlife viewing, drier tracks, animals concentrated around water, and generally clearer Kilimanjaro views.",
+      "<strong>November to December:</strong> Short rains bring fresher color, dramatic skies, fewer crowds, and beautiful photography conditions.",
+      "<strong>January to February:</strong> Hot, dry, and productive for game viewing, with strong chances of clear mountain mornings.",
+      "<strong>March to May:</strong> Long rains create lush scenery and value-season pricing, though some roads can be more challenging.",
+    ]},
+    { type: "h2", content: "Activities In And Around Amboseli" },
+    { type: "list", items: [
+      "Morning and afternoon game drives focused on elephants, predators, plains game, birds, and Kilimanjaro views.",
+      "A visit to Observation Hill for panoramic photography and a better understanding of the ecosystem.",
+      "Respectful Maasai cultural visits outside the park, arranged with care for community benefit.",
+      "Birdwatching around the wetlands, lake bed, and acacia woodland.",
+      "Sundowners, bush walks, or night drives in suitable nearby private conservancy areas where permitted.",
+    ]},
+    { type: "h2", content: "Where To Stay" },
+    { type: "text", content: "Amboseli has a strong range of lodges and camps, from comfortable family-friendly properties to polished luxury camps with mountain views. Ol Tukai Lodge is loved for its location and elephant sightings, Amboseli Serena Safari Lodge works well for many families, while Tortilis Camp, Tawi Lodge, and Satao Elerai offer more intimate or premium styles in and around the ecosystem." },
+    { type: "text", content: "At Simbali Wild Safaris, we match accommodation to the way you travel: family space, pool time, photographic access, romance, budget, and the right pace between game drives." },
+    { type: "h2", content: "A Natural Start To A Kenya Family Safari" },
+    { type: "text", content: "Amboseli is the first safari chapter on our <a href=\"/itineraries#kenya-family-8\" class=\"text-olive underline font-semibold\">8-Day Kenya Family Safari</a>, followed by Lake Naivasha, Lake Nakuru, and the Maasai Mara. That route gives families a beautiful progression: elephants beneath Kilimanjaro, a boat safari among hippos and birds, rhino country, and classic big-cat plains." },
+    { type: "text", content: "It also pairs well with our <a href=\"/itineraries#kenya-honeymoon-8\" class=\"text-olive underline font-semibold\">8-Day Kenya Honeymoon Safari</a> when couples want to add Amboseli's elephant country to a romantic Kenya itinerary." },
+    { type: "h2", content: "Ready To See The Giants?" },
+    { type: "text", content: "There are many places to see elephants in East Africa, but Amboseli gives them a stage like nowhere else: bright dust, green swamps, wide plains, and Kilimanjaro above it all." },
+    { type: "text", content: "If you want that first morning when the mountain clears and the herds begin to move, <a href=\"/contact\" class=\"text-olive underline font-semibold\">contact Simbali Wild Safaris</a>. Sheila, Violet, and our team will help craft an Amboseli safari with the right season, lodge style, and guiding rhythm for your family or private journey." },
+  ],
   "wonders-of-kenyas-great-rift-valley": [
     { type: "text", content: "The <strong>Great Rift Valley Kenya</strong> is one of the most incredible places on Earth. It's part of a massive crack in the planet's surface that runs from the Middle East all the way down through Eastern Africa. The Kenyan part of the valley is especially beautiful — and full of surprises." },
     { type: "text", content: "Here, you'll find tall cliffs called escarpments, wide lakes, hot springs, volcanoes, and endless plains. It's a place where nature tells the story of our planet's past — and gives you plenty to explore today." },
@@ -311,7 +384,7 @@ const { slug } = Astro.params;
 const { post } = Astro.props;
 const content = blogContent[slug] || [];
 const related = relatedSafaris[slug] || [];
-const allSlugs = ["wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
+const allSlugs = ["amboseli-national-park-elephants-kilimanjaro", "wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
 const otherSlugs = allSlugs.filter(s => s !== slug);
 ---
 
@@ -435,6 +508,7 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
       <div class="grid md:grid-cols-2 gap-6">
         {otherSlugs.map((otherSlug, idx) => {
           const otherPosts = {
+            "amboseli-national-park-elephants-kilimanjaro": { title: "Amboseli National Park: Where Giants Roam", img: "/images/african-elephant-savanna-simbali-wild-safaris.jpg", excerpt: "Explore Kenya's elephant country, Kilimanjaro views, swamps, seasons, and photography tips." },
             "wonders-of-kenyas-great-rift-valley": { title: "Great Rift Valley Kenya: Nature, Culture & Adventure", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", excerpt: "Discover dramatic escarpments, flamingo-filled lakes and volcanic craters." },
             "east-africa-birding-guide": { title: "East Africa Birding Guide", img: "/images/raptor-bird-flying-clear-sky_blog.jpg", excerpt: "Over 1,500 bird species across Kenya, Tanzania, Uganda and beyond." },
             "wildebeest-migration-an-epic-safari-adventure": { title: "The Great Wildebeest Migration", img: "/images/wildebeest-river-crossing-safari-migration_blog.jpg", excerpt: "Witness over a million wildebeest thunder across the Serengeti-Maasai Mara." },
