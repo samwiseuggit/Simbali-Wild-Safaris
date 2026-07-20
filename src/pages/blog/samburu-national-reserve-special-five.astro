@@ -1,27 +1,71 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import OptimizedImage from '../../components/OptimizedImage.astro';
+import RichBlogArticle from '../../components/RichBlogArticle.astro';
 
 const post = {
   slug: 'samburu-national-reserve-special-five',
   title: "Samburu National Reserve: Kenya's Hidden Gem and the Special Five",
-  description: "Discover Samburu National Reserve in Northern Kenya, home of the Special Five: Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk, and beisa oryx.",
+  description: "A rich guide to Samburu National Reserve: the Ewaso Nyiro River, rare Special Five wildlife, elephant encounters, birding, culture, seasons, lodges, and how to include Samburu in a luxury Kenya safari.",
   img: '/images/giraffes-savanna-safari-simbali-wild-safaris.jpg',
-  imgAlt: 'Giraffes standing in a golden East African savannah landscape',
+  imgAlt: 'Reticulated giraffes standing in a golden northern Kenya landscape',
   date: 'July 11, 2026',
-  readTime: '11 min read',
+  readTime: '16 min read',
   cat: 'Destinations',
 };
-const sections = [
-  ['Why Samburu Feels Different', 'Samburu sits in Kenya\'s rugged northern frontier, where the Ewaso Nyiro River draws wildlife into a dry, dramatic landscape of doum palms, rocky hills, and wide golden plains. It feels more intimate than many headline safari reserves, with fewer vehicles and a strong sense of discovery.'],
-  ['Meet the Special Five', 'The reserve is famous for five dry-country species: Grevy\'s zebra, reticulated giraffe, Somali ostrich, gerenuk, and beisa oryx. Together they give Samburu a wildlife identity you will not find on a standard southern Kenya route.'],
-  ['What You Can See', 'Elephants gather along the river, leopards rest in riverside trees, lions patrol the plains, and more than 450 bird species add color throughout the year. The river corridor is the heartbeat of the reserve.'],
-  ['Best Time To Visit', 'June to October is excellent for dry-season wildlife viewing, while November to March brings softer light, strong birding, and quieter safari conditions. April and May can be beautiful but require more flexibility around rains.'],
-  ['Where It Fits', 'Samburu pairs naturally with Ol Pejeta, Lake Naivasha, and the Maasai Mara on the 8-Day Kenya Honeymoon Safari, adding rare northern wildlife before the classic big-cat country of the Mara.'],
+
+const relatedSafaris = [
+  { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
+  { title: "11-Day Kenya-Tanzania Family Safari", url: "/itineraries#kenya-tanzania-family-11", img: "/images/itin-kenya-tanzania-family.jpg", price: "From $6,730", duration: "11 Days" },
+];
+
+const blocks = [
+  { type: 'text', content: "Samburu is for travelers who love the feeling of finding something rare. North of Mount Kenya, the road climbs out of the greener highlands and drops toward a drier, more sculptural landscape: ochre earth, long views, doum palms, rocky kopjes, and the steady green ribbon of the <strong>Ewaso Nyiro River</strong>." },
+  { type: 'text', content: "The reserve is not as famous as the Maasai Mara, and that is part of its charm. Game drives feel intimate. The light is crisp. Wildlife gathers around the river with a sense of theatre, and the dry-country species give Samburu a personality that feels completely different from southern Kenya." },
+  { type: 'quote', content: "Samburu is where Kenya's safari map changes texture: rarer wildlife, quieter game drives, dramatic dry-country scenery, and a river that pulls the whole ecosystem together." },
+  { type: 'image', src: '/images/giraffes-savanna-safari-simbali-wild-safaris.jpg', alt: 'Reticulated giraffes in a dry savannah landscape', caption: "Samburu's reticulated giraffes are among the most elegant and photogenic of the northern species." },
+  { type: 'h2', content: 'Why Samburu Feels Different' },
+  { type: 'text', content: "Samburu sits in Kenya's rugged northern frontier, an area shaped by heat, water scarcity, pastoral cultures, and wildlife beautifully adapted to arid conditions. The reserve itself covers a compact area compared with some headline parks, but its habitats are varied: riverine forest, acacia scrub, open plains, seasonal streams, and rocky hills that catch the evening light." },
+  { type: 'text', content: "The Ewaso Nyiro River is the heartbeat. In the dry season, it becomes a gathering place for elephants, antelope, baboons, leopards, crocodiles, kingfishers, bee-eaters, and countless smaller signs of life. A good guide will read the riverbank like a page: fresh elephant tracks, alarm calls, dust movement, the direction of grazing, and the sudden silence that can reveal a predator nearby." },
+  { type: 'note', label: 'Safari Fit', content: "Samburu works beautifully for travelers who want a safari that feels exclusive without being stiff: fewer vehicles, strong guiding, rare species, and a sense of discovery before continuing to Ol Pejeta, Lake Naivasha, or the Maasai Mara." },
+  { type: 'h2', content: 'Meet the Special Five' },
+  { type: 'text', content: "Samburu is famous for the <strong>Special Five</strong>, a group of dry-country animals that make northern Kenya feel distinct. They are not a marketing gimmick; they are a genuine expression of place, shaped by the climate and vegetation of this region." },
+  { type: 'list', items: [
+    "<strong>Grevy's zebra:</strong> taller and more refined than the plains zebra, with narrow stripes, a white belly, rounded ears, and an endangered conservation status.",
+    "<strong>Reticulated giraffe:</strong> instantly recognizable by its clean white lines and rich chestnut patches, often seen browsing thorn trees in soft morning light.",
+    "<strong>Somali ostrich:</strong> blue-necked males and grey-brown females stride across the open country, especially in drier areas.",
+    "<strong>Gerenuk:</strong> the long-necked antelope that stands upright on its hind legs to browse, looking almost impossibly delicate.",
+    "<strong>Beisa oryx:</strong> elegant desert antelope with long spear-like horns and a mask-like face pattern.",
+  ]},
+  { type: 'image', src: '/images/free-use-grevys-zebra-pixabay.jpg', alt: "Grevy's zebra profile showing narrow stripes and large rounded ears", caption: "Grevy's zebra is one of Samburu's great conservation highlights and a signature Special Five sighting. Free-use photo from Pixabay." },
+  { type: 'h2', content: 'Elephants Along the Ewaso Nyiro' },
+  { type: 'text', content: "Elephants give Samburu its emotional weight. Herds move down to the river in the heat of the day, calves tucked into the shade of their mothers, older females testing the water, young bulls splashing with theatrical confidence. Because the reserve is relatively compact, sightings can feel close and unhurried when handled with patience and respect." },
+  { type: 'text', content: "Samburu's elephants are part of a wider northern Kenya movement system. They travel between community lands, conservancies, river corridors, and protected areas. That makes every sighting more than a beautiful photograph: it is a reminder that safari landscapes only work when wildlife has space beyond park boundaries." },
+  { type: 'image', src: '/images/elephant-herd-waterhole-safari-simbali-wild-safaris.jpg', alt: 'Elephant herd gathered near water', caption: "Water shapes Samburu wildlife behavior, especially in the dry season when elephants gather along river corridors." },
+  { type: 'h2', content: 'Predators, Birdlife and Small Details' },
+  { type: 'text', content: "Samburu is excellent predator country. Lions patrol the plains and river edges, leopards use the riverine trees and rocky cover, and cheetahs can appear in more open areas. Spotted hyenas, jackals, crocodiles, and raptors complete the drama, but the reserve also rewards slower looking." },
+  { type: 'text', content: "Birders can expect a strong mix of dry-country and riverine species: vulturine guineafowl, secretary birds, hornbills, bee-eaters, rollers, kingfishers, eagles, sandgrouse, and weavers. Even guests who do not travel as birdwatchers often leave Samburu surprised by the color and movement in the trees." },
+  { type: 'image', src: '/images/raptor-bird-flying-clear-sky_blog.jpg', alt: 'Raptor flying against clear sky', caption: "Northern Kenya is rich in raptors, and Samburu's open skies make birds of prey easier to follow." },
+  { type: 'h2', content: 'The Best Game Drive Rhythm' },
+  { type: 'text', content: "Early mornings are for cool air, tracks, predators returning from the night, and golden light catching the palms. Midday belongs to the river: elephants drinking, crocodiles resting, birds moving through shade. Late afternoon brings warmth back into the colors, with long shadows across the plains and the possibility of predators becoming active again." },
+  { type: 'list', items: [
+    "<strong>Morning:</strong> look for fresh tracks, lions on the move, leopards returning to cover, and Special Five species feeding before the heat rises.",
+    "<strong>Midday:</strong> spend time near the river, where water draws elephants, birds, antelope, and sometimes predators.",
+    "<strong>Evening:</strong> use the softer light for photography and give yourself time for a quiet sundowner before returning to camp.",
+  ]},
+  { type: 'h2', content: 'Culture, Community and Conservation' },
+  { type: 'text', content: "The wider Samburu region is home to Samburu communities whose pastoral traditions, beadwork, songs, cattle culture, and land knowledge are deeply connected to the landscape. A respectful cultural visit can add real depth when it is arranged through community-led channels and framed as exchange rather than performance." },
+  { type: 'text', content: "Northern Kenya is also one of the strongest examples of community conservation in Africa. Conservancies around Samburu help protect migration corridors, support ranger programs, and create tourism revenue that can benefit local people directly. For travelers, that means the safari can contribute to a broader living landscape rather than only a fenced park experience." },
+  { type: 'image', src: '/images/maasai-cultural-experience-safari_blog.jpg', alt: 'East African cultural experience with traditional dress and beadwork', caption: "Cultural encounters are strongest when they are community-led, respectful, and given enough time." },
+  { type: 'h2', content: 'When To Visit Samburu' },
+  { type: 'text', content: "June to October is classic dry season. Wildlife concentrates more predictably near water, roads are usually easier, and the spare beauty of the landscape feels especially powerful. January to March is another excellent window, often hot but rewarding, with clear skies and strong wildlife viewing." },
+  { type: 'text', content: "November and December can bring short rains, fresh grass, dramatic skies, and excellent birding. April and May are usually the wettest months; they can be beautiful and quiet, but some routes require flexibility. For photographers, the shoulder seasons can be magic if you are comfortable trading predictability for atmosphere." },
+  { type: 'h2', content: 'How Samburu Fits Into a Kenya Safari' },
+  { type: 'text', content: "Samburu pairs naturally with <strong>Ol Pejeta Conservancy</strong>, where rhino conservation and chimpanzee sanctuary visits add a different kind of wildlife story. From there, travelers can continue to <strong>Lake Naivasha</strong> for water, birds, and a softer lakeside pause before finishing in the <strong>Maasai Mara</strong> for big-cat country." },
+  { type: 'text', content: "That progression works beautifully for honeymooners because it feels varied without becoming frantic: northern rarity, conservation depth, lakeside calm, then the classic Mara finale. Families also enjoy it when the pace is carefully managed, with enough pool time, lodge comfort, and shorter drive expectations built in." },
+  { type: 'image', src: '/images/itin-kenya-honeymoon.jpg', alt: 'Kenya honeymoon safari itinerary preview', caption: "Samburu is a natural opening chapter for a varied Kenya honeymoon safari." },
+  { type: 'h2', content: 'Final Thoughts' },
+  { type: 'text', content: "Samburu is not simply a place to tick off rare species. It is a mood: dry wind, palm shade, elephant tracks, patterned giraffes, river light, and the sense that the safari has moved into a more private register. If you want Kenya with a little more edge, intimacy, and surprise, Samburu belongs near the top of the list." },
+  { type: 'text', content: "Let Simbali Wild Safaris build Samburu into a private Kenya journey with the right season, lodge style, and guiding pace. <a href=\"/contact\" class=\"text-olive underline font-semibold\">Contact us</a> and we will shape the route around the safari you actually want to feel." },
 ];
 ---
-<MainLayout title={`${post.title} | Simbali Wild Safaris Blog`} description={post.description}>
-  <Fragment slot="head"><link rel="canonical" href={`https://simbaliwildsafaris.com/blog/${post.slug}/`} /><meta property="og:title" content={`${post.title} | Simbali Wild Safaris`} /><meta property="og:description" content={post.description} /><meta property="og:image" content={`https://simbaliwildsafaris.com${post.img}`} /></Fragment>
-  <section class="relative overflow-hidden"><div class="absolute inset-0"><OptimizedImage src={post.img} alt={post.imgAlt} class="w-full h-full object-cover" loading="eager" /><div class="absolute inset-0 bg-black/50" /></div><div class="relative container-main py-20 md:py-28 text-center max-w-4xl"><div class="text-white/70 text-sm mb-4">{post.cat} / {post.date} / {post.readTime}</div><h1 class="font-belleza text-3xl md:text-5xl tracking-[0.08em] uppercase text-white leading-tight mb-4">{post.title}</h1><p class="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">{post.description}</p></div></section>
-  <section class="py-16 bg-white"><article class="container-main max-w-4xl prose-blog"><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">Samburu is for travelers who love the feeling of finding something rare. It brings Kenya's northern landscapes, distinctive wildlife, and warm cultural context into a safari that feels both adventurous and refined.</p>{sections.map(([title, body]) => (<section><h2 class="font-belleza text-2xl md:text-3xl tracking-[0.08em] uppercase mt-12 mb-5 text-[#1a1a1a]">{title}</h2><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">{body}</p></section>))}<p class="text-[#444] leading-[1.8] mb-5 text-[15px]">Ready to meet the Special Five? <a href="/contact" class="text-olive underline font-semibold">Contact Simbali Wild Safaris</a> to plan a Samburu safari with the right season, lodge style, and guiding pace.</p></article></section>
-</MainLayout>
+
+<RichBlogArticle post={post} blocks={blocks} relatedSafaris={relatedSafaris} />
