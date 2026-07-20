@@ -1,18 +1,73 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import OptimizedImage from '../../components/OptimizedImage.astro';
+import RichBlogArticle from '../../components/RichBlogArticle.astro';
 
-const post = { slug: 'lake-naivasha-kenya-boat-safari-birdwatching', title: "Lake Naivasha: Kenya's Highest Lake and a Birdwatcher's Paradise", description: "Discover Lake Naivasha, Kenya's highest lake: boat safaris among hippos, 400+ bird species, Crescent Island walks and Hell's Gate adventures.", img: '/images/serene-lakeside-mountain-landscape_blog.jpg', imgAlt: 'Peaceful Rift Valley lakeside landscape evoking Lake Naivasha at dawn', date: 'July 18, 2026', readTime: '10 min read', cat: 'Destinations' };
-const sections = [
-  ['A Softer Safari Rhythm', 'Lake Naivasha gives a Kenyan safari time to breathe. Water replaces dust, reflections replace horizons, and the sound of fish eagles carries across the morning air.'],
-  ['Boat Safaris and Hippos', 'A guided boat safari is the essential experience. From the water you can watch hippos at a safe distance, cormorants drying their wings, and fish eagles scanning the shoreline.'],
-  ['Birdwatching Highlights', 'More than 400 bird species have been recorded around Naivasha, including fish eagles, kingfishers, herons, pelicans, jacanas, weavers, and seasonal migrants.'],
-  ['Crescent Island and Hell\'s Gate', 'Crescent Island offers gentle walking among giraffes, zebras, impalas, and waterbuck, while nearby Hell\'s Gate adds cliffs, cycling, geothermal drama, and active Rift Valley scenery.'],
-  ['Where It Fits', 'Naivasha works beautifully between Ol Pejeta, Amboseli, Lake Nakuru, and the Maasai Mara, especially for families and honeymooners who want a calm lakeside pause.'],
+const post = {
+  slug: 'lake-naivasha-kenya-boat-safari-birdwatching',
+  title: "Lake Naivasha: Kenya's Highest Lake and a Birdwatcher's Paradise",
+  description: "A rich guide to Lake Naivasha: boat safaris among hippos, 400+ bird species, Crescent Island walking safaris, Hell's Gate, seasons, lodges and how Naivasha fits into a luxury Kenya safari.",
+  img: '/images/serene-lakeside-mountain-landscape_blog.jpg',
+  imgAlt: 'Peaceful Rift Valley lakeside landscape evoking Lake Naivasha at dawn',
+  date: 'July 18, 2026',
+  readTime: '17 min read',
+  cat: 'Destinations',
+};
+
+const relatedSafaris = [
+  { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
+  { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
+];
+
+const blocks = [
+  { type: 'text', content: "At dawn on <strong>Lake Naivasha</strong>, Kenya's safari rhythm softens. Mist lifts from the freshwater, papyrus edges glow pale green, fish eagles call across the lake, and hippos break the surface with deep, unhurried breaths." },
+  { type: 'text', content: "This is not the dust-and-drama safari travelers imagine first. It is quieter, more reflective, and surprisingly rich. Water replaces plains. Boat wakes replace tire tracks. Birds, light, and lake sounds take center stage, creating the perfect pause between Kenya's bigger game-drive destinations." },
+  { type: 'quote', content: "Lake Naivasha is where a Kenyan safari exhales: a place for boat safaris, bird calls, hippos in the shallows, and walking gently among wildlife on Crescent Island." },
+  { type: 'image', src: '/images/free-use-lake-naivasha-acacia-pixabay.jpg', alt: 'Lake Naivasha lakeside acacia trees and green lawns', caption: "Naivasha brings water, reflection, and quiet into a classic Kenya safari route. Free-use photo from Pixabay." },
+  { type: 'h2', content: 'Why Naivasha Is Unique' },
+  { type: 'text', content: "Lake Naivasha sits at about 1,884 meters above sea level, making it Kenya's highest major Rift Valley lake. Unlike many alkaline Rift Valley lakes, Naivasha is freshwater, fed by underground springs from the Aberdare Mountains. That freshwater character supports papyrus swamps, acacia woodland, submerged vegetation, lakeshore lawns, and open water." },
+  { type: 'text', content: "The lake has no obvious surface outlet, and its water levels have shifted over time, reshaping shorelines and wildlife patterns. Around it are flower farms, lodges, fishing communities, Mount Longonot, Hell's Gate National Park, and private sanctuaries that make the area much more than a one-activity stop." },
+  { type: 'note', label: 'Simbali Planning Note', content: "Naivasha is ideal after dry-country game drives because it changes the pace. Guests step out of the vehicle, onto the water, and into a slower kind of safari before continuing to Lake Nakuru or the Maasai Mara." },
+  { type: 'h2', content: 'The Boat Safari Experience' },
+  { type: 'text', content: "A guided boat safari is the essential Naivasha experience. Most trips last one to two hours and are best at sunrise or late afternoon when the light is low and the lake feels most alive. Local guides know the hippo pods, eagle perches, pelican areas, cormorant trees, and quieter corners where waterbuck graze near the shore." },
+  { type: 'text', content: "Hippos are viewed from a safe and respectful distance. They may look calm, but they are powerful, territorial animals, and the right guide makes all the difference. From the boat, you can photograph them at water level, watch ears flick above the surface, and hear the snorts that become part of Naivasha's soundtrack." },
+  { type: 'image', src: '/images/hippos-river-safari-simbali-wild-safaris.jpg', alt: 'Hippos resting in water during safari', caption: "Boat safaris offer safe, atmospheric hippo viewing without disturbing the animals." },
+  { type: 'h2', content: 'Birdwatching: 400+ Species' },
+  { type: 'text', content: "Naivasha is one of Kenya's most rewarding birding destinations, with more than 400 recorded species. Even casual travelers quickly start scanning the shore because the sightings are so visible: fish eagles perched in dead trees, kingfishers flashing blue, pelicans moving in formation, herons stalking the shallows, and cormorants drying their wings." },
+  { type: 'list', items: [
+    "<strong>Signature birds:</strong> African fish eagle, great white pelican, pink-backed pelican, goliath heron, purple heron, black heron, and pied kingfisher.",
+    "<strong>Small flashes of color:</strong> malachite kingfishers, bee-eaters, weavers, starlings, and woodland kingfishers add jewel-like detail.",
+    "<strong>Papyrus specialists:</strong> papyrus gonolek, white-winged warbler, and cisticolas reward patient birders near reedbeds.",
+    "<strong>Migrants:</strong> October to April brings Palearctic visitors that deepen the birding list.",
+  ]},
+  { type: 'image', src: '/images/raptor-bird-flying-clear-sky_blog.jpg', alt: 'Bird of prey flying in clear sky', caption: "The African fish eagle's call is one of Naivasha's most unforgettable sounds." },
+  { type: 'image', src: '/images/free-use-lake-naivasha-cormorants-pixabay.jpg', alt: 'Cormorants perched in a tree standing in Lake Naivasha', caption: "Cormorants, herons, kingfishers, and pelicans bring constant movement to the lake. Free-use photo from Pixabay." },
+  { type: 'h2', content: 'Crescent Island: Walking Among Wildlife' },
+  { type: 'text', content: "Crescent Island Game Sanctuary is one of Naivasha's most memorable add-ons. Reached by boat, it offers a walking safari without large predators. That simple fact changes the whole feeling: instead of sitting in a vehicle, you walk with a guide across open grassland while giraffes, zebras, wildebeest, impalas, gazelles, and waterbuck move around you." },
+  { type: 'text', content: "The experience is gentle enough for many families and romantic enough for honeymooners. Children love being on foot near giraffes. Couples love the open views and sense of privacy. Photographers appreciate the low angle and clean background of lake, volcanoes, and Rift Valley wall." },
+  { type: 'image', src: '/images/giraffes-savanna-safari-simbali-wild-safaris.jpg', alt: 'Giraffes crossing open savannah', caption: "Crescent Island turns wildlife viewing into a gentle walking safari." },
+  { type: 'h2', content: "Hell's Gate and Mount Longonot" },
+  { type: 'text', content: "Naivasha's surroundings add real variety. <strong>Hell's Gate National Park</strong> is close enough for a half-day or full-day excursion, with red cliffs, volcanic plugs, geothermal steam, cycling routes, and wildlife such as zebra, giraffe, buffalo, eland, baboons, and rock hyrax. It is one of the few Kenyan parks where cycling among wildlife is possible in designated areas." },
+  { type: 'text', content: "Mount Longonot adds another layer for active travelers. The crater hike is demanding but rewarding, with sweeping Rift Valley views. It is not for every safari itinerary, but for guests who want movement after several game drives, it can be a brilliant way to feel the landscape in your legs." },
+  { type: 'image', src: '/images/mountain-hiking-adventure-safari_blog.jpg', alt: 'Hikers in a dramatic mountain landscape', caption: "Hell's Gate and Mount Longonot add cliffs, cycling, hiking, and volcanic drama to a Naivasha stay." },
+  { type: 'h2', content: 'Where To Stay and How To Pace It' },
+  { type: 'text', content: "Naivasha has a broad accommodation range, from comfortable lakeside lodges to intimate private conservancy stays. The best choice depends on whether you want family-friendly grounds, easy boat access, quiet romance, or a more exclusive conservation setting." },
+  { type: 'list', items: [
+    "<strong>For families:</strong> choose lodges with lawns, pools, easy meal times, and quick access to boat departures.",
+    "<strong>For honeymooners:</strong> prioritize privacy, lakeside dining, sundowners, and a slower morning rhythm.",
+    "<strong>For birders:</strong> ask about knowledgeable local guides and early boat departures.",
+    "<strong>For active guests:</strong> combine boat safari, Crescent Island, Hell's Gate cycling, and geothermal spa time.",
+  ]},
+  { type: 'image', src: '/images/itin-kenya-honeymoon.jpg', alt: 'Kenya honeymoon safari itinerary preview', caption: "Naivasha is a natural romantic pause between conservancy and Maasai Mara safari chapters." },
+  { type: 'h2', content: 'Best Time To Visit Lake Naivasha' },
+  { type: 'text', content: "Naivasha is rewarding year-round because water is always part of the story. Birding is especially rich from October to April, when migrants join resident species. July to October and January to March are often easier for broader safari logistics, with drier conditions and reliable wildlife viewing around the lake." },
+  { type: 'text', content: "Rainy months bring lush scenery, fuller papyrus habitat, dramatic clouds, and fewer visitors. Roads and activities may need flexibility, but the lake can look wonderfully alive. If your itinerary already includes Lake Nakuru, Amboseli, or the Mara, Naivasha helps balance the route in almost any season." },
+  { type: 'h2', content: 'How Naivasha Fits Into a Kenya Safari' },
+  { type: 'text', content: "In our <strong>8-Day Kenya Honeymoon Safari</strong>, Naivasha follows the conservation story of Ol Pejeta and gives couples a lakeside interlude before the Maasai Mara. In our <strong>8-Day Kenya Family Safari</strong>, it gives children a different safari mode: boat rides, hippos, birds, and walking with wildlife before continuing to Lake Nakuru and the Mara." },
+  { type: 'text', content: "That contrast is the point. A great safari is not only about intensity. It is about rhythm: plains, water, forest, lodge time, early mornings, and room to absorb what you have seen." },
+  { type: 'image', src: '/images/itin-kenya-family.jpg', alt: 'Kenya family safari itinerary preview', caption: "Families often remember Naivasha because it feels interactive, relaxed, and different from vehicle-based game drives." },
+  { type: 'h2', content: 'Final Thoughts' },
+  { type: 'text', content: "Lake Naivasha is not a filler stop. It is the soul-soothing middle chapter every Kenyan safari needs: a place to trade dust for water, engines for boat wakes, and rushing for listening." },
+  { type: 'text', content: "Let Simbali Wild Safaris weave Naivasha into your Kenya honeymoon, family safari, or custom journey. <a href=\"/contact\" class=\"text-olive underline font-semibold\">Contact us</a> and we will shape the lakeside pace around the safari you are dreaming of." },
 ];
 ---
-<MainLayout title={`${post.title} | Simbali Wild Safaris Blog`} description={post.description}>
-  <Fragment slot="head"><link rel="canonical" href={`https://simbaliwildsafaris.com/blog/${post.slug}/`} /><meta property="og:title" content={`${post.title} | Simbali Wild Safaris`} /><meta property="og:description" content={post.description} /><meta property="og:image" content={`https://simbaliwildsafaris.com${post.img}`} /></Fragment>
-  <section class="relative overflow-hidden"><div class="absolute inset-0"><OptimizedImage src={post.img} alt={post.imgAlt} class="w-full h-full object-cover" loading="eager" /><div class="absolute inset-0 bg-black/50" /></div><div class="relative container-main py-20 md:py-28 text-center max-w-4xl"><div class="text-white/70 text-sm mb-4">{post.cat} / {post.date} / {post.readTime}</div><h1 class="font-belleza text-3xl md:text-5xl tracking-[0.08em] uppercase text-white leading-tight mb-4">{post.title}</h1><p class="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">{post.description}</p></div></section>
-  <section class="py-16 bg-white"><article class="container-main max-w-4xl prose-blog"><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">At dawn on Lake Naivasha, mist lifts from the freshwater and safari begins quietly. It is restorative, bird-rich, and perfectly placed within a wider Kenya journey.</p>{sections.map(([title, body]) => (<section><h2 class="font-belleza text-2xl md:text-3xl tracking-[0.08em] uppercase mt-12 mb-5 text-[#1a1a1a]">{title}</h2><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">{body}</p></section>))}<p class="text-[#444] leading-[1.8] mb-5 text-[15px]">Explore Naivasha on our Kenya family and honeymoon journeys, or <a href="/contact" class="text-olive underline font-semibold">contact Simbali Wild Safaris</a> for a bespoke lakeside safari.</p></article></section>
-</MainLayout>
+
+<RichBlogArticle post={post} blocks={blocks} relatedSafaris={relatedSafaris} />

@@ -1,0 +1,96 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import OptimizedImage from './OptimizedImage.astro';
+
+const { post, blocks, relatedSafaris = [] } = Astro.props;
+---
+
+<MainLayout title={`${post.title} | Simbali Wild Safaris Blog`} description={post.description}>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://simbaliwildsafaris.com/blog/${post.slug}/`} />
+    <meta property="og:title" content={`${post.title} | Simbali Wild Safaris`} />
+    <meta property="og:description" content={post.description} />
+    <meta property="og:image" content={`https://simbaliwildsafaris.com${post.img}`} />
+    <meta property="og:type" content="article" />
+  </Fragment>
+
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <OptimizedImage src={post.img} alt={post.imgAlt} class="w-full h-full object-cover" loading="eager" />
+      <div class="absolute inset-0 bg-black/55" />
+    </div>
+    <div class="relative container-main py-20 md:py-28">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="text-white/75 text-sm mb-4">{post.cat} / {post.date} / {post.readTime}</div>
+        <h1 class="font-belleza text-3xl md:text-5xl tracking-[0.08em] uppercase text-white leading-tight mb-4">{post.title}</h1>
+        <p class="text-white/85 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">{post.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <article class="container-main max-w-4xl prose-blog">
+      {blocks.map((block) => {
+        if (block.type === 'h2') return <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.08em] uppercase mt-12 mb-5 text-[#1a1a1a]" set:html={block.content} />;
+        if (block.type === 'h3') return <h3 class="font-belleza text-xl md:text-2xl tracking-[0.06em] uppercase mt-8 mb-4 text-[#1a1a1a]" set:html={block.content} />;
+        if (block.type === 'text') return <p class="text-[#444] leading-[1.85] mb-5 text-[15px]" set:html={block.content} />;
+        if (block.type === 'quote') return (
+          <blockquote class="border-l-4 border-olive bg-sage/20 pl-6 pr-4 py-5 my-8 rounded-r-xl">
+            <p class="text-[#555] italic text-lg leading-relaxed">{block.content}</p>
+          </blockquote>
+        );
+        if (block.type === 'list') return (
+          <ul class="space-y-3 mb-6">
+            {block.items?.map((item) => <li class="text-[#444] text-[15px] leading-[1.8] flex items-start gap-3"><span class="text-olive flex-shrink-0 mt-1.5 text-xs">&#9654;</span><span set:html={item} /></li>)}
+          </ul>
+        );
+        if (block.type === 'image') return (
+          <figure class="my-9">
+            <OptimizedImage src={block.src} alt={block.alt} class="w-full h-72 md:h-[26rem] object-cover rounded-xl" loading="lazy" />
+            {block.caption && <figcaption class="text-center text-[#888] text-sm mt-3 italic">{block.caption}</figcaption>}
+          </figure>
+        );
+        if (block.type === 'note') return (
+          <aside class="my-8 rounded-xl border border-olive/20 bg-[#f5f7f3] p-6">
+            <p class="text-olive font-semibold uppercase tracking-[0.08em] text-xs mb-2">{block.label}</p>
+            <p class="text-[#4a4a4a] leading-[1.75] text-[15px]" set:html={block.content} />
+          </aside>
+        );
+        return null;
+      })}
+    </article>
+  </section>
+
+  {relatedSafaris.length > 0 && (
+    <section class="py-16 bg-sage/20">
+      <div class="container-main max-w-4xl">
+        <h2 class="font-belleza text-2xl tracking-[0.1em] uppercase mb-8 text-center">Related Safari Itineraries</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {relatedSafaris.map((safari) => (
+            <a href={safari.url} class="group bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col">
+              <div class="relative overflow-hidden h-48">
+                <OptimizedImage src={safari.img} alt={safari.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur text-olive text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full">{safari.duration}</div>
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-belleza text-lg tracking-[0.06em] uppercase mb-1">{safari.title}</h3>
+                <p class="text-olive font-semibold text-sm">{safari.price}</p>
+                <span class="text-olive text-xs font-semibold mt-3 group-hover:underline inline-flex items-center gap-1">View Itinerary <span>&rarr;</span></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="py-20 bg-olive">
+    <div class="container-main text-center">
+      <h2 class="font-belleza text-2xl md:text-3xl tracking-[0.1em] uppercase text-white mb-4">Plan Your Dream Safari</h2>
+      <p class="text-white/75 max-w-xl mx-auto mb-8 leading-relaxed">
+        Inspired by this story? Let Sheila and Violet craft the right route, lodge rhythm, and private guiding style for your East African journey.
+      </p>
+      <a href="/contact" class="btn-primary btn-pulse bg-white text-olive hover:bg-sage inline-flex">Start Planning</a>
+    </div>
+  </section>
+</MainLayout>

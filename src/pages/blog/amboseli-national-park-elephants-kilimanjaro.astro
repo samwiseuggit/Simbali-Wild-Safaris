@@ -1,18 +1,68 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import OptimizedImage from '../../components/OptimizedImage.astro';
+import RichBlogArticle from '../../components/RichBlogArticle.astro';
 
-const post = { slug: 'amboseli-national-park-elephants-kilimanjaro', title: 'Amboseli National Park: Where Giants Roam Beneath Kilimanjaro', description: 'Complete guide to Amboseli National Park in Kenya: famous elephant herds, Mount Kilimanjaro views, best photography spots, wildlife, seasons, and family safari planning tips.', img: '/images/african-elephant-savanna-simbali-wild-safaris.jpg', imgAlt: 'African elephant walking through golden savannah grass', date: 'July 12, 2026', readTime: '12 min read', cat: 'Destinations' };
-const sections = [
-  ['Why Amboseli Is Iconic', 'Amboseli is elephant country at its most cinematic: open plains, permanent swamps, and the snow-bright summit of Kilimanjaro rising beyond the border in Tanzania. It is one of Kenya\'s most rewarding parks for first-time travelers, families, and photographers.'],
-  ['The Elephants of Amboseli', 'The park is known for some of Africa\'s best-studied elephant families. Big tuskers, matriarch-led herds, and young calves often move between the marshes and dusty plains, creating unforgettable sightings at close but respectful range.'],
-  ['Wildlife Beyond Elephants', 'Lions, cheetahs, hyenas, buffalo, giraffes, zebras, wildebeest, gazelles, hippos, and rich birdlife all share the ecosystem. The wetlands are especially productive during dry months.'],
-  ['Photography Tips', 'Early morning gives the best chance of clear Kilimanjaro views. Use the mountain as context rather than chasing it in every frame, and let dust, light, and elephant movement tell the story.'],
-  ['Where It Fits', 'Amboseli is central to the 8-Day Kenya Family Safari and the 11-Day Kenya-Tanzania Family Safari, especially for travelers who want elephants, scenery, and a comfortable safari rhythm.'],
+const post = {
+  slug: 'amboseli-national-park-elephants-kilimanjaro',
+  title: 'Amboseli National Park: Where Giants Roam Beneath Kilimanjaro',
+  description: 'A complete luxury safari guide to Amboseli National Park: elephants, Mount Kilimanjaro views, wetlands, predator sightings, photography timing, family travel, seasons and itinerary planning.',
+  img: '/images/african-elephant-savanna-simbali-wild-safaris.jpg',
+  imgAlt: 'African elephant walking through golden savannah grass',
+  date: 'July 12, 2026',
+  readTime: '17 min read',
+  cat: 'Destinations',
+};
+
+const relatedSafaris = [
+  { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
+  { title: "11-Day Kenya-Tanzania Family Safari", url: "/itineraries#kenya-tanzania-family-11", img: "/images/itin-kenya-tanzania-family.jpg", price: "From $6,730", duration: "11 Days" },
+];
+
+const blocks = [
+  { type: 'text', content: "Amboseli is one of East Africa's great safari stages: wide, bright, and full of movement. The park sits beneath Mount Kilimanjaro, whose snow-bright summit rises across the border in Tanzania, and its open plains give wildlife a cinematic sense of scale." },
+  { type: 'text', content: "For first-time travelers, families, photographers, and elephant lovers, Amboseli is easy to understand and impossible to forget. The drama is not only in the animals, but in the setting: dust, marsh, mountain, sky, and herds moving with the kind of confidence that comes from generations of memory." },
+  { type: 'image', src: '/images/african-elephant-savanna-simbali-wild-safaris.jpg', alt: 'Large elephant walking through golden savannah', caption: "Amboseli's elephants are among the most iconic wildlife sightings in Kenya." },
+  { type: 'h2', content: 'Why Amboseli Is Iconic' },
+  { type: 'text', content: "Amboseli's magic comes from contrast. The plains can look dry and spare, yet permanent swamps fed by underground water from Kilimanjaro keep the ecosystem alive. This creates a remarkable mix of dusty open country and lush green marsh, often within the same game drive." },
+  { type: 'text', content: "The openness makes wildlife viewing wonderfully clear. Elephants cross in family groups, zebras and wildebeest graze in the foreground, buffalo sink into the wetlands, and predators use the edges. When Kilimanjaro appears, the whole scene feels almost unreal: Africa's highest mountain watching over one of its most beloved elephant landscapes." },
+  { type: 'quote', content: "Amboseli is not only where you see elephants. It is where you understand their scale, their family bonds, and their place in a landscape larger than any single photograph." },
+  { type: 'h2', content: 'The Elephants of Amboseli' },
+  { type: 'text', content: "Amboseli is famous for elephants because the sightings are both frequent and deeply expressive. Matriarch-led families move between swamps and plains, calves practice using their trunks, young bulls test each other with playful bravado, and old tuskers carry themselves with extraordinary presence." },
+  { type: 'text', content: "The Amboseli elephant population has also been studied for decades, making the park one of the world's most important places for understanding elephant behavior. Guides who know the families can help guests read the scene: who leads, who protects the calves, why the herd is pausing, and how mood changes ripple through the group." },
+  { type: 'image', src: '/images/free-use-amboseli-elephants-kilimanjaro-pixabay.jpg', alt: 'Elephant family walking below Mount Kilimanjaro', caption: "Permanent water from Kilimanjaro supports Amboseli's famous elephant families through dry months. Free-use photo from Pixabay." },
+  { type: 'h2', content: 'Wildlife Beyond Elephants' },
+  { type: 'text', content: "Elephants may headline the park, but Amboseli is far from a single-species destination. Lions rest in the shade and hunt around the plains, cheetahs use open areas where visibility favors speed, hyenas patrol with their usual intelligence, and jackals work the margins. Buffalo, giraffes, zebras, wildebeest, Grant's and Thomson's gazelles, hippos, warthogs, and baboons are all part of the rhythm." },
+  { type: 'text', content: "The wetlands are especially productive. Here, elephants feed knee-deep in green marsh, hippos surface in channels, buffalo cool themselves, and birds gather in large numbers. The swamp edge is one of the best places to sit quietly and let the park reveal itself." },
+  { type: 'image', src: '/images/lioness-service.jpg', alt: 'Lioness resting in East African safari country', caption: "Predators add tension to Amboseli's open landscapes, especially near the edges of grazing and water." },
+  { type: 'h2', content: 'Birding and Wetland Life' },
+  { type: 'text', content: "Amboseli rewards birdwatchers with a generous mix of wetland, grassland, and raptor species. Depending on season and water levels, guests may see egrets, herons, crowned cranes, pelicans, kingfishers, jacanas, weavers, bee-eaters, secretary birds, and birds of prey riding the thermals above the plains." },
+  { type: 'text', content: "For families, birding in Amboseli is a quiet secret weapon. Children who might tire of distant antelope often light up when a kingfisher flashes blue, a crane stalks through the marsh, or a raptor drops suddenly toward the grass." },
+  { type: 'image', src: '/images/coastal-seabirds-flight-simbali-wild-safaris_Slide_2.jpg', alt: 'Birds flying in formation over water', caption: "Amboseli's wetlands bring a softer, more colorful counterpoint to the big mammal drama." },
+  { type: 'h2', content: 'Photography: Kilimanjaro, Dust and Light' },
+  { type: 'text', content: "Amboseli is a dream for photographers, but it asks for patience. Kilimanjaro is often clearest early in the morning before cloud builds around the summit. The best images usually happen when you stop chasing the mountain and let wildlife move naturally through the frame." },
+  { type: 'list', items: [
+    "<strong>Start early:</strong> dawn gives the best chance of clear mountain views and active animals.",
+    "<strong>Use layers:</strong> frame elephants, acacias, dust, and the mountain together for depth.",
+    "<strong>Respect behavior:</strong> a relaxed herd gives better images than a pressured one.",
+    "<strong>Stay for dust:</strong> dry-season elephant crossings can create beautiful backlit atmosphere.",
+    "<strong>Look beyond the postcard:</strong> marsh reflections, small birds, storm clouds, and family interactions can be just as memorable as a mountain view.",
+  ]},
+  { type: 'image', src: '/images/safari-road-giraffes-simbali-wild-safaris.jpg', alt: 'Safari road with giraffes in open country', caption: "Amboseli's open spaces help photographers tell the bigger story of landscape and movement." },
+  { type: 'h2', content: 'A Strong Choice for Families' },
+  { type: 'text', content: "Amboseli works beautifully for family safaris because the wildlife is visible, varied, and often close enough to hold attention. Drives can be structured around shorter high-impact windows, with lodge downtime in the warmer hours. The landscape is open, which helps younger travelers spot animals before fatigue sets in." },
+  { type: 'text', content: "Parents appreciate the balance: dramatic sightings without needing endless hours in the vehicle, comfortable lodges with pools, and a strong sense of place. A good guide can turn elephant behavior into a living classroom, explaining matriarchs, calves, communication, water, migration, and conservation in ways children remember." },
+  { type: 'note', label: 'Simbali Planning Note', content: "On our Kenya Family Safari, Amboseli gives the journey an immediate sense of wonder before Lake Naivasha, Lake Nakuru, and the Maasai Mara add water, rhinos, and big-cat country." },
+  { type: 'h2', content: 'Best Time To Visit Amboseli' },
+  { type: 'text', content: "The dry seasons, especially June to October and January to March, are excellent for wildlife because animals concentrate near reliable water. Roads are generally easier, skies can be clear, and elephant sightings are strong. July to October is also peak season, so lodge choice and early planning matter." },
+  { type: 'text', content: "The short rains in November and December can bring beautiful green landscapes and dramatic skies. April and May are quieter and lush, though heavier rains may affect some tracks. For photographers, the shoulder seasons can produce extraordinary light if you can travel with flexibility." },
+  { type: 'image', src: '/images/baobab-sunset-safari-simbali-wild-safaris.jpg', alt: 'Safari sunset with silhouetted tree', caption: "Amboseli rewards travelers who leave room for weather, light, and slow evening moments." },
+  { type: 'h2', content: 'How Amboseli Fits Into a Bigger Safari' },
+  { type: 'text', content: "Amboseli combines especially well with <strong>Lake Naivasha</strong>, <strong>Lake Nakuru</strong>, and the <strong>Maasai Mara</strong> on a Kenya family route. It also fits naturally into a Kenya-Tanzania journey, where travelers can connect Amboseli's Kilimanjaro views with Tanzania's Serengeti and Ngorongoro Crater." },
+  { type: 'text', content: "The key is pacing. Amboseli deserves at least two nights so you have more than one chance at clear Kilimanjaro mornings and enough time to explore both dry plains and wetlands. Rushing in for one afternoon and out the next morning can work, but it leaves too much to chance." },
+  { type: 'image', src: '/images/itin-kenya-family.jpg', alt: 'Kenya family safari itinerary preview', caption: "Amboseli is a cornerstone of a family-friendly Kenya safari route." },
+  { type: 'h2', content: 'Final Thoughts' },
+  { type: 'text', content: "Amboseli is famous for a reason, but its real beauty is not only the postcard of elephants below Kilimanjaro. It is the way families move together, the way water holds life in a dry landscape, and the way the mountain appears and disappears like a quiet blessing over the plains." },
+  { type: 'text', content: "Let Simbali Wild Safaris design Amboseli into a Kenya family safari or a cross-border Kenya-Tanzania journey with the right lodge rhythm, private guiding, and photography timing. <a href=\"/contact\" class=\"text-olive underline font-semibold\">Start planning your Amboseli safari</a> with us." },
 ];
 ---
-<MainLayout title={`${post.title} | Simbali Wild Safaris Blog`} description={post.description}>
-  <Fragment slot="head"><link rel="canonical" href={`https://simbaliwildsafaris.com/blog/${post.slug}/`} /><meta property="og:title" content={`${post.title} | Simbali Wild Safaris`} /><meta property="og:description" content={post.description} /><meta property="og:image" content={`https://simbaliwildsafaris.com${post.img}`} /></Fragment>
-  <section class="relative overflow-hidden"><div class="absolute inset-0"><OptimizedImage src={post.img} alt={post.imgAlt} class="w-full h-full object-cover" loading="eager" /><div class="absolute inset-0 bg-black/50" /></div><div class="relative container-main py-20 md:py-28 text-center max-w-4xl"><div class="text-white/70 text-sm mb-4">{post.cat} / {post.date} / {post.readTime}</div><h1 class="font-belleza text-3xl md:text-5xl tracking-[0.08em] uppercase text-white leading-tight mb-4">{post.title}</h1><p class="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">{post.description}</p></div></section>
-  <section class="py-16 bg-white"><article class="container-main max-w-4xl prose-blog"><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">Amboseli is one of East Africa's great safari stages: wide, bright, and full of movement. The park rewards travelers who wake early, watch patiently, and let elephant families set the pace.</p>{sections.map(([title, body]) => (<section><h2 class="font-belleza text-2xl md:text-3xl tracking-[0.08em] uppercase mt-12 mb-5 text-[#1a1a1a]">{title}</h2><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">{body}</p></section>))}<p class="text-[#444] leading-[1.8] mb-5 text-[15px]">Let Simbali Wild Safaris build Amboseli into a family, honeymoon, or cross-border Kenya-Tanzania itinerary. <a href="/contact" class="text-olive underline font-semibold">Start planning here</a>.</p></article></section>
-</MainLayout>
+
+<RichBlogArticle post={post} blocks={blocks} relatedSafaris={relatedSafaris} />
