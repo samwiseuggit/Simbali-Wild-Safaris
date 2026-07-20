@@ -1,0 +1,29 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
+
+const post = {
+  slug: 'maasai-culture-safari-east-africa',
+  title: "Maasai Culture: Connecting with East Africa's Iconic Warriors",
+  description: 'Discover Maasai culture on safari: village visits, beadwork symbolism, the jumping dance, wildlife conservation and respectful cultural etiquette.',
+  img: '/images/maasai-cultural-experience-safari_blog.jpg',
+  imgAlt: 'Maasai cultural experience with traditional red dress and beaded adornment',
+  date: 'July 19, 2026',
+  readTime: '11 min read',
+  cat: 'Culture',
+};
+
+const sections = [
+  ['More Than a Postcard', 'The Maasai are not a backdrop to wildlife travel. They are a living, resilient people whose history, land knowledge, beadwork, songs, cattle traditions, and community values continue to shape Kenya and Tanzania today.'],
+  ['Village Visits With Respect', 'A thoughtful manyatta visit can include welcome songs, a home tour, fire-making, beadwork, and the adumu jumping dance. The best visits are smaller, community-led, and guided with context rather than treated as photo stops.'],
+  ['The Language of Beads', 'Maasai beadwork carries meaning. Red speaks of bravery and unity, blue of the sky and Enkai, green of pasture and prosperity, white of milk and peace, black of shared hardship, orange of hospitality, yellow of sun and abundance, and striped patterns of land and home.'],
+  ['Culture and Conservation', 'Maasai lands are vital wildlife corridors around Amboseli, the Maasai Mara, Serengeti, and Ngorongoro. When communities benefit fairly from conservation and tourism, wildlife has more space to survive.'],
+  ['Travel Etiquette', 'Dress modestly, ask before photographing people or homes, buy beadwork directly when possible, avoid aggressive haggling, and listen more than you speak. Respect turns a visit into genuine exchange.'],
+];
+---
+
+<MainLayout title={`${post.title} | Simbali Wild Safaris Blog`} description={post.description}>
+  <Fragment slot="head"><link rel="canonical" href={`https://simbaliwildsafaris.com/blog/${post.slug}/`} /><meta property="og:title" content={`${post.title} | Simbali Wild Safaris`} /><meta property="og:description" content={post.description} /><meta property="og:image" content={`https://simbaliwildsafaris.com${post.img}`} /></Fragment>
+  <section class="relative overflow-hidden"><div class="absolute inset-0"><OptimizedImage src={post.img} alt={post.imgAlt} class="w-full h-full object-cover" loading="eager" /><div class="absolute inset-0 bg-black/50" /></div><div class="relative container-main py-20 md:py-28 text-center max-w-4xl"><div class="text-white/70 text-sm mb-4">{post.cat} / {post.date} / {post.readTime}</div><h1 class="font-belleza text-3xl md:text-5xl tracking-[0.08em] uppercase text-white leading-tight mb-4">{post.title}</h1><p class="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">{post.description}</p></div></section>
+  <section class="py-16 bg-white"><article class="container-main max-w-4xl prose-blog"><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">A respectful cultural safari is not about collecting photographs. It is about entering a conversation with humility, curiosity, and time.</p>{sections.map(([title, body]) => (<><h2 class="font-belleza text-2xl md:text-3xl tracking-[0.08em] uppercase mt-12 mb-5 text-[#1a1a1a]">{title}</h2><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">{body}</p></>))}<p class="text-[#444] leading-[1.8] mb-5 text-[15px]">Ready to pair extraordinary wildlife with meaningful Maasai cultural encounters? <a href="/contact" class="text-olive underline font-semibold">Contact Simbali Wild Safaris</a>.</p></article></section>
+</MainLayout>
