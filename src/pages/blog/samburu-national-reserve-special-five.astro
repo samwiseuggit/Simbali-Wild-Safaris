@@ -1,0 +1,27 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
+
+const post = {
+  slug: 'samburu-national-reserve-special-five',
+  title: "Samburu National Reserve: Kenya's Hidden Gem and the Special Five",
+  description: "Discover Samburu National Reserve in Northern Kenya, home of the Special Five: Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk, and beisa oryx.",
+  img: '/images/giraffes-savanna-safari-simbali-wild-safaris.jpg',
+  imgAlt: 'Giraffes standing in a golden East African savannah landscape',
+  date: 'July 11, 2026',
+  readTime: '11 min read',
+  cat: 'Destinations',
+};
+const sections = [
+  ['Why Samburu Feels Different', 'Samburu sits in Kenya\'s rugged northern frontier, where the Ewaso Nyiro River draws wildlife into a dry, dramatic landscape of doum palms, rocky hills, and wide golden plains. It feels more intimate than many headline safari reserves, with fewer vehicles and a strong sense of discovery.'],
+  ['Meet the Special Five', 'The reserve is famous for five dry-country species: Grevy\'s zebra, reticulated giraffe, Somali ostrich, gerenuk, and beisa oryx. Together they give Samburu a wildlife identity you will not find on a standard southern Kenya route.'],
+  ['What You Can See', 'Elephants gather along the river, leopards rest in riverside trees, lions patrol the plains, and more than 450 bird species add color throughout the year. The river corridor is the heartbeat of the reserve.'],
+  ['Best Time To Visit', 'June to October is excellent for dry-season wildlife viewing, while November to March brings softer light, strong birding, and quieter safari conditions. April and May can be beautiful but require more flexibility around rains.'],
+  ['Where It Fits', 'Samburu pairs naturally with Ol Pejeta, Lake Naivasha, and the Maasai Mara on the 8-Day Kenya Honeymoon Safari, adding rare northern wildlife before the classic big-cat country of the Mara.'],
+];
+---
+<MainLayout title={`${post.title} | Simbali Wild Safaris Blog`} description={post.description}>
+  <Fragment slot="head"><link rel="canonical" href={`https://simbaliwildsafaris.com/blog/${post.slug}/`} /><meta property="og:title" content={`${post.title} | Simbali Wild Safaris`} /><meta property="og:description" content={post.description} /><meta property="og:image" content={`https://simbaliwildsafaris.com${post.img}`} /></Fragment>
+  <section class="relative overflow-hidden"><div class="absolute inset-0"><OptimizedImage src={post.img} alt={post.imgAlt} class="w-full h-full object-cover" loading="eager" /><div class="absolute inset-0 bg-black/50" /></div><div class="relative container-main py-20 md:py-28 text-center max-w-4xl"><div class="text-white/70 text-sm mb-4">{post.cat} / {post.date} / {post.readTime}</div><h1 class="font-belleza text-3xl md:text-5xl tracking-[0.08em] uppercase text-white leading-tight mb-4">{post.title}</h1><p class="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">{post.description}</p></div></section>
+  <section class="py-16 bg-white"><article class="container-main max-w-4xl prose-blog"><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">Samburu is for travelers who love the feeling of finding something rare. It brings Kenya's northern landscapes, distinctive wildlife, and warm cultural context into a safari that feels both adventurous and refined.</p>{sections.map(([title, body]) => (<section><h2 class="font-belleza text-2xl md:text-3xl tracking-[0.08em] uppercase mt-12 mb-5 text-[#1a1a1a]">{title}</h2><p class="text-[#444] leading-[1.8] mb-5 text-[15px]">{body}</p></section>))}<p class="text-[#444] leading-[1.8] mb-5 text-[15px]">Ready to meet the Special Five? <a href="/contact" class="text-olive underline font-semibold">Contact Simbali Wild Safaris</a> to plan a Samburu safari with the right season, lodge style, and guiding pace.</p></article></section>
+</MainLayout>
