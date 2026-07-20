@@ -5,6 +5,18 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 export function getStaticPaths() {
   const posts = [
     {
+      slug: "safari-photography-tips-wildlife-photos",
+      title: "Safari Photography Tips: How to Capture Wildlife Like a Professional Photographer",
+      description: "Master safari photography with practical camera settings, composition rules, light techniques, ethical field habits, and smartphone tips for better wildlife photos in Kenya and Tanzania.",
+      img: "/images/lions-safari-vehicle-simbali-wild-safaris.jpg",
+      imgAlt: "Lion beside a safari vehicle during a wildlife photography game drive",
+      date: "July 21, 2026",
+      readTime: "12 min read",
+      cat: "Safari Planning",
+      author: "Sam Mwangi",
+      tags: ["Safari Photography", "Wildlife Photography", "Camera Settings", "Kenya", "Tanzania", "Safari Tips"],
+    },
+    {
       slug: "first-african-safari-planning-guide",
       title: "The Ultimate Guide to Planning Your First African Safari",
       description: "Planning your first African safari? This beginner-friendly East Africa guide covers where to go, when to travel, safari costs, packing, daily rhythms, and how to choose the right itinerary.",
@@ -57,6 +69,13 @@ export function getStaticPaths() {
 }
 
 const relatedSafaris = {
+  "safari-photography-tips-wildlife-photos": [
+    { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
+    { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
+    { title: "8-Day Tanzania Family Safari", url: "/itineraries#tanzania-family-8", img: "/images/itin-tanzania-family.jpg", price: "From $4,440", duration: "8 Days" },
+    { title: "11-Day Kenya-Tanzania Family Safari", url: "/itineraries#kenya-tanzania-family-11", img: "/images/itin-kenya-tanzania-family.jpg", price: "From $6,730", duration: "11 Days" },
+    { title: "8-Day Tanzania Honeymoon Safari", url: "/itineraries#tanzania-honeymoon-8", img: "/images/itin-tanzania-honeymoon.jpg", price: "From $5,620", duration: "8 Days" },
+  ],
   "first-african-safari-planning-guide": [
     { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
     { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
@@ -79,6 +98,106 @@ const relatedSafaris = {
 };
 
 const blogContent = {
+  "safari-photography-tips-wildlife-photos": [
+    { type: "text", content: "The lion locks eyes with your lens. Your heart lifts, your guide whispers that the light is perfect, you press the shutter, and later you discover a soft, overexposed frame that does not quite hold the moment you felt." },
+    { type: "text", content: "Safari photography is thrilling because it is never fully controlled. Animals move, dust rises, vehicles shift, and East African light can turn from soft gold to hard white in minutes. The good news is that better photographs rarely come from equipment alone. They come from preparation, field craft, patience, and a guide who understands both wildlife behavior and light." },
+    { type: "image", src: "/images/lions-safari-vehicle-simbali-wild-safaris.jpg", alt: "Lion beside a safari vehicle in East Africa", caption: "Great safari photography begins before the sighting: camera ready, settings checked, and guide positioned for light and behavior." },
+    { type: "h2", content: "Choose Camera Gear That Matches Your Style" },
+    { type: "text", content: "You do not need the most expensive camera on the vehicle to come home with frame-worthy images. You need enough reach, reliable focus, and equipment you can handle quickly when the moment appears." },
+    { type: "list", items: [
+      "<strong>Bridge cameras</strong> such as superzoom models are useful for travelers who want one lightweight body with long reach and simple handling.",
+      "<strong>Crop-sensor mirrorless cameras</strong> give excellent reach with telephoto lenses and are a strong middle ground for serious hobbyists.",
+      "<strong>Full-frame mirrorless cameras</strong> offer the best low-light performance and detail, especially at dawn, dusk, and in shaded woodland.",
+      "<strong>A 100-400mm or 200-600mm telephoto zoom</strong> is the essential safari lens for mammals and birds.",
+      "<strong>A 24-70mm style lens</strong> is helpful for landscapes, lodge scenes, people, vehicles, and environmental portraits.",
+      "<strong>A bean bag</strong> is one of the most useful support tools on a vehicle-based safari; it steadies long lenses without the awkwardness of a tripod."
+    ]},
+    { type: "quote", content: "Technique matters more than owning the biggest lens. A ready camera, steady hands, and good positioning often beat expensive gear used too late." },
+    { type: "h2", content: "Dial In Essential Wildlife Settings" },
+    { type: "text", content: "Wildlife does not wait while you search through menus. Set a practical baseline before the game drive begins, then adjust as the scene changes." },
+    { type: "h3", content: "Shutter Speed" },
+    { type: "list", items: [
+      "<strong>Stationary animals:</strong> start around 1/500s, especially if you are using a long lens from a vehicle.",
+      "<strong>Walking wildlife:</strong> use 1/1000s as a dependable minimum.",
+      "<strong>Running animals or quick action:</strong> move to 1/2000s, 1/3200s, or faster.",
+      "<strong>Birds in flight:</strong> 1/2500s or faster gives you a much better chance of sharp wings and eyes."
+    ]},
+    { type: "h3", content: "Aperture, ISO, And Focus" },
+    { type: "list", items: [
+      "<strong>f/5.6</strong> is a reliable sweet spot for single-animal portraits with pleasing background separation.",
+      "<strong>f/8 to f/11</strong> works better for herds, family groups, or animals at different distances.",
+      "<strong>ISO 400-800</strong> is a good daylight starting point, but modern cameras can handle ISO 1600-3200 when the light fades.",
+      "<strong>Continuous autofocus</strong> is essential for wildlife. Look for AF-C, AI Servo, subject tracking, zone AF, or animal eye detection.",
+      "<strong>Burst mode</strong> helps capture the one stride, wing position, or glance that makes a sequence come alive.",
+      "<strong>RAW format</strong> gives maximum flexibility for recovering highlights, opening shadows, and correcting white balance later."
+    ]},
+    { type: "image", src: "/images/raptor-bird-flying-clear-sky_blog.jpg", alt: "African raptor flying in a clear sky", caption: "Birds in flight reward fast shutter speeds, continuous autofocus, and a willingness to take several frames." },
+    { type: "h2", content: "Master Safari Light" },
+    { type: "text", content: "The best light usually arrives early and late. Between about 6:00-8:30 AM and 4:30-6:30 PM, the sun sits lower, shadows soften, and warm side-light brings texture to fur, feathers, dust, and grass." },
+    { type: "list", items: [
+      "<strong>Golden hour:</strong> prioritize portraits, silhouettes, movement, and wide scenes with glowing grass.",
+      "<strong>Midday light:</strong> look for animals in shade, focus on behavior, or expose carefully to protect highlights.",
+      "<strong>Backlight:</strong> use sunrise or sunset to create rim light around manes, ears, dust, and grasses.",
+      "<strong>Overcast skies:</strong> treat cloudy weather as a softbox; it can be excellent for even detail on animals.",
+      "<strong>Catchlights:</strong> watch for small reflections in the eye. They make wildlife portraits feel alive."
+    ]},
+    { type: "image", src: "/images/african-elephant-savanna-simbali-wild-safaris.jpg", alt: "Elephant walking through golden savanna", caption: "Soft directional light adds shape, warmth, and depth to large animals and open landscapes." },
+    { type: "h2", content: "Compose With Intention" },
+    { type: "text", content: "A sharp animal in the center of the frame is only the beginning. Composition turns a record shot into a photograph that holds attention." },
+    { type: "list", items: [
+      "<strong>Place the eye with care.</strong> The rule of thirds is especially powerful when the animal is looking into open space.",
+      "<strong>Leave room to move.</strong> Give an animal more space in the direction it is facing, walking, or watching.",
+      "<strong>Show habitat.</strong> An acacia tree, waterhole, termite mound, or open plain tells the viewer where the story is happening.",
+      "<strong>Fill the frame when detail matters.</strong> Eyes, horns, trunks, paws, feathers, and dust can create striking intimate images.",
+      "<strong>Use patterns.</strong> Zebra stripes, elephant herds, bird formations, and grass shadows all add visual rhythm.",
+      "<strong>Get lower when safe and permitted.</strong> Eye-level images feel more personal than photographs made from high above."
+    ]},
+    { type: "h2", content: "Work The Sighting Patiently" },
+    { type: "text", content: "Professional wildlife photographers often wait hours for one clean moment. On safari, patience means resisting the urge to fire a few rushed frames and move on. Stay with promising behavior. A resting lion may yawn, stretch, greet another pride member, or rise into perfect light." },
+    { type: "list", items: [
+      "Keep your camera in a ready position with settings checked before the sighting happens.",
+      "Anticipate behavior: watch ears, tails, posture, and where other animals are looking.",
+      "Communicate with your guide about light angle, background, and whether you want a close portrait or wider scene.",
+      "Stay quiet and minimize movement in the vehicle so wildlife remains relaxed.",
+      "Photograph the full safari story: landscapes, lodge details, guide moments, tracks, sunrises, meals, and people as well as animals."
+    ]},
+    { type: "image", src: "/images/open-jeep-game-drive-simbali-wild-safaris.jpg", alt: "Open safari vehicle on a game drive", caption: "A photography-friendly safari vehicle and an experienced guide make a real difference in angle, timing, and comfort." },
+    { type: "h2", content: "Practice Ethical Wildlife Photography" },
+    { type: "text", content: "A beautiful photograph is never worth disturbing an animal or pressuring a guide to break park rules. Ethical photography protects wildlife, respects other guests, and keeps the safari experience generous for everyone around you." },
+    { type: "list", items: [
+      "Never bait, call, chase, or harass animals for a photograph.",
+      "Keep respectful distance and follow your guide's instructions at all times.",
+      "Do not use flash on nocturnal wildlife; it can disorient animals.",
+      "Stay in the vehicle in non-designated areas.",
+      "Do not monopolize the best angle when other guests are sharing the sighting.",
+      "Ask permission before photographing local people or community experiences.",
+      "Do not fly drones in East African national parks unless you have explicit legal authorization."
+    ]},
+    { type: "h2", content: "Back Up Every Day" },
+    { type: "text", content: "Safari days are full, but your backup routine should be non-negotiable. Bring more memory than you think you need, keep cards in a dustproof case, and copy files to a laptop or portable drive each evening. Where lodge Wi-Fi allows, add cloud backup for your best images." },
+    { type: "h2", content: "Edit Naturally" },
+    { type: "text", content: "Post-processing should refine what you saw, not invent a different safari. Start with exposure, contrast, highlights, shadows, and white balance. Crop for stronger composition, sharpen eyes selectively, and use noise reduction carefully for high-ISO files. Export smaller versions for web and higher-resolution files for print." },
+    { type: "h2", content: "Smartphone Safari Photography" },
+    { type: "list", items: [
+      "Use the phone's optical telephoto lens if it has one; avoid heavy digital zoom.",
+      "Brace both hands against the vehicle and exhale before pressing the shutter.",
+      "Clean the lens often because safari dust builds quickly.",
+      "Use burst mode for action and short video clips for movement and sound.",
+      "Edit lightly in Lightroom Mobile, Snapseed, or VSCO.",
+      "Remember that the best camera is the one ready when a spontaneous moment happens."
+    ]},
+    { type: "h2", content: "Quick Reference Card" },
+    { type: "list", items: [
+      "<strong>Portrait:</strong> f/5.6, 1/1000s, ISO 400-800, continuous AF, RAW.",
+      "<strong>Action:</strong> 1/2000s or faster, burst mode, tracking AF, Auto ISO if light changes.",
+      "<strong>Birds in flight:</strong> 1/2500s or faster, zone AF, high burst, patient panning.",
+      "<strong>Herds and groups:</strong> f/8 to f/11 so more animals remain sharp.",
+      "<strong>Golden hour:</strong> protect highlights, watch catchlights, and use side-light for depth."
+    ]},
+    { type: "h2", content: "Put Yourself In The Right Place" },
+    { type: "text", content: "The best wildlife photographs are taken on the best-planned safaris. At <strong>Simbali Wild Safaris</strong>, our 4x4 vehicles are selected with photographers in mind, with open viewing, pop-up roof access, and practical support for long lenses. Our driver-guides understand light angles, animal behavior, and the quiet patience great sightings require." },
+    { type: "text", content: "Browse our <a href=\"/itineraries\" class=\"text-olive underline font-semibold\">Kenya and Tanzania safari itineraries</a>, then tell us what you want to photograph. We will help place you in the right landscapes, at the right time of day, with space to come home with images that feel as vivid as the journey itself." },
+  ],
   "first-african-safari-planning-guide": [
     { type: "text", content: "Your first safari often begins long before the first game drive: a golden sunrise imagined over acacia trees, the low rumble of a lion somewhere beyond camp, and the question every first-time traveler eventually asks: where do we start?" },
     { type: "text", content: "At <strong>Simbali Wild Safaris</strong>, we have spent more than 12 years helping travelers turn that dream into a smooth, personal East African journey. This guide walks you through the decisions that matter most, from destination and timing to budget, packing, and the rhythm of safari days." },
@@ -400,7 +519,7 @@ const { slug } = Astro.params;
 const { post } = Astro.props;
 const content = blogContent[slug] || [];
 const related = relatedSafaris[slug] || [];
-const allSlugs = ["first-african-safari-planning-guide", "wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
+const allSlugs = ["safari-photography-tips-wildlife-photos", "first-african-safari-planning-guide", "wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
 const otherSlugs = allSlugs.filter(s => s !== slug);
 ---
 
@@ -524,6 +643,7 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
       <div class="grid md:grid-cols-2 gap-6">
         {otherSlugs.map((otherSlug, idx) => {
           const otherPosts = {
+            "safari-photography-tips-wildlife-photos": { title: "Safari Photography Tips", img: "/images/lions-safari-vehicle-simbali-wild-safaris.jpg", excerpt: "Camera settings, light, composition, and ethical field habits for sharper wildlife photos." },
             "first-african-safari-planning-guide": { title: "The Ultimate Guide to Planning Your First African Safari", img: "/images/open-jeep-game-drive-simbali-wild-safaris.jpg", excerpt: "Choose where to go, when to travel, what to budget, and what to pack." },
             "wonders-of-kenyas-great-rift-valley": { title: "Great Rift Valley Kenya: Nature, Culture & Adventure", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", excerpt: "Discover dramatic escarpments, flamingo-filled lakes and volcanic craters." },
             "east-africa-birding-guide": { title: "East Africa Birding Guide", img: "/images/raptor-bird-flying-clear-sky_blog.jpg", excerpt: "Over 1,500 bird species across Kenya, Tanzania, Uganda and beyond." },
