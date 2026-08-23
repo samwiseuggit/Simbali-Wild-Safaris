@@ -412,7 +412,7 @@ export default function Chatbot() {
           aria-label="Open Simba safari chat"
         >
           <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#f5f0e7]">
-            <img src="/images/simbali-ai-avatar.png" alt="" className="h-full w-full object-cover" />
+            <img src="/images/simbali-lion-only.png" alt="" className="h-full w-full object-cover" />
           </span>
           <span className="text-sm font-medium text-[#444]">Ask Simba</span>
         </button>
@@ -427,7 +427,7 @@ export default function Chatbot() {
           <div className="flex items-center justify-between bg-[#171814] px-4 py-3">
             <div className="flex items-center gap-3">
               <span className="h-10 w-10 overflow-hidden rounded-full bg-[#f5f0e7]">
-                <img src="/images/simbali-ai-avatar.png" alt="" className="h-full w-full object-cover" />
+                <img src="/images/simbali-lion-only.png" alt="" className="h-full w-full object-cover" />
               </span>
               <div>
                 <div className="text-sm font-semibold leading-tight text-white">Simba</div>

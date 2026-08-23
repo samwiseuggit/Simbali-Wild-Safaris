@@ -250,8 +250,8 @@ async function askModel(message: string) {
 
   try {
     const reply =
-      (await askGemini(message, controller.signal)) ||
       (await askOpenRouter(message, controller.signal)) ||
+      (await askGemini(message, controller.signal)) ||
       (await askOpenAI(message, controller.signal));
     return reply ? safeReply(reply) : null;
   } catch {

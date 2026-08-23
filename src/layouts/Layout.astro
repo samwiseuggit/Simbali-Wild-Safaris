@@ -5,10 +5,18 @@ import ScrollAnimator from '../components/ScrollAnimator.astro';
 export interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: string;
 }
 
-const { title, description = "Luxury African Safari Adventures with Simbali Wild Safaris" } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site || 'https://simbaliwildsafaris.com');
+const {
+  title,
+  description = "Luxury African Safari Adventures with Simbali Wild Safaris",
+  image = "/images/simbali-lion-only.png",
+  type = "website",
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site || 'https://simbaliwildsafaris.com').toString();
+const absoluteImage = new URL(image, Astro.site || 'https://simbaliwildsafaris.com').toString();
 const isHome = Astro.url.pathname === '/';
 ---
 
@@ -17,13 +25,24 @@ const isHome = Astro.url.pathname === '/';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/simbali-favicon.png" />
+    <link rel="icon" type="image/png" href="/images/simbali-lion-only.png" />
+    <link rel="apple-touch-icon" href="/images/simbali-lion-only.png" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
     <link rel="canonical" href={canonical} />
     <meta property="og:site_name" content="Simbali Wild Safaris" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:image:alt" content="Simbali Wild Safaris luxury East Africa safari planning" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@simbalisafaris" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImage} />
     {/* Preload first hero slide for instant LCP */}
     {isHome && <>
       <link rel="preload" as="image" href="/images/slide-1.webp" type="image/webp" fetchpriority="high" />

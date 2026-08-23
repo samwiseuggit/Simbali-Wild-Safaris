@@ -8,12 +8,14 @@ import Chatbot from '../components/Chatbot.jsx';
 export interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image, type } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} image={image} type={type}>
   <Fragment slot="head">
     <slot name="head" />
   </Fragment>
