@@ -51,6 +51,12 @@ const navItems = [
   { href: '/about/', label: 'About' },
   { href: '/simbali-circle/', label: 'Simbali Circle' },
 ];
+
+const currentPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const isActivePath = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  return currentPath === href || currentPath.startsWith(href);
+};
 ---
 
 <!doctype html>
@@ -93,16 +99,46 @@ const navItems = [
         <nav aria-label="Primary navigation">
           <ul class="navlinks">
             {navItems.map((item) => (
-              <li><a href={item.href}>{item.label}</a></li>
+              <li>
+                <a
+                  href={item.href}
+                  class:list={{ active: isActivePath(item.href) }}
+                  aria-current={isActivePath(item.href) ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
             ))}
-            <li><a class="button gold" href="/design-your-journey/">Design Your Journey</a></li>
+            <li>
+              <a
+                class:list={['button', 'gold', { active: isActivePath('/design-your-journey/') }]}
+                href="/design-your-journey/"
+                aria-current={isActivePath('/design-your-journey/') ? 'page' : undefined}
+              >
+                Design Your Journey
+              </a>
+            </li>
           </ul>
         </nav>
         <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
       <div class="mobile-menu">
-        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
-        <a href="/design-your-journey/">Design Your Journey</a>
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={{ active: isActivePath(item.href) }}
+            aria-current={isActivePath(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a
+          href="/design-your-journey/"
+          class:list={{ active: isActivePath('/design-your-journey/') }}
+          aria-current={isActivePath('/design-your-journey/') ? 'page' : undefined}
+        >
+          Design Your Journey
+        </a>
       </div>
     </header>
     <main>
