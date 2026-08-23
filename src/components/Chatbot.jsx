@@ -74,7 +74,7 @@ const verifiedAnswers = [
   },
   {
     id: 'price',
-    patterns: [/\b(price|cost|budget|investment|how much|quote|rate)\b/i],
+    patterns: [/\b(price|cost|investment|how much|quote|rate)\b/i],
     reply:
       'The new journey pages frame investment by travel style, from Simbali Signature through fully bespoke private travel. Final pricing depends on season, camps, routing, party size, and service level, so the best next step is a private consultation.',
     links: ['journeys', 'design'],
@@ -111,50 +111,14 @@ const verifiedAnswers = [
 ];
 
 const safariWords =
-  /\b(safari|africa|east africa|travel|trip|holiday|vacation|wildlife|lion|elephant|rhino|giraffe|zebra|wildebeest|gorilla|chimpanzee|migration|mara|maasai mara|masai mara|serengeti|ngorongoro|amboseli|tarangire|samburu|laikipia|nairobi|arusha|camp|lodge|guide|vehicle|game park|park|reserve|conservancy|beach|zanzibar|kenya|tanzania|rwanda|uganda)\b/i;
+  /\b(safari|africa|east africa|travel|trip|holiday|vacation|wildlife|lion|elephant|rhino|giraffe|zebra|wildebeest|gorilla|chimpanzee|migration|mara|maasai mara|masai mara|serengeti|ngorongoro|amboseli|tarangire|samburu|laikipia|nairobi|arusha|lamu|mombasa|malindi|watamu|diani|coast|camp|lodge|guide|vehicle|game park|park|reserve|conservancy|beach|zanzibar|kenya|tanzania|rwanda|uganda)\b/i;
 
 const aiEscalationPatterns = [
   /\b(which|what|where|how|when|why)\b.{0,120}\b(game park|park|reserve|conservancy|migration|wildlife|animal|animals|see|find|common|different|difference|compare|better|best|distance|drive|flight|weather|month|season)\b/i,
   /\b(game park|park|reserve|conservancy|migration|wildlife|animal|animals|see|find|common|different|difference|compare|better|best|distance|drive|flight|weather|month|season)\b.{0,120}\b(which|what|where|how|when|why)\b/i,
+  /\b(which|what|where|how|when|why)\b.{0,140}\b(move|transfer|transport|route|routing|get from|get to|travel from|travel to|airport|airstrip|ferry|boat|train|drive|flight|fly|bus|road|budget|cheap|affordable|easiest|fastest|best way)\b/i,
+  /\b(move|transfer|transport|route|routing|get from|get to|travel from|travel to|airport|airstrip|ferry|boat|train|drive|flight|fly|bus|road|budget|cheap|affordable|easiest|fastest|best way)\b.{0,140}\b(nairobi|arusha|lamu|mombasa|malindi|watamu|diani|zanzibar|mara|serengeti|amboseli|samburu|laikipia|ngorongoro)\b/i,
   /\b(great migration|wildebeest migration|river crossing|calving season|samburu|serengeti|maasai mara|masai mara|ngorongoro|amboseli|laikipia|tarangire)\b/i,
-];
-
-const generalSafariAnswers = [
-  {
-    id: 'packing',
-    patterns: [/\b(pack|packing|luggage|bag|wear|clothes|clothing|shoes|boots|camera|binoculars)\b/i],
-    reply:
-      'For safari packing, think soft-sided luggage, neutral layers, comfortable closed shoes, sun protection, a light rain layer, binoculars or camera kit, and personal medication. Exact packing depends on season, routing, camp style, and whether your journey includes gorilla trekking or beach time.',
-    links: ['planning', 'design'],
-  },
-  {
-    id: 'gorilla-trekking',
-    patterns: [/\b(gorilla|chimpanzee|primate|trek|trekking|volcanoes|bwindi|nyungwe|kibale)\b/i],
-    reply:
-      'Rwanda and Uganda are the main Simbali-region choices for gorilla and primate-focused journeys. The right fit depends on permit availability, fitness level, season, preferred lodge style, and how you want to combine forest time with classic safari.',
-    links: ['destinations', 'design'],
-  },
-  {
-    id: 'health-entry',
-    patterns: [/\b(visa|passport|vaccin|yellow fever|malaria|health|entry requirement|covid|insurance)\b/i],
-    reply:
-      'Entry, health, vaccination, and insurance requirements can change by nationality, routing, and date. Simbali can help you plan the travel flow, but final requirements should be checked with official government guidance and a qualified travel-health professional before departure.',
-    links: ['planning', 'design'],
-  },
-  {
-    id: 'safari-safety',
-    patterns: [/\b(safe|safety|dangerous|children|kids|solo|medical|emergency)\b/i],
-    reply:
-      'A well-designed private safari can be very comfortable for families, couples, solo travellers, and older guests when routing, camp choice, transfers, and pace are planned carefully. Simbali shapes those details around the travellers, then confirms practical needs during consultation.',
-    links: ['experience', 'design'],
-  },
-  {
-    id: 'timing-wildlife',
-    patterns: [/\b(best time|season|rain|dry season|weather|calving|river crossing|migration)\b/i],
-    reply:
-      'East Africa works year-round when the route is matched to the season. Dry months often suit classic wildlife visibility, green seasons can be beautiful and quieter, and migration timing is a cycle rather than one fixed event.',
-    links: ['planning', 'destinations'],
-  },
 ];
 
 const blockedInputPatterns = [
@@ -236,18 +200,6 @@ function matchAnswer(message) {
     };
   }
 
-  const generalMatched = generalSafariAnswers.find((entry) =>
-    entry.patterns.some((pattern) => pattern.test(text))
-  );
-
-  if (generalMatched) {
-    return {
-      reply: cleanReply(generalMatched.reply),
-      links: pickLinks(generalMatched.links),
-      source: 'general-safari',
-    };
-  }
-
   if (!safariWords.test(text)) {
     return {
       reply:
@@ -258,10 +210,9 @@ function matchAnswer(message) {
   }
 
   return {
-    reply:
-      'That is a good safari-planning question. Based on the Simbali site, the best next step is to shape the route around your destination interests, travel window, group, comfort level, and whether you want safari only or bush plus beach.',
+    reply: '',
     links: pickLinks(['planning', 'design']),
-    source: 'fallback',
+    source: 'ai',
   };
 }
 
@@ -383,7 +334,7 @@ export default function Chatbot() {
     window.setTimeout(async () => {
       const answer = matchAnswer(userMsg);
 
-      if (answer.source !== 'fallback' && answer.source !== 'ai') {
+      if (answer.source !== 'ai') {
         setMessages((prev) => [...prev, { role: 'assistant', text: answer.reply, links: answer.links, source: answer.source }]);
         setIsLoading(false);
         return;
@@ -396,7 +347,15 @@ export default function Chatbot() {
           { role: 'assistant', text: aiAnswer.reply || answer.reply, links: aiAnswer.links, source: aiAnswer.source },
         ]);
       } catch {
-        setMessages((prev) => [...prev, { role: 'assistant', text: answer.reply, links: answer.links, source: answer.source }]);
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: 'assistant',
+            text: `That is a detailed safari-planning question, and the best next step is to speak directly with Simbali so the team can answer it accurately for your dates, routing, and travel style. Please use the Design Your Journey form, email ${CONTACT.email}, or call ${CONTACT.phone}.`,
+            links: pickLinks(['design', 'planning']),
+            source: 'ai-unavailable',
+          },
+        ]);
       }
 
       setIsLoading(false);
