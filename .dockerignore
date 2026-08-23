@@ -1,0 +1,15 @@
+.git
+.astro
+.playwright-cli
+dist
+node_modules
+npm-debug.log*
+test-results
+output
+automation_outputs
+NEW SIMBALI SITE
+About Page
+Blogs
+Services
+*.psd
+*.ai
