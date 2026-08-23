@@ -136,8 +136,28 @@ function safeReply(reply: string) {
     .replace(/^\s*(analysis|thinking process|reasoning|here is my reasoning)\s*:/i, '')
     .trim();
 
-  if (!cleaned) return fallbackReply('');
+  if (!cleaned) return '';
   return cleaned.length > 900 ? `${cleaned.slice(0, 897).trim()}...` : cleaned;
+}
+
+function diagnosticExcerpt(text: string) {
+  return text.replace(/\s+/g, ' ').slice(0, 280);
+}
+
+function openRouterModels() {
+  const configuredModels =
+    import.meta.env.OPENROUTER_MODELS ||
+    process.env.OPENROUTER_MODELS ||
+    import.meta.env.OPENROUTER_MODEL ||
+    process.env.OPENROUTER_MODEL ||
+    '';
+
+  const models = configuredModels
+    .split(',')
+    .map((model) => model.trim())
+    .filter(Boolean);
+
+  return Array.from(new Set([...models, 'openrouter/free']));
 }
 
 function systemPrompt() {
@@ -191,6 +211,7 @@ async function askOpenRouter(message: string, signal: AbortSignal) {
   const key = import.meta.env.OPENROUTER_API_KEY || process.env.OPENROUTER_API_KEY;
   if (!hasUsableKey(key)) return null;
 
+  const models = openRouterModels();
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -201,7 +222,7 @@ async function askOpenRouter(message: string, signal: AbortSignal) {
     },
     signal,
     body: JSON.stringify({
-      model: import.meta.env.OPENROUTER_MODEL || process.env.OPENROUTER_MODEL || 'openai/gpt-4o-mini',
+      models,
       temperature: 0.35,
       max_tokens: 260,
       reasoning: { effort: 'none', exclude: true },
@@ -212,9 +233,29 @@ async function askOpenRouter(message: string, signal: AbortSignal) {
     }),
   });
 
-  if (!response.ok) return null;
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => '');
+    console.warn('[simbali-chatbot] OpenRouter request failed', {
+      status: response.status,
+      statusText: response.statusText,
+      models,
+      error: diagnosticExcerpt(errorText),
+    });
+    return null;
+  }
+
   const data = await response.json();
-  return data.choices?.[0]?.message?.content || null;
+  const content = data.choices?.[0]?.message?.content || null;
+
+  if (!content) {
+    console.warn('[simbali-chatbot] OpenRouter returned no message content', {
+      models,
+      responseModel: data.model,
+      finishReason: data.choices?.[0]?.finish_reason,
+    });
+  }
+
+  return content;
 }
 
 async function askOpenAI(message: string, signal: AbortSignal) {
@@ -254,7 +295,11 @@ async function askModel(message: string) {
       (await askGemini(message, controller.signal)) ||
       (await askOpenAI(message, controller.signal));
     return reply ? safeReply(reply) : null;
-  } catch {
+  } catch (error) {
+    console.warn('[simbali-chatbot] AI provider request failed', {
+      name: error instanceof Error ? error.name : 'UnknownError',
+      message: error instanceof Error ? error.message : 'Unknown provider error',
+    });
     return null;
   } finally {
     clearTimeout(timeout);
