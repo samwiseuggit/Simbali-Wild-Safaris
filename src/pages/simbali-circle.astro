@@ -1,0 +1,20 @@
+---
+import NewSimbaliLayout from '../layouts/NewSimbaliLayout.astro';
+
+const seo = {
+  "title": "Simbali Circle | Private Safari Travel Community & Returning Guest Benefits",
+  "description": "Join Simbali Circle, a private travel community for guests who love Africa, with priority journey planning, first access to seasonal safari opportunities, private travel evenings and return-trip inspiration.",
+  "keywords": "Simbali Circle, private safari community, returning safari guest benefits, luxury travel community Africa, priority safari planning, East Africa travel events",
+  "jsonLd": {
+    "@type": "WebPage",
+    "name": "Simbali Circle",
+    "about": "Private travel community for Simbali Wild Safaris guests"
+  }
+};
+
+const content = "<section class=\"page-hero\" style=\"background-image:url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2200&q=88)\"><div class=\"container\"><div class=\"eyebrow\" style=\"color:#e4c89b\">Simbali Circle</div><h1>A Private Community for Those Who Love Africa.</h1><p>Your first safari should not be the end of the relationship. Simbali Circle is designed to turn a remarkable journey into a lifetime of travel, connection and discovery.</p></div></section>\n<section class=\"section\"><div class=\"container grid-2\"><div><h2>Stay Close to East Africa.</h2><p class=\"lead\">Travel with Simbali, and you become part of an exclusive circle with priority planning, first access to special experiences and invitations to private travel events.</p><p>The Circle is our way of continuing the relationship after you return home—helping you think about where to go next, when to return and who you may want to bring with you.</p></div><div class=\"content-card\"><h3>Circle Benefits</h3><p>Priority journey planning<br>First access to limited seasonal opportunities<br>Preferred partner amenities where available<br>Private trip previews and travel evenings<br>Referral recognition<br>Milestone journey planning<br>Annual “Where to Go Next” consultation</p></div></div></section>\n<section class=\"section alt\"><div class=\"container\"><div class=\"center\"><h2>The Journey After the Journey</h2><div class=\"section-kicker\">Kenya can lead to Rwanda. Tanzania can lead to Uganda. A couple's safari can become a family legacy trip.</div></div><div class=\"grid-3\"><div class=\"content-card\"><h3>Return Differently</h3><p>Discover a new country, season, ecosystem or style of travel instead of repeating the same safari.</p></div><div class=\"content-card\"><h3>Bring Your People</h3><p>Turn the next journey into an anniversary, family legacy safari, private group or meaningful celebration.</p></div><div class=\"content-card\"><h3>Travel With Purpose</h3><p>Explore deeper conservation, cultural and community connections as your relationship with East Africa grows.</p></div></div></div></section>\n<section class=\"section dark\"><div class=\"container center\"><h2>Private Travel Evenings</h2><div class=\"section-kicker\">Small gatherings. Beautiful stories. A more personal way to discover Africa.</div><p style=\"max-width:760px;margin:0 auto 26px\">Simbali Circle can extend into intimate travel evenings for clients and invited guests—designed for conversation rather than sales, and for people who want to understand East Africa before they book it.</p><a class=\"button gold\" href=\"/design-your-journey/\">Join the Conversation</a></div></section>";
+---
+
+<NewSimbaliLayout {...seo}>
+  <Fragment set:html={content} />
+</NewSimbaliLayout>

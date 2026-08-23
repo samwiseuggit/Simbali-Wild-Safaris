@@ -5,6 +5,30 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 export function getStaticPaths() {
   const posts = [
     {
+      slug: "maasai-culture-safari-east-africa",
+      title: "Maasai Culture: Connecting with East Africa's Iconic Warriors",
+      description: "Discover Maasai culture on safari: village visits, beadwork symbolism, the jumping dance, wildlife conservation and respectful cultural etiquette.",
+      img: "/images/maasai-cultural-experience-safari_blog.jpg",
+      imgAlt: "Maasai cultural experience with traditional red dress and beaded adornment",
+      date: "July 19, 2026",
+      readTime: "11 min read",
+      cat: "Culture",
+      author: "Sam Mwangi",
+      tags: ["Maasai Culture", "Cultural Safari", "Kenya", "Tanzania", "Beadwork", "Responsible Travel"],
+    },
+    {
+      slug: "lake-naivasha-kenya-boat-safari-birdwatching",
+      title: "Lake Naivasha: Kenya's Highest Lake and a Birdwatcher's Paradise",
+      description: "Discover Lake Naivasha, Kenya's highest lake: boat safaris among hippos, 400+ bird species, Crescent Island walks and Hell's Gate adventures.",
+      img: "/images/serene-lakeside-mountain-landscape_blog.jpg",
+      imgAlt: "Peaceful Rift Valley lakeside landscape evoking Lake Naivasha at dawn",
+      date: "July 18, 2026",
+      readTime: "10 min read",
+      cat: "Destinations",
+      author: "Sam Mwangi",
+      tags: ["Kenya", "Lake Naivasha", "Boat Safari", "Birdwatching", "Crescent Island", "Hell's Gate"],
+    },
+    {
       slug: "wonders-of-kenyas-great-rift-valley",
       title: "Great Rift Valley Kenya: Nature, Culture & Adventure",
       description: "Discover one of the most incredible places on Earth — Kenya's Great Rift Valley. From flamingo-filled lakes and volcanic craters to rich Maasai culture, this is a safari destination like no other.",
@@ -45,6 +69,16 @@ export function getStaticPaths() {
 }
 
 const relatedSafaris = {
+  "maasai-culture-safari-east-africa": [
+    { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
+    { title: "11-Day Kenya-Tanzania Family Safari", url: "/itineraries#kenya-tanzania-family-11", img: "/images/itin-kenya-tanzania-family.jpg", price: "From $6,730", duration: "11 Days" },
+    { title: "8-Day Tanzania Family Safari", url: "/itineraries#tanzania-family-8", img: "/images/itin-tanzania-family.jpg", price: "From $4,440", duration: "8 Days" },
+    { title: "8-Day Tanzania Honeymoon Safari", url: "/itineraries#tanzania-honeymoon-8", img: "/images/itin-tanzania-honeymoon.jpg", price: "From $5,620", duration: "8 Days" },
+  ],
+  "lake-naivasha-kenya-boat-safari-birdwatching": [
+    { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
+    { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
+  ],
   "wonders-of-kenyas-great-rift-valley": [
     { title: "8-Day Kenya Family Safari", url: "/itineraries#kenya-family-8", img: "/images/itin-kenya-family.jpg", price: "From $4,287", duration: "8 Days" },
     { title: "8-Day Kenya Honeymoon Safari", url: "/itineraries#kenya-honeymoon-8", img: "/images/itin-kenya-honeymoon.jpg", price: "From $4,500", duration: "8 Days" },
@@ -60,6 +94,124 @@ const relatedSafaris = {
 };
 
 const blogContent = {
+  "maasai-culture-safari-east-africa": [
+    { type: "text", content: "A Maasai warrior in a red shuka, standing against the evening light, is one of East Africa's most recognizable safari images. It is also only the beginning of the story. The Maasai are not a backdrop to wildlife travel. They are a living, resilient people whose history, land knowledge, beadwork, songs, cattle traditions and community values continue to shape Kenya and Tanzania today." },
+    { type: "text", content: "For culture-focused travelers, a thoughtful Maasai encounter can become one of the most memorable parts of a safari. It asks you to slow down, listen carefully, and meet people as hosts, guides, artists, conservation partners and neighbors to the wildlife landscapes you have come to see." },
+    { type: "quote", content: "A respectful cultural safari is not about collecting photographs. It is about entering a conversation with humility, curiosity and time." },
+    { type: "h2", content: "Who Are the Maasai?" },
+    { type: "text", content: "The Maasai are a Nilotic people whose ancestral movement followed the Nile Valley into what is now southern Kenya and northern Tanzania. Today, Maasai communities live across the Serengeti-Mara ecosystem, Amboseli, the Rift Valley, Ngorongoro, Loliondo, Laikipia and many other landscapes that are central to East African safari travel." },
+    { type: "text", content: "Their name is often understood through the Maa language idea of <em>Il Maasai</em>, or my people. Within that shared identity are many clans, local histories and ways of adapting to modern life. Some Maasai live in traditional homesteads; others are teachers, entrepreneurs, politicians, conservationists, lodge managers, university students and professional guides. The culture is not frozen in time. It is alive, adapting and proudly carried forward." },
+    { type: "image", src: "/images/maasai-cultural-experience-safari_blog.jpg", alt: "Maasai cultural encounter during an East African safari", caption: "Maasai cultural encounters are most meaningful when they are guided by respect, context and genuine exchange." },
+    { type: "h2", content: "The Manyatta: What a Village Visit Can Include" },
+    { type: "text", content: "A village visit, often to a manyatta or enkang, usually begins with a community host who explains the layout of the homestead. Traditional houses are built by women using sticks, mud, grass and cow dung, arranged around a central cattle enclosure. That cattle enclosure is not decorative. Cattle remain deeply tied to wealth, nourishment, identity and spiritual life." },
+    { type: "list", items: [
+      "<strong>Welcome songs:</strong> a communal introduction that sets the tone for the visit.",
+      "<strong>Home tour:</strong> a chance to understand architecture, family life and daily rhythms.",
+      "<strong>Fire-making demonstration:</strong> a practical skill that connects guests with bush knowledge.",
+      "<strong>Adumu jumping dance:</strong> an age-set performance by young warriors, often with visitors invited to try.",
+      "<strong>Beadwork display:</strong> jewelry made by Maasai women, with color, pattern and status carrying meaning.",
+    ]},
+    { type: "text", content: "Some villages charge a small entrance fee, and many sell beadwork or crafts. That is not a flaw in the experience. When handled transparently, the income supports households, women's economic independence and local reasons to preserve cultural knowledge. What matters is scale and dignity: smaller community-run visits with patient guides usually feel more personal than large bus-stop performances." },
+    { type: "h2", content: "The Adumu Jumping Dance" },
+    { type: "text", content: "The <strong>adumu</strong>, often called the Maasai jumping dance, is performed by young Maasai warriors, or <em>moran</em>. Men form a circle, chant in rhythmic unison, and take turns leaping straight up from a standing position. The height of the jump brings admiration, but the dance is also about age-set unity, strength, discipline and ceremony." },
+    { type: "text", content: "If you are invited to join, accept with good humor. It is much harder than it looks. More importantly, take a moment to appreciate the athleticism and cultural meaning instead of treating the dance as a quick photo opportunity." },
+    { type: "h2", content: "Maasai Beadwork: A Language of Color" },
+    { type: "text", content: "Beadwork is one of the richest visual languages in Maasai culture. Before glass beads arrived through trade, ornaments used natural materials such as seeds, shells, bone, clay and copper. Today, glass beads create bold geometric necklaces, bracelets, belts, earrings and ceremonial pieces. Women are the primary artists, and jewelry can signal age, marital status, family position, ceremony and personal beauty." },
+    { type: "list", items: [
+      "<strong>Red:</strong> bravery, strength and unity, associated with blood, warriors and resilience.",
+      "<strong>Blue:</strong> the sky, rain, energy and Enkai, the divine provider.",
+      "<strong>Green:</strong> land, health, pasture and prosperity.",
+      "<strong>White:</strong> milk, peace, purity and nourishment.",
+      "<strong>Black:</strong> the people, unity through hardship and the realities of life.",
+      "<strong>Orange:</strong> hospitality, friendship and generosity toward guests.",
+      "<strong>Yellow:</strong> fertility, the sun and abundance.",
+      "<strong>Striped patterns:</strong> the earth, territory and the layered landscapes of home.",
+    ]},
+    { type: "quote", content: "Every bead color has a voice: the sky, the land, the cattle, the sun, the people and the welcome offered to a guest." },
+    { type: "h2", content: "Greetings That Open Doors" },
+    { type: "text", content: "Learning even a few Maa words changes the tone of a visit. Try <strong>Supa</strong> for hello, <strong>Erokamena</strong> for thank you, <strong>Iyakoko</strong> when asking how a group is, <strong>Keyiolong</strong> for good morning, and <strong>Olee sere</strong> for goodbye to one person. Many Maasai hosts in tourism areas also speak Swahili and English, but the effort to greet in Maa is usually received with warmth." },
+    { type: "h2", content: "Maasai Communities and Wildlife Conservation" },
+    { type: "text", content: "The Maasai relationship with wildlife is often misunderstood. Traditionally, Maasai pastoralists did not hunt wildlife for food, and the land was used communally for grazing. Historic lion killing existed as a regulated warrior rite, but modern conservation programs have helped shift that story toward wildlife guardianship, compensation schemes, ranger work and community conservancies." },
+    { type: "text", content: "This matters because many of East Africa's most important wildlife corridors cross Maasai-owned or Maasai-used land. Amboseli, the Maasai Mara and the Serengeti do not function as isolated islands. Elephants, lions, wildebeest and zebra all depend on dispersal areas beyond park boundaries. When Maasai communities benefit fairly from conservation and tourism, wildlife has more space to survive." },
+    { type: "h2", content: "Where to Experience Maasai Culture" },
+    { type: "list", items: [
+      "<strong>Maasai Mara, Kenya:</strong> the most accessible option, especially near Talek, Sekenani and Aitong. Choose smaller visits with guides who have real community relationships.",
+      "<strong>Amboseli, Kenya:</strong> Maasai communities live around the park boundary, with Kilimanjaro and elephant country as a powerful setting.",
+      "<strong>Laikipia and Loita Hills, Kenya:</strong> excellent for lower-volume cultural encounters connected to conservancy life and pastoral landscapes.",
+      "<strong>Ngorongoro, Tanzania:</strong> Maasai communities live within the wider conservation area, where cattle, culture and wildlife share a complex landscape.",
+      "<strong>Loliondo, Monduli and Longido, Tanzania:</strong> rewarding choices for travelers who want less commercialized cultural tourism near the northern circuit.",
+    ]},
+    { type: "text", content: "Our <a href=\"/itineraries#kenya-family-8\" class=\"text-olive underline font-semibold\">8-Day Kenya Family Safari</a> can include Maasai village time in the Mara, while the <a href=\"/itineraries#kenya-tanzania-family-11\" class=\"text-olive underline font-semibold\">11-Day Kenya-Tanzania Family Safari</a> carries families through Maasai lands on both sides of the border. Tanzania-focused guests can pair Ngorongoro and Serengeti wildlife with cultural context on our <a href=\"/itineraries#tanzania-family-8\" class=\"text-olive underline font-semibold\">8-Day Tanzania Family Safari</a> or add a romantic cultural evening to the <a href=\"/itineraries#tanzania-honeymoon-8\" class=\"text-olive underline font-semibold\">8-Day Tanzania Honeymoon Safari</a>." },
+    { type: "h2", content: "Cultural Etiquette for a Respectful Visit" },
+    { type: "list", items: [
+      "Dress modestly, especially when entering homes or community spaces.",
+      "Ask before photographing people, homes, ceremonies or children.",
+      "Listen more than you speak, and let elders or hosts set the pace.",
+      "Buy beadwork directly from women when possible, and avoid aggressive haggling.",
+      "Do not hand out sweets to children; ask your guide what support is appropriate.",
+      "Participate when invited, but never pressure anyone for a performance or pose.",
+      "Avoid treating village life as poverty tourism. Meet people with dignity and curiosity.",
+    ]},
+    { type: "h2", content: "The Maasai Today" },
+    { type: "text", content: "Modern Maasai life holds tradition and change together. Education, land subdivision, climate pressure, tourism income, conservation work and business opportunities all shape daily decisions. Some families maintain cattle-centered pastoral life. Others balance herding with school calendars, lodge jobs, market trade or professional careers." },
+    { type: "text", content: "That complexity is exactly why respectful cultural tourism matters. A good visit does not ask the Maasai to perform an old version of themselves for travelers. It creates space for hosts to explain who they are now, what they value, what is changing, and what they want guests to understand." },
+    { type: "h2", content: "A Gentle Invitation" },
+    { type: "text", content: "A safari is more than wildlife. It is also the people who know the land by seasons, songs, cattle paths and family stories. Done well, a Maasai cultural encounter adds depth to game drives, gives children a human connection to East Africa, and helps honeymooners or returning safari guests experience the region with richer context." },
+    { type: "text", content: "Ready to go beyond the Big Five and connect with the people who have called these landscapes home for centuries? Contact Sheila and Violet at <strong>Simbali Wild Safaris</strong>. We will craft an itinerary that pairs extraordinary wildlife with Maasai cultural encounters that are respectful, enriching and unforgettable. <a href=\"/contact\" class=\"text-olive underline font-semibold\">Start planning your cultural safari</a>." },
+  ],
+  "lake-naivasha-kenya-boat-safari-birdwatching": [
+    { type: "text", content: "At dawn on <strong>Lake Naivasha</strong>, the safari begins softly. Mist lifts from the freshwater. Papyrus edges glow silver-green. Somewhere across the lake, an African fish eagle calls, and a pod of hippos breaks the surface with low, contented snorts." },
+    { type: "text", content: "This is a different rhythm from the open plains. On Naivasha, water replaces dust, reflections replace horizons, and the birds often steal the show from the big cats. It is one of Kenya's most restorative safari pauses: calm enough for families and honeymooners, rich enough for serious birdwatchers, and perfectly placed between the drama of Samburu, Ol Pejeta, Amboseli, Lake Nakuru and the Maasai Mara." },
+    { type: "quote", content: "Lake Naivasha is where a Kenyan safari exhales: boat safaris at sunrise, fish eagles overhead, and hippos resting in the shallows." },
+    { type: "h2", content: "Why Lake Naivasha Feels So Different" },
+    { type: "text", content: "Lake Naivasha sits at about <strong>1,884 meters above sea level</strong>, making it Kenya's highest major Rift Valley lake. Unlike many of the alkaline lakes nearby, Naivasha is freshwater, fed by underground springs from the Aberdare Mountains. That freshwater character supports a rich mosaic of papyrus swamp, acacia woodland, submerged vegetation, grazing lawns and open water." },
+    { type: "text", content: "The lake has no obvious surface outlet. Water leaves through evaporation and underground seepage, and its levels have risen and fallen over the years, reshaping shorelines and wildlife patterns. Around it, you will find Mount Longonot, Eburru Forest, Hell's Gate National Park and Kenya's flower-growing heartland, where rose farms add a complex conservation and livelihood story to the landscape." },
+    { type: "image", src: "/images/serene-lakeside-mountain-landscape_blog.jpg", alt: "Peaceful lakeside landscape with mountains and still water", caption: "Lake Naivasha offers a slower, water-led safari rhythm within Kenya's Rift Valley." },
+    { type: "h2", content: "Birdwatching: 400+ Species on the Water's Edge" },
+    { type: "text", content: "For bird lovers, Naivasha is a destination in its own right. More than <strong>400 bird species</strong> have been recorded around the lake, from conspicuous waterbirds to papyrus specialists that reward patient eyes and good binoculars." },
+    { type: "list", items: [
+      "<strong>African fish eagle:</strong> the signature sound of Naivasha, often seen perched in lakeside trees or diving toward the water.",
+      "<strong>Pelicans and herons:</strong> great white pelicans, pink-backed pelicans, goliath herons, purple herons and black herons are frequent highlights.",
+      "<strong>Kingfishers:</strong> pied, malachite, giant and woodland kingfishers bring flashes of blue and copper along the shore.",
+      "<strong>Waders and migrants:</strong> stilts, avocets, sandpipers, plovers and Palearctic migrants add variety between October and April.",
+      "<strong>Papyrus specialists:</strong> papyrus gonolek, white-winged warbler and Carruthers's cisticola draw dedicated birders into the reedbeds.",
+    ]},
+    { type: "image", src: "/images/raptor-bird-flying-clear-sky_blog.jpg", alt: "African raptor soaring in a clear sky", caption: "The African fish eagle's call is one of Naivasha's defining safari sounds." },
+    { type: "h2", content: "The Boat Safari: Naivasha's Essential Experience" },
+    { type: "text", content: "A guided <strong>Lake Naivasha boat safari</strong> is the experience we would build the day around. Most trips last one to two hours, with sunrise and late afternoon offering the loveliest light. Local guides know the hippo territories, eagle perches, pelican roosts and quiet corners where waterbuck graze close to the shore." },
+    { type: "text", content: "Hippos are viewed from a respectful distance. They may look serene, but they are powerful, territorial animals, and good guiding matters. From the boat, guests can photograph them safely at water level, watch cormorants drying their wings on submerged branches, and see fish eagles patrol the lake edge." },
+    { type: "text", content: "For photographers, the boat is a gift: low angles, mirrored water, moving subjects and soft backgrounds. Bring a hat, sunscreen, binoculars and a camera strap. The light bouncing off the lake can be strong even on cool mornings." },
+    { type: "image", src: "/images/hippos-river-safari-simbali-wild-safaris.jpg", alt: "Hippos resting in water during an East African safari", caption: "Naivasha's hippos are best admired from a guided boat at a safe distance." },
+    { type: "h2", content: "Crescent Island: Walking Among Wildlife" },
+    { type: "text", content: "<strong>Crescent Island Game Sanctuary</strong> is one of Naivasha's quiet treasures. Reached by boat from the eastern side of the lake, it offers a walking safari without large predators. That changes everything: instead of watching from a vehicle, you walk with a guide through open grassland as giraffes, zebras, impalas, waterbuck, wildebeest and gazelles move around you." },
+    { type: "text", content: "The pace is gentle, the views are wide, and the experience is especially memorable for families and honeymoon couples. Children love the immediacy of walking near giraffes; couples love the sense of privacy and the cinematic sweep of the lake, volcanoes and Rift Valley wall." },
+    { type: "image", src: "/images/giraffes-savanna-safari-simbali-wild-safaris.jpg", alt: "Giraffes walking across open savanna", caption: "Crescent Island turns wildlife viewing into a gentle walking safari." },
+    { type: "h2", content: "Hell's Gate: Cliffs, Cycling and Geothermal Drama" },
+    { type: "text", content: "Just a short drive from Naivasha, <strong>Hell's Gate National Park</strong> adds a completely different kind of adventure. Its red cliffs, volcanic plugs and geothermal steam vents make it one of Kenya's most dramatic landscapes. It is also one of the rare parks where visitors can cycle among wildlife such as zebra, giraffe, eland, buffalo and baboons." },
+    { type: "text", content: "A beautifully paced day can begin with a sunrise boat safari, continue with a Crescent Island walk, and end with cycling or a geothermal spa soak near Hell's Gate. It is active without feeling rushed, and it gives travelers a tactile sense of the Rift Valley's volcanic energy." },
+    { type: "image", src: "/images/mountain-hiking-adventure-safari_blog.jpg", alt: "Travelers hiking through a dramatic Rift Valley landscape", caption: "Hell's Gate brings cliffs, walking and cycling into a Naivasha safari stay." },
+    { type: "h2", content: "Where Naivasha Fits in a Kenya Safari" },
+    { type: "text", content: "We include Lake Naivasha in both romantic and family-focused Kenya journeys because it balances the safari beautifully. After the arid textures of Samburu or the conservation story of Ol Pejeta, the lake feels cool and spacious. Before or after the Maasai Mara, it gives travelers time to breathe, watch, listen and reset." },
+    { type: "list", items: [
+      "<strong>Kenya Honeymoon 8-Day:</strong> Day 5 brings couples from Ol Pejeta to Lake Naivasha for a peaceful boat safari, lakeside dining and a softer interlude before the Maasai Mara.",
+      "<strong>Kenya Family 8-Day:</strong> Day 4 centers on Naivasha's boat safari, where children can spot hippos, pelicans and fish eagles from the water before continuing to Lake Nakuru and the Mara.",
+      "<strong>Cross-country combinations:</strong> Naivasha also works well as a gentle first stop from Nairobi before longer Kenya-Tanzania safari circuits.",
+    ]},
+    { type: "h2", content: "Best Time to Visit Lake Naivasha" },
+    { type: "text", content: "Naivasha is rewarding year-round. Birding is especially rich from <strong>October to April</strong>, when migrants join resident species. The drier months of July to October and January to March often make wildlife viewing easier around the shore, while rainy periods bring lush scenery and fuller papyrus habitat." },
+    { type: "text", content: "April and May can bring heavier rains, so the surrounding roads and tracks may need more flexibility. Even then, the lake rarely loses its appeal; mist, cloud and fresh green growth can make the landscape feel wonderfully alive." },
+    { type: "h2", content: "Practical Tips for a Naivasha Stay" },
+    { type: "list", items: [
+      "Pack binoculars even if you are not a dedicated birder; Naivasha has a way of converting casual wildlife lovers.",
+      "Choose early morning or late afternoon for the most atmospheric boat safari light.",
+      "Wear neutral clothing and comfortable walking shoes for Crescent Island.",
+      "Keep a respectful distance from hippos and follow your guide's instructions at all times.",
+      "Ask about flower farm visits if you are interested in the lake's conservation and community story.",
+    ]},
+    { type: "h2", content: "A Gentle Invitation" },
+    { type: "text", content: "Lake Naivasha is not a lesser safari because it is quiet. Its magic is in the softness: the fish eagle call, the ripple of a hippo surfacing, the hush of a boat cutting through morning mist, and the joy of walking among giraffes on Crescent Island." },
+    { type: "text", content: "Let Sheila and Violet at <strong>Simbali Wild Safaris</strong> weave Naivasha's serenity into your perfect Kenya journey. Explore our <a href=\"/itineraries#kenya-honeymoon-8\" class=\"text-olive underline font-semibold\">8-Day Kenya Honeymoon Safari</a> and <a href=\"/itineraries#kenya-family-8\" class=\"text-olive underline font-semibold\">8-Day Kenya Family Safari</a>, or <a href=\"/contact\" class=\"text-olive underline font-semibold\">contact us</a> for a bespoke lakeside safari experience." },
+  ],
   "wonders-of-kenyas-great-rift-valley": [
     { type: "text", content: "The <strong>Great Rift Valley Kenya</strong> is one of the most incredible places on Earth. It's part of a massive crack in the planet's surface that runs from the Middle East all the way down through Eastern Africa. The Kenyan part of the valley is especially beautiful — and full of surprises." },
     { type: "text", content: "Here, you'll find tall cliffs called escarpments, wide lakes, hot springs, volcanoes, and endless plains. It's a place where nature tells the story of our planet's past — and gives you plenty to explore today." },
@@ -311,7 +463,7 @@ const { slug } = Astro.params;
 const { post } = Astro.props;
 const content = blogContent[slug] || [];
 const related = relatedSafaris[slug] || [];
-const allSlugs = ["wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
+const allSlugs = ["maasai-culture-safari-east-africa", "lake-naivasha-kenya-boat-safari-birdwatching", "wonders-of-kenyas-great-rift-valley", "east-africa-birding-guide", "wildebeest-migration-an-epic-safari-adventure"];
 const otherSlugs = allSlugs.filter(s => s !== slug);
 ---
 
@@ -435,6 +587,8 @@ const otherSlugs = allSlugs.filter(s => s !== slug);
       <div class="grid md:grid-cols-2 gap-6">
         {otherSlugs.map((otherSlug, idx) => {
           const otherPosts = {
+            "maasai-culture-safari-east-africa": { title: "Maasai Culture Safari Guide", img: "/images/maasai-cultural-experience-safari_blog.jpg", excerpt: "Visit Maasai communities with respect, context and a deeper understanding of beadwork, dance and land." },
+            "lake-naivasha-kenya-boat-safari-birdwatching": { title: "Lake Naivasha: Boat Safari & Birdwatching", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", excerpt: "Drift past hippos, fish eagles and Crescent Island wildlife on Kenya's highest lake." },
             "wonders-of-kenyas-great-rift-valley": { title: "Great Rift Valley Kenya: Nature, Culture & Adventure", img: "/images/serene-lakeside-mountain-landscape_blog.jpg", excerpt: "Discover dramatic escarpments, flamingo-filled lakes and volcanic craters." },
             "east-africa-birding-guide": { title: "East Africa Birding Guide", img: "/images/raptor-bird-flying-clear-sky_blog.jpg", excerpt: "Over 1,500 bird species across Kenya, Tanzania, Uganda and beyond." },
             "wildebeest-migration-an-epic-safari-adventure": { title: "The Great Wildebeest Migration", img: "/images/wildebeest-river-crossing-safari-migration_blog.jpg", excerpt: "Witness over a million wildebeest thunder across the Serengeti-Maasai Mara." },

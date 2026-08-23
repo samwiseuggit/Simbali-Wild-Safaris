@@ -1,0 +1,154 @@
+---
+import Chatbot from '../components/Chatbot.jsx';
+import '../styles/global.css';
+import '../styles/new-simbali.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  type?: string;
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description = 'Private East Africa, Beautifully Curated.',
+  keywords = 'Simbali Wild Safaris, luxury East Africa safari, private Kenya safari, Tanzania safari, Rwanda gorilla trekking, Uganda safari, Zanzibar safari',
+  image = '/new-simbali-assets/simbali-wild-safaris-logo-new.png',
+  type = 'website',
+  jsonLd,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site || 'https://simbaliwildsafaris.com').toString();
+const absoluteImage = new URL(image, Astro.site || 'https://simbaliwildsafaris.com').toString();
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TravelAgency',
+  name: 'Simbali Wild Safaris',
+  url: 'https://simbaliwildsafaris.com',
+  logo: new URL('/new-simbali-assets/simbali-wild-safaris-logo-new.png', Astro.site || 'https://simbaliwildsafaris.com').toString(),
+  email: 'info@simbaliwildsafaris.com',
+  telephone: '+254713855818',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Kindaruma Road',
+    addressLocality: 'Nairobi',
+    addressCountry: 'KE',
+    postalCode: '00506',
+  },
+  areaServed: ['Kenya', 'Tanzania', 'Rwanda', 'Uganda', 'Zanzibar'],
+  description,
+};
+const pageJsonLd = jsonLd ? { ...jsonLd, '@context': 'https://schema.org' } : undefined;
+
+const navItems = [
+  { href: '/destinations/', label: 'Destinations' },
+  { href: '/journeys/', label: 'Journeys' },
+  { href: '/experience/', label: 'Experience' },
+  { href: '/plan-your-safari/', label: 'Plan Your Safari' },
+  { href: '/about/', label: 'About' },
+  { href: '/simbali-circle/', label: 'Simbali Circle' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/new-simbali-assets/simbali-wild-safaris-logo-new.png" />
+    <meta property="og:site_name" content="Simbali Wild Safaris" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:image:alt" content="Simbali Wild Safaris luxury East Africa safari planning" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImage} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+    {pageJsonLd && <script type="application/ld+json" set:html={JSON.stringify(pageJsonLd)} />}
+    <title>{title}</title>
+    <slot name="head" />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a href="/" class="brand" aria-label="Simbali Wild Safaris home">
+          <img src="/new-simbali-assets/simbali-wild-safaris-logo-new.png" alt="Simbali Wild Safaris" />
+          <span class="brandname">SIMBALI<small>WILD SAFARIS</small></span>
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="navlinks">
+            {navItems.map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+            <li><a class="button gold" href="/design-your-journey/">Design Your Journey</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+      <div class="mobile-menu">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href="/design-your-journey/">Design Your Journey</a>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <a href="/" class="brand">
+            <img src="/new-simbali-assets/simbali-wild-safaris-logo-new.png" alt="Simbali Wild Safaris" />
+            <span class="brandname">SIMBALI<small>WILD SAFARIS</small></span>
+          </a>
+          <p style="font-size:.72rem;color:#cfc9be;max-width:330px;margin-top:18px">Private East Africa, Beautifully Curated.</p>
+        </div>
+        <div class="footer-links">
+          {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a href="/design-your-journey/">Design Your Journey</a>
+        </div>
+        <div class="footer-contact">
+          <strong>NAIROBI</strong><br />
+          Kindaruma Road<br />
+          P.O. Box 5109 - 00506, Nairobi<br />
+          Tel: +254 (0) 0713 855 818<br />
+          <a href="mailto:info@simbaliwildsafaris.com">info@simbaliwildsafaris.com</a><br />
+          <a href="https://simbaliwildsafaris.com">www.simbaliwildsafaris.com</a>
+        </div>
+      </div>
+      <div class="container copyright">© 2026 Simbali Wild Safaris. &nbsp; Africa, Known Personally.</div>
+    </footer>
+    <Chatbot client:load />
+    <script>
+      const siteHeader = document.querySelector('header');
+      const updateHeaderState = () => {
+        siteHeader?.classList.toggle('is-scrolled', window.scrollY > 12);
+      };
+      updateHeaderState();
+      window.addEventListener('scroll', updateHeaderState, { passive: true });
+
+      document.querySelectorAll('.menu-toggle').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const menu = document.querySelector('.mobile-menu');
+          menu?.classList.toggle('open');
+          const isOpen = Boolean(menu?.classList.contains('open'));
+          siteHeader?.classList.toggle('menu-open', isOpen);
+          btn.setAttribute('aria-expanded', String(isOpen));
+        });
+      });
+    </script>
+  </body>
+</html>
