@@ -63,11 +63,8 @@
 .refined-site .promise { background: transparent; border-top: 1px solid var(--brass); padding: 28px 12px 0; }
 .refined-site .about-difference { background: var(--soft-sand); }
 .refined-site .about-difference .feature { background: transparent; padding: 24px 0; border: 0; border-top: 1px solid #c8bba5; }
-.refined-site .page-intro { background: var(--soft-sand); padding: 160px 0 60px; }
-.refined-site .page-intro .eyebrow { color: var(--button-brown); }
-.refined-site .page-intro h1 { max-width: 940px; margin-block: 18px; }
-.refined-site .page-intro p { max-width: 740px; font-size: 1.1rem; }
-.refined-site:has(.page-intro) header:not(.is-scrolled) { background: #30352b; }
+.refined-site .experience-hero { background-image: url('/images/experience-elephants-safari.jpg'); background-position: center 52%; }
+.refined-site .difference-image { background-image: url('/images/simbali-difference-samburu-giraffes.jpg'); background-position: 35% center; }
 .refined-site .traveler-grid { gap: 12px 48px; }
 .refined-site .traveler-grid .feature { padding: 24px 0; border: 0; border-top: 1px solid #d6cdbf; background: transparent; }
 .refined-site .traveler-grid h3 { font-size: 1.7rem; }
@@ -87,7 +84,7 @@
 }
 @media (max-width: 640px) {
   .refined-site .section, .refined-site .tiers { padding-block: 48px; }
-  .refined-site .page-intro { padding: 124px 0 38px; }
+  .refined-site .experience-hero { background-position: 48% center; }
   .refined-site .journey-grid, .refined-site .experience-services .grid-4 { grid-template-columns: 1fr; }
   .refined-site .journey-row .photo { height: 240px; }
   .refined-site .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
