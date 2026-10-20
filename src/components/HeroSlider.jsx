@@ -4,10 +4,10 @@ import { getImagePosition } from '../data/imagePositions';
 
 const slides = [
   { imgWebp: "/images/slide-1.webp", imgJpg: "/images/slide-1.jpg", title: "Heart of the Delta", desc: "Explore the lush paradise of the Okavango Delta, where life flourishes in a timeless rhythm of water and wildlife." },
-  { imgWebp: "/images/slide-2.webp", imgJpg: "/images/slide-2.jpg", title: "Aerial Grace in Motion", desc: "Witness the breathtaking flight of birds soaring over African skies — a symphony of color, freedom, and instinct." },
+  { imgWebp: "/images/slide-2.webp", imgJpg: "/images/slide-2.jpg", title: "Aerial Grace in Motion", desc: "Witness the breathtaking flight of birds soaring over African skies - a symphony of color, freedom, and instinct." },
   { imgWebp: "/images/slide-3.webp", imgJpg: "/images/slide-3.jpg", title: "Life Along the Hippo Trails", desc: "Follow the meandering rivers home to majestic hippos, where calm waters mask untamed power." },
   { imgWebp: "/images/slide-4.webp", imgJpg: "/images/slide-4.jpg", title: "Hills, Cliffs & Untold Stories", desc: "Stand in awe of ancient cliffs and rolling hills, nature's quiet sentinels shaping Africa's wild horizon." },
-  { imgWebp: "/images/slide-5.webp", imgJpg: "/images/slide-5.jpg", title: "The Tree of Life", desc: "Marvel at the iconic Baobab — a symbol of resilience and wonder, rooted in Africa's spirit and soil." },
+  { imgWebp: "/images/slide-5.webp", imgJpg: "/images/slide-5.jpg", title: "The Tree of Life", desc: "Marvel at the iconic Baobab - a symbol of resilience and wonder, rooted in Africa's spirit and soil." },
   { imgWebp: "/images/slide-6.webp", imgJpg: "/images/slide-6.jpg", title: "Africa's Hidden Shores", desc: "Discover the softer side of safari on serene beaches where golden sands meet endless blue skies." },
 ];
 

@@ -99,7 +99,7 @@ export function createEnquiryHandler({ sendMail, env = process.env, logger = con
     try {
       const result = await sendMail({
         from: { name: 'Simbali Wild Safaris', address: from }, to: RECIPIENT,
-        replyTo: enquiry.email, subject: 'Simbali website — new safari enquiry', text: lines.join('\n'),
+        replyTo: enquiry.email, subject: 'Simbali website - new safari enquiry', text: lines.join('\n'),
         disableFileAccess: true, disableUrlAccess: true,
       }, {
         host: env.SMTP_HOST, port, secure: port === 465 || env.SMTP_SECURE === 'true',
