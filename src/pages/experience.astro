@@ -18,10 +18,106 @@ const seo = {
     ]
   }
 };
-
-const content = "<section class=\"page-hero\" style=\"background-image:url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2200&q=88)\"><div class=\"container\"><div class=\"eyebrow\" style=\"color:#e4c89b\">Experience</div><h1>Travel Built Around Why You Are Going.</h1><p>We begin with the people, the occasion and the feeling you want to bring home—then build the right combination of wildlife, culture, privacy, place and pace around you.</p></div></section>\n<section class=\"section\"><div class=\"container\"><div class=\"feature-list\"><div class=\"feature\" id=\"legacy\"><h3>The Legacy Family</h3><p>Private vehicles, flexible pacing and meaningful shared experiences for parents, children and grandchildren. We design around the family as a whole—not the youngest or oldest traveler alone.</p></div><div class=\"feature\" id=\"milestone\"><h3>The Milestone Traveler</h3><p>Birthdays, anniversaries, retirement, honeymoons and celebrations deserve experiences that feel personal rather than pre-packaged—from private sundowners to carefully timed bush-and-beach combinations.</p></div><div class=\"feature\" id=\"couple\"><h3>The Africa-Curious Affluent Couple</h3><p>For experienced international travelers who have always wanted to do Africa but do not want to figure it out alone. We turn uncertainty into a clear, beautifully paced first journey.</p></div><div class=\"feature\" id=\"group\"><h3>The Private Group</h3><p>For 6–14 friends or families who want to travel together without traveling like a tour group—exclusive vehicles, villas or camps, private guides and shared moments designed around the group.</p></div><div class=\"feature\" id=\"connected\"><h3>The African Diaspora / Africa-Connected Executive</h3><p>For travelers who want more cultural intelligence, deeper connection and more sophistication than a conventional safari can provide.</p></div><div class=\"feature\"><h3>Your Own Reason</h3><p>Executive retreat, destination wedding, photographic interest, conservation focus or simply the desire to be somewhere extraordinary—we can begin with the occasion rather than a package.</p></div></div></div></section>\n<section class=\"section dark\"><div class=\"container\"><div class=\"center\"><h2>Our Bespoke Experiences</h2><div class=\"section-kicker\">The wild is only one part of the story.</div></div><div class=\"grid-4\"><div class=\"content-card\" style=\"color:#282823\"><h3>Luxury Safaris &amp; Excursions</h3><p>Thoughtfully paced wildlife journeys with excellent guides, intimate camps and seamless logistics.</p></div><div class=\"content-card\" style=\"color:#282823\"><h3>Private Conservancies</h3><p>More privacy, flexible activity options and greater scope for unhurried encounters.</p></div><div class=\"content-card\" style=\"color:#282823\"><h3>Helicopter &amp; Scenic Flight Safaris</h3><p>Perspective-changing access and dramatic landscapes when aviation meaningfully improves the journey.</p></div><div class=\"content-card\" style=\"color:#282823\"><h3>Signature Honeymoons</h3><p>Romantic camps, private dining, beach extensions and a pace built for two.</p></div><div class=\"content-card\" style=\"color:#282823\"><h3>Curated Cultural Immersions</h3><p>Respectful experiences centered on people, stories, traditions and shared humanity.</p></div><div class=\"content-card\" style=\"color:#282823\"><h3>Destination Weddings</h3><p>Exceptional settings paired with travel planning for the people who matter most.</p></div><div class=\"content-card\" style=\"color:#282823\"><h3>Executive Team Retreats</h3><p>Private, purposeful journeys that create space for perspective, connection and renewal.</p></div><div class=\"content-card\" style=\"color:#282823\"><h3>Bush + Beach</h3><p>Safari followed by Indian Ocean restoration—the perfect change of rhythm.</p></div></div></div></section>\n<section class=\"section\"><div class=\"container grid-2\"><div><div class=\"eyebrow\">Culture &amp; Connection</div><h2>More Than a Wildlife Checklist.</h2><p class=\"lead\">The richest journeys leave room for the people and cultures that make East Africa what it is.</p><p>We approach cultural experiences with specificity, respect and genuine connection—favoring moments that deepen understanding rather than turning communities into attractions.</p></div><div><img style=\"height:440px\" src=\"https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1200&q=85\" alt=\"East Africa experience\"></div></div></section>\n<section class=\"final-cta\"><div class=\"container\"><h2>What Are You Celebrating?</h2><div class=\"section-kicker\">Start with the reason. We'll design the journey around it.</div><a class=\"button gold\" href=\"/design-your-journey/\">Design Your Journey</a></div></section>";
 ---
 
 <NewSimbaliLayout {...seo}>
-  <Fragment set:html={content} />
+<section class="page-intro">
+<div class="container">
+<div class="eyebrow">Experience</div>
+<h1>Travel Built Around Why You Are Going.</h1>
+<p>We begin with the people, the occasion and the feeling you want to bring home—then build the right combination of wildlife, culture, privacy, place and pace around you.</p>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="feature-list traveler-grid">
+<div class="feature" id="legacy">
+<h3>The Legacy Family</h3>
+<p>Private vehicles, flexible pacing and meaningful shared experiences for parents, children and grandchildren. We design around the family as a whole—not the youngest or oldest traveler alone.</p>
+</div>
+<div class="feature" id="milestone">
+<h3>The Milestone Traveler</h3>
+<p>Birthdays, anniversaries, retirement, honeymoons and celebrations deserve experiences that feel personal rather than pre-packaged—from private sundowners to carefully timed bush-and-beach combinations.</p>
+</div>
+<div class="feature" id="couple">
+<h3>The Africa-Curious Affluent Couple</h3>
+<p>For experienced international travelers who have always wanted to do Africa but do not want to figure it out alone. We turn uncertainty into a clear, beautifully paced first journey.</p>
+</div>
+<div class="feature" id="group">
+<h3>The Private Group</h3>
+<p>For 6–14 friends or families who want to travel together without traveling like a tour group—exclusive vehicles, villas or camps, private guides and shared moments designed around the group.</p>
+</div>
+<div class="feature" id="connected">
+<h3>The African Diaspora / Africa-Connected Executive</h3>
+<p>For travelers who want more cultural intelligence, deeper connection and more sophistication than a conventional safari can provide.</p>
+</div>
+<div class="feature">
+<h3>Your Own Reason</h3>
+<p>Executive retreat, destination wedding, photographic interest, conservation focus or simply the desire to be somewhere extraordinary—we can begin with the occasion rather than a package.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section experience-services">
+<div class="container">
+<div class="center">
+<h2>Our Bespoke Experiences</h2>
+<div class="section-kicker">The wild is only one part of the story.</div>
+</div>
+<div class="grid-4">
+<div class="content-card">
+<h3>Luxury Safaris &amp; Excursions</h3>
+<p>Thoughtfully paced wildlife journeys with excellent guides, intimate camps and seamless logistics.</p>
+</div>
+<div class="content-card">
+<h3>Private Conservancies</h3>
+<p>More privacy, flexible activity options and greater scope for unhurried encounters.</p>
+</div>
+<div class="content-card">
+<h3>Helicopter &amp; Scenic Flight Safaris</h3>
+<p>Perspective-changing access and dramatic landscapes when aviation meaningfully improves the journey.</p>
+</div>
+<div class="content-card">
+<h3>Signature Honeymoons</h3>
+<p>Romantic camps, private dining, beach extensions and a pace built for two.</p>
+</div>
+<div class="content-card">
+<h3>Curated Cultural Immersions</h3>
+<p>Respectful experiences centered on people, stories, traditions and shared humanity.</p>
+</div>
+<div class="content-card">
+<h3>Destination Weddings</h3>
+<p>Exceptional settings paired with travel planning for the people who matter most.</p>
+</div>
+<div class="content-card">
+<h3>Executive Team Retreats</h3>
+<p>Private, purposeful journeys that create space for perspective, connection and renewal.</p>
+</div>
+<div class="content-card">
+<h3>Bush + Beach</h3>
+<p>Safari followed by Indian Ocean restoration—the perfect change of rhythm.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container grid-2">
+<div>
+<div class="eyebrow">Culture &amp; Connection</div>
+<h2>More Than a Wildlife Checklist.</h2>
+<p class="lead">The richest journeys leave room for the people and cultures that make East Africa what it is.</p>
+<p>We approach cultural experiences with specificity, respect and genuine connection—favoring moments that deepen understanding rather than turning communities into attractions.</p>
+</div>
+<div>
+<img style="height:440px" src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1200&q=85" alt="East Africa experience">
+</div>
+</div>
+</section>
+<section class="final-cta">
+<div class="container">
+<h2>What Are You Celebrating?</h2>
+<div class="section-kicker">Start with the reason. We'll design the journey around it.</div>
+<a class="button gold" href="/design-your-journey/">Design Your Journey</a>
+</div>
+</section>
 </NewSimbaliLayout>

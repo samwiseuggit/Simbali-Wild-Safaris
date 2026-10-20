@@ -2,6 +2,7 @@
 import Chatbot from '../components/Chatbot.jsx';
 import '../styles/global.css';
 import '../styles/new-simbali.css';
+import '../styles/refinements.css';
 
 export interface Props {
   title: string;
@@ -47,9 +48,7 @@ const navItems = [
   { href: '/destinations/', label: 'Destinations' },
   { href: '/journeys/', label: 'Journeys' },
   { href: '/experience/', label: 'Experience' },
-  { href: '/plan-your-safari/', label: 'Plan Your Safari' },
   { href: '/about/', label: 'About' },
-  { href: '/simbali-circle/', label: 'Simbali Circle' },
 ];
 
 const currentPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
@@ -89,7 +88,8 @@ const isActivePath = (href: string) => {
     <title>{title}</title>
     <slot name="head" />
   </head>
-  <body>
+  <body class="refined-site">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header>
       <div class="container nav">
         <a href="/" class="brand" aria-label="Simbali Wild Safaris home">
@@ -141,7 +141,7 @@ const isActivePath = (href: string) => {
         </a>
       </div>
     </header>
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <footer>
@@ -155,13 +155,14 @@ const isActivePath = (href: string) => {
         </div>
         <div class="footer-links">
           {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a href="/blog/">Journal</a>
           <a href="/design-your-journey/">Design Your Journey</a>
         </div>
         <div class="footer-contact">
           <strong>NAIROBI</strong><br />
           Kindaruma Road<br />
           P.O. Box 5109 - 00506, Nairobi<br />
-          Tel: +254 (0) 0713 855 818<br />
+          <a href="tel:+254713855818">Tel: +254 713 855 818</a><br />
           <a href="mailto:info@simbaliwildsafaris.com">info@simbaliwildsafaris.com</a><br />
           <a href="https://simbaliwildsafaris.com">www.simbaliwildsafaris.com</a>
         </div>

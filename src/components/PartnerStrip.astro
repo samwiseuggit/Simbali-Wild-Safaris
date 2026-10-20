@@ -1,0 +1,68 @@
+---
+const partners = [
+  { image: 'image12.png', name: "Governors’ Camp Collection" },
+  { image: 'image13.png', name: 'Fairmont Hotels & Resorts' },
+  { image: 'image14.png', name: 'Serena Hotels' },
+  { image: 'image15.png', name: 'Angama' },
+  { image: 'image17.png', name: 'Airkenya' },
+  { image: 'image18.png', name: 'Aura' },
+];
+---
+
+<section class="section partner-section" aria-labelledby="partners-heading">
+  <div class="container center">
+    <div class="eyebrow">Our Partners</div>
+    <h2 id="partners-heading">Relationships That Support the Journey.</h2>
+    <p>Hospitality and aviation partners from our company profile. Availability varies by itinerary and season.</p>
+    <div class="partner-carousel" data-paused="false">
+      <div class="partner-window">
+        <div class="partner-track">
+          <ul class="partner-group" aria-label="Hospitality and aviation partners">
+            {partners.map((partner) => <li><img src={`/new-simbali-assets/${partner.image}`} alt={partner.name} width="220" height="110" /></li>)}
+          </ul>
+          <ul class="partner-group" aria-hidden="true">
+            {partners.map((partner) => <li><img src={`/new-simbali-assets/${partner.image}`} alt="" width="220" height="110" /></li>)}
+          </ul>
+        </div>
+      </div>
+      <button class="partner-motion" type="button" aria-pressed="false">Pause partner logos</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.partner-carousel').forEach((carousel) => {
+    const button = carousel.querySelector<HTMLButtonElement>('.partner-motion');
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const setPaused = (paused: boolean) => {
+      carousel.dataset.paused = String(paused);
+      button?.setAttribute('aria-pressed', String(paused));
+      if (button) button.textContent = paused ? 'Play partner logos' : 'Pause partner logos';
+    };
+    setPaused(preference.matches);
+    preference.addEventListener('change', (event) => setPaused(event.matches));
+    button?.addEventListener('click', () => setPaused(carousel.dataset.paused !== 'true'));
+  });
+</script>
+
+<style>
+  .partner-section { background: #fff; }
+  .partner-section p { max-width: 680px; margin: 20px auto 30px; }
+  .partner-window { overflow: hidden; }
+  .partner-track { display: flex; width: max-content; animation: partner-drift 36s linear infinite; }
+  .partner-group { display: flex; align-items: center; list-style: none; padding: 0 32px 0 0; margin: 0; gap: 32px; }
+  .partner-group li { flex: 0 0 190px; }
+  .partner-group img { width: 190px; height: 100px; object-fit: contain; }
+  .partner-carousel[data-paused='true'] .partner-track,
+  .partner-window:hover .partner-track { animation-play-state: paused; }
+  .partner-motion { margin-top: 24px; padding: 10px 16px; background: #fff; color: #51412c; border: 1px solid #a58b65; cursor: pointer; font: inherit; font-size: .8rem; }
+  .partner-motion:focus-visible { outline: 2px solid #51412c; outline-offset: 4px; }
+  @keyframes partner-drift { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .partner-track { animation: none; width: 100%; }
+    .partner-group { width: 100%; padding: 0; flex-wrap: wrap; justify-content: center; }
+    .partner-group[aria-hidden='true'], .partner-motion { display: none; }
+    .partner-group li { flex-basis: 140px; }
+    .partner-group img { width: 140px; }
+  }
+</style>

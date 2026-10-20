@@ -1,5 +1,6 @@
 ---
 import NewSimbaliLayout from '../layouts/NewSimbaliLayout.astro';
+import PartnerStrip from '../components/PartnerStrip.astro';
 
 const seo = {
   "title": "About Simbali Wild Safaris | Personal Luxury Safari Planning From Nairobi",
@@ -11,10 +12,96 @@ const seo = {
     "about": "Nairobi-based luxury safari planning for East Africa"
   }
 };
-
-const content = "<section class=\"page-hero\" style=\"background-image:url(https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=2200&q=88)\"><div class=\"container\"><div class=\"eyebrow\" style=\"color:#e4c89b\">About Simbali</div><h1>We Shorten the Distance Between Dream and Arrival.</h1><p>Simbali is drawn from the Swahili word Simba—lion—and evokes both strength and closeness. Our purpose is to bridge the space between longing and arrival, creating African experiences that connect deeply even before your feet touch the continent.</p></div></section>\n<section class=\"section\"><div class=\"container grid-2\"><div><div class=\"eyebrow\">Our Story</div><h2>East Africa Is Personal to Us.</h2><p class=\"lead\">We curate personal and soulful luxury safaris and experiences across Kenya and beyond—crafted to connect you with Africa and designed to deliver refined elegance in the heart of the wild.</p><p>Our work begins with relationships: with travelers, with guides, with camps and with the communities and places that give East Africa its soul. That is why our journeys are designed personally rather than assembled from a standard package.</p></div><div class=\"quote\">“Turning safari dreams into lifelong memories.”</div></div></section>\n<section class=\"section alt\"><div class=\"container center\"><div class=\"eyebrow\">Meet the Founders</div><h2>Sheila &amp; Violet</h2><div class=\"section-kicker\">A friendship that became a shared invitation to Africa.</div><p style=\"max-width:850px;margin:0 auto 34px\">Sheila and Violet met during their respective careers and struck a friendship that led to a desire to connect with people across the world by sharing their rich landscapes, wildlife and cultures while forging lasting friendships.</p><div class=\"founders\"><img src=\"/new-simbali-assets/founder-1.jpg\" alt=\"Simbali founder\"><img src=\"/new-simbali-assets/founder-2.jpg\" alt=\"Simbali founder\"></div></div></section>\n<section class=\"section\"><div class=\"container\"><div class=\"center\"><div class=\"eyebrow\">Our Promise</div><h2>The ABCs of Simbali</h2></div><div class=\"promise-grid\"><div class=\"promise\"><div class=\"letter\">A</div><h3>Authenticity</h3><p>Our moral compass guides us to act with honesty and fairness, building genuine and trustworthy relationships in everything we do.</p></div><div class=\"promise\"><div class=\"letter\">B</div><h3>Bespoke</h3><p>We design experiences crafted around your lifestyle and unique preferences.</p></div><div class=\"promise\"><div class=\"letter\">C</div><h3>Care</h3><p>We take exceptional care to ensure every moment of your safari is safe, seamless and filled with comfort.</p></div></div></div></section>\n<section class=\"section dark\"><div class=\"container\"><div class=\"center\"><h2>The Simbali Difference</h2><div class=\"section-kicker\">Focused expertise. Personal relationships. Quietly exceptional service.</div></div><div class=\"feature-list\"><div class=\"feature\" style=\"color:#282823\"><h3>Focused Expertise</h3><p>We specialize in East Africa.</p></div><div class=\"feature\" style=\"color:#282823\"><h3>Designed Around You</h3><p>Every journey is private and personal.</p></div><div class=\"feature\" style=\"color:#282823\"><h3>Access Through Relationships</h3><p>Guides, camps and communities we know.</p></div><div class=\"feature\" style=\"color:#282823\"><h3>Effortless Travel</h3><p>Seamless planning from the U.S. to Africa.</p></div></div></div></section>\n<section class=\"section\"><div class=\"container center\"><div class=\"eyebrow\">Our Partners</div><h2>Relationships That Support the Journey.</h2><p style=\"max-width:760px;margin:0 auto 28px\">Simbali's original company profile identifies hospitality and aviation partners across the region. Partner availability varies by itinerary and season.</p><div class=\"partner-grid\"><img src=\"/new-simbali-assets/image12.png\" alt=\"Partner logo\"><img src=\"/new-simbali-assets/image13.png\" alt=\"Partner logo\"><img src=\"/new-simbali-assets/image14.png\" alt=\"Partner logo\"><img src=\"/new-simbali-assets/image15.png\" alt=\"Partner logo\"><img src=\"/new-simbali-assets/image17.png\" alt=\"Partner logo\"><img src=\"/new-simbali-assets/image18.png\" alt=\"Partner logo\"></div></div></section>\n<section class=\"final-cta\"><div class=\"container\"><h2>Experience East Africa With the People Who Know It Best.</h2><a class=\"button gold\" href=\"/design-your-journey/\">Design Your Journey</a></div></section>";
 ---
 
 <NewSimbaliLayout {...seo}>
-  <Fragment set:html={content} />
+<section class="page-hero" style="background-image:url(https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=2200&q=88)">
+<div class="container">
+<div class="eyebrow" style="color:#e4c89b">About Simbali</div>
+<h1>We Shorten the Distance Between Dream and Arrival.</h1>
+<p>Simbali is drawn from the Swahili word Simba—lion—and evokes both strength and closeness. Our purpose is to bridge the space between longing and arrival, creating African experiences that connect deeply even before your feet touch the continent.</p>
+</div>
+</section>
+<section class="section">
+<div class="container grid-2 story-layout">
+<div>
+<div class="eyebrow">Our Story</div>
+<h2>East Africa Is Personal to Us.</h2>
+<p class="lead">We curate personal and soulful luxury safaris and experiences across Kenya and beyond—crafted to connect you with Africa and designed to deliver refined elegance in the heart of the wild.</p>
+<p>Our work begins with relationships: with travelers, with guides, with camps and with the communities and places that give East Africa its soul. That is why our journeys are designed personally rather than assembled from a standard package.</p>
+</div>
+<div class="quote">“Turning safari dreams into lifelong memories.”</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container center">
+<div class="eyebrow">Meet the Founders</div>
+<h2>Sheila &amp; Violet</h2>
+<div class="section-kicker">A friendship that became a shared invitation to Africa.</div>
+<p style="max-width:850px;margin:0 auto 34px">Sheila and Violet met during their respective careers and struck a friendship that led to a desire to connect with people across the world by sharing their rich landscapes, wildlife and cultures while forging lasting friendships.</p>
+<div class="founders founder-portraits">
+<figure>
+<img src="/new-simbali-assets/founder-1.jpg" alt="Simbali co-founder on safari" loading="lazy" width="360" height="420">
+</figure>
+<figure>
+<img src="/new-simbali-assets/founder-2.jpg" alt="Simbali co-founder" loading="lazy" width="360" height="420">
+</figure>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="center">
+<div class="eyebrow">Our Promise</div>
+<h2>Our Promise to You.</h2>
+</div>
+<div class="promise-grid">
+<div class="promise">
+<h3>Authenticity</h3>
+<p>Our moral compass guides us to act with honesty and fairness, building genuine and trustworthy relationships in everything we do.</p>
+</div>
+<div class="promise">
+<h3>Bespoke</h3>
+<p>We design experiences crafted around your lifestyle and unique preferences.</p>
+</div>
+<div class="promise">
+<h3>Care</h3>
+<p>We take exceptional care to ensure every moment of your safari is safe, seamless and filled with comfort.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section about-difference">
+<div class="container">
+<div class="center">
+<h2>The Simbali Difference</h2>
+<div class="section-kicker">Focused expertise. Personal relationships. Quietly exceptional service.</div>
+</div>
+<div class="feature-list">
+<div class="feature">
+<h3>Focused Expertise</h3>
+<p>We specialize in East Africa.</p>
+</div>
+<div class="feature">
+<h3>Designed Around You</h3>
+<p>Every journey is private and personal.</p>
+</div>
+<div class="feature">
+<h3>Access Through Relationships</h3>
+<p>Guides, camps and communities we know.</p>
+</div>
+<div class="feature">
+<h3>Effortless Travel</h3>
+<p>Seamless planning from the U.S. to Africa.</p>
+</div>
+</div>
+</div>
+</section>
+<PartnerStrip />
+<section class="final-cta">
+<div class="container">
+<h2>Experience East Africa With the People Who Know It Best.</h2>
+<a class="button gold" href="/design-your-journey/">Design Your Journey</a>
+</div>
+</section>
 </NewSimbaliLayout>

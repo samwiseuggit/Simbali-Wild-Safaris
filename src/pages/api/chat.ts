@@ -11,7 +11,7 @@ const CONTACT = {
 
 const links = {
   destinations: { label: 'Explore destinations', href: '/destinations/' },
-  planning: { label: 'Plan your safari', href: '/plan-your-safari/' },
+  planning: { label: 'Plan your safari', href: '/journeys/#planning-guide' },
   design: { label: 'Design your journey', href: '/design-your-journey/' },
 };
 

@@ -16,10 +16,9 @@ const linkMap = {
   destinations: { label: 'Explore destinations', href: '/destinations/' },
   journeys: { label: 'Compare journeys', href: '/journeys/' },
   experience: { label: 'View experiences', href: '/experience/' },
-  planning: { label: 'Plan your safari', href: '/plan-your-safari/' },
+  planning: { label: 'Plan your safari', href: '/journeys/#planning-guide' },
   design: { label: 'Design your journey', href: '/design-your-journey/' },
   about: { label: 'About Simbali', href: '/about/' },
-  circle: { label: 'Simbali Circle', href: '/simbali-circle/' },
 };
 
 const verifiedAnswers = [
@@ -86,11 +85,11 @@ const verifiedAnswers = [
     links: ['design', 'about'],
   },
   {
-    id: 'circle',
+    id: 'return-journey',
     patterns: [/\b(circle|return|member|community|priority|event|benefit)\b/i],
     reply:
-      'Simbali Circle is the private community for guests who want to stay close to East Africa after their first journey, with priority planning, early access to special opportunities, private travel evenings, and return-trip inspiration.',
-    links: ['circle', 'design'],
+      'For a return journey or questions about guest benefits, please contact Simbali directly. The team can help you explore a different country, season, or travel style around your interests.',
+    links: ['about', 'design'],
   },
   {
     id: 'name-meaning',
