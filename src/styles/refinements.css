@@ -29,29 +29,53 @@
 .refined-site .footer-contact a { color: #f1ece3; }
 .refined-site .copyright { color: #d6d1c6; font-size: .72rem; }
 
-/* Keep the homepage opening scene sized to the visible viewport. */
-.refined-site .hero {
+/* Size the hero and trust strip together as one opening screen. */
+.refined-site .homepage-opening {
   min-height: 100vh;
   min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.refined-site .homepage-opening .hero {
+  min-height: 0;
   padding-block: calc(86px + clamp(24px, 5svh, 64px)) clamp(24px, 5svh, 64px);
 }
 .refined-site .hero-inner { padding-top: 0; }
 .refined-site .hero h1 { font-size: clamp(2.5rem, min(5.3vw, 9svh), 5.2rem); }
 
 @media (max-width: 640px) {
-  .refined-site .hero { padding-top: calc(72px + 24px); }
+  .refined-site .homepage-opening .hero { padding-block: 96px 24px; }
+  .refined-site .homepage-opening .hero .tagline { font-size: 1.4rem; line-height: 1.35; margin-bottom: 12px; }
+  .refined-site .homepage-opening .hero p { line-height: 1.5; margin-bottom: 16px; }
+  .refined-site .homepage-opening .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .refined-site .homepage-opening .hero-actions .button { padding-inline: 8px; font-size: .63rem; letter-spacing: .04em; }
+  .refined-site .homepage-opening .trust { padding-block: 12px; }
+  .refined-site .homepage-opening .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .refined-site .homepage-opening .trust-item { padding: 4px 0; gap: 8px; border: 0; }
+  .refined-site .homepage-opening .trust strong { display: block; font-size: .8rem; line-height: 1.3; }
+  .refined-site .homepage-opening .trust small { font-size: .55rem; line-height: 1.3; margin-top: 3px; }
+  .refined-site .homepage-opening .trust .icon { width: 28px; height: 28px; flex-basis: 28px; }
+  .refined-site:has(.homepage-opening) button[aria-label="Open Simba safari chat"] { top: 14px; right: 58px; bottom: auto; padding: 2px; z-index: 70; }
+  .refined-site:has(.homepage-opening) button[aria-label="Open Simba safari chat"] > span:last-child { display: none; }
 }
 @media (max-width: 640px) and (max-height: 640px) {
-  .refined-site .hero { padding-block: 84px 84px; }
+  .refined-site .homepage-opening .hero { padding-block: 84px 16px; }
+  .refined-site .homepage-opening .trust { padding-block: 8px; }
   .refined-site .hero h1 { font-size: 2.2rem; }
   .refined-site .hero .tagline { font-size: 1.4rem; line-height: 1.35; margin-bottom: 12px; }
   .refined-site .hero p { font-size: .95rem; line-height: 1.5; margin-bottom: 16px; }
   .refined-site .hero-actions { gap: 10px; }
 }
 @media (max-height: 540px) and (min-width: 641px) {
-  .refined-site .hero { padding-block: 102px 20px; }
-  .refined-site .hero .tagline { font-size: 1.5rem; margin-bottom: 10px; }
-  .refined-site .hero p { font-size: 1rem; margin-bottom: 16px; }
+  .refined-site .homepage-opening .hero { padding-block: 96px 16px; }
+  .refined-site .homepage-opening .trust { padding-block: 8px; }
+  .refined-site .homepage-opening .trust-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+  .refined-site .homepage-opening .trust-item { padding-inline: 10px; gap: 8px; }
+  .refined-site .homepage-opening .trust strong { display: block; font-size: .85rem; line-height: 1.25; }
+  .refined-site .homepage-opening .trust small { font-size: .55rem; line-height: 1.3; }
+  .refined-site .hero h1 { font-size: 2.2rem; }
+  .refined-site .hero .tagline { font-size: 1.3rem; line-height: 1.3; margin-bottom: 10px; }
+  .refined-site .hero p { font-size: .95rem; line-height: 1.4; margin-bottom: 16px; }
 }
 
 .refined-site .journeys-hero { background-position: center 60%; }
