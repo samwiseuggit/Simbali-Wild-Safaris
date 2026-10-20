@@ -1,5 +1,6 @@
 ---
 import NewSimbaliLayout from '../layouts/NewSimbaliLayout.astro';
+import EnquiryFormStatus from '../components/EnquiryFormStatus.astro';
 
 const seo = {
   "title": "Design Your Journey | Request a Private East Africa Safari Consultation",
@@ -24,15 +25,16 @@ const seo = {
 <section class="section">
 <div class="container">
 <div class="form-card">
-<form action="#" method="post">
+<form action="/api/enquiry" method="post" data-enquiry-form>
+<input type="hidden" name="formType" value="journey" />
 <div class="form-grid">
 <div>
 <label for="name">Name</label>
-<input id="name" name="name" type="text" required>
+<input id="name" name="name" type="text" maxlength="120" autocomplete="name" required>
 </div>
 <div>
 <label for="email">Email</label>
-<input id="email" name="email" type="email" required>
+<input id="email" name="email" type="email" maxlength="254" autocomplete="email" required>
 </div>
 <div>
 <label for="destination">Where are you considering?</label>
@@ -52,7 +54,7 @@ const seo = {
 </div>
 <div>
 <label for="travelers">How many travelers?</label>
-<input id="travelers" name="travelers" type="number" min="1">
+<input id="travelers" name="travelers" type="number" min="1" max="100" step="1">
 </div>
 <div>
 <label for="party">Who is traveling?</label>
@@ -94,13 +96,14 @@ const seo = {
 </div>
 <div class="full">
 <label for="extraordinary">What would make this journey extraordinary for you?</label>
-<textarea id="extraordinary" name="extraordinary">
+<textarea id="extraordinary" name="extraordinary" maxlength="5000">
 </textarea>
 </div>
 <div class="full">
 <button class="button gold" type="submit">Request a Private Consultation</button>
 </div>
 </div>
+<EnquiryFormStatus />
 </form>
 </div>
 </div>

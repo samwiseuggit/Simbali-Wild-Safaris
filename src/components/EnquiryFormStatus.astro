@@ -1,0 +1,43 @@
+<div class="enquiry-honeypot" aria-hidden="true">
+  <label>Website<input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+</div>
+<p data-enquiry-status role="status" aria-live="polite"></p>
+<noscript><p>Please enable JavaScript to submit this form, or email <a href="mailto:info@simbaliwildsafaris.com">info@simbaliwildsafaris.com</a>.</p></noscript>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-enquiry-form]').forEach((form) => {
+    const status = form.querySelector<HTMLElement>('[data-enquiry-status]');
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!status || !button || !form.reportValidity() || button.disabled) return;
+      const buttonLabel = button.textContent;
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      status.dataset.state = 'pending';
+      status.textContent = 'Submitting your enquiry…';
+      try {
+        const response = await fetch(form.action, {method:'POST', body:new FormData(form), headers:{Accept:'application/json'}});
+        const result = await response.json();
+        if (!response.ok || result.ok !== true) throw new Error(result.message || 'We could not submit your enquiry. Please try again.');
+        status.dataset.state = 'success';
+        status.textContent = result.message;
+        form.reset();
+      } catch (error) {
+        status.dataset.state = 'error';
+        status.textContent = error instanceof Error && error.message !== 'Failed to fetch' ? error.message : 'Connection interrupted. Please try again or email info@simbaliwildsafaris.com.';
+      } finally {
+        button.disabled = false;
+        button.textContent = buttonLabel;
+      }
+    });
+  });
+</script>
+
+<style>
+  .enquiry-honeypot { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+  [data-enquiry-status] { margin:16px 0 0; font-size:.95rem; line-height:1.6; color:#51412c; }
+  [data-enquiry-status]:empty { display:none; }
+  [data-enquiry-status][data-state='error'] { color:#a12622; }
+  [data-enquiry-status][data-state='success'] { color:#315937; }
+</style>
